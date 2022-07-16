@@ -14,7 +14,7 @@
 		5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E73D2881291F0015D64A /* ModelNamingTest.swift */; };
 		5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E73F2881292B0015D64A /* UtilsNamingTest.swift */; };
 		5516E747288129B90015D64A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E746288129B90015D64A /* CompleteViewController.swift */; };
-		5516E749288129C00015D64A /* MeasureNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E748288129C00015D64A /* MeasureNamingTest.swift */; };
+		5516E749288129C00015D64A /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E748288129C00015D64A /* MeasureViewController.swift */; };
 		5516E74B288129CA0015D64A /* StatNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74A288129CA0015D64A /* StatNamingTest.swift */; };
 		5516E74D288129D20015D64A /* IceburgNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74C288129D20015D64A /* IceburgNamingTest.swift */; };
 		5525498F2882B79400C0C75A /* Complete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5525498E2882B79400C0C75A /* Complete.storyboard */; };
@@ -31,7 +31,7 @@
 		5516E73D2881291F0015D64A /* ModelNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNamingTest.swift; sourceTree = "<group>"; };
 		5516E73F2881292B0015D64A /* UtilsNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsNamingTest.swift; sourceTree = "<group>"; };
 		5516E746288129B90015D64A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
-		5516E748288129C00015D64A /* MeasureNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureNamingTest.swift; sourceTree = "<group>"; };
+		5516E748288129C00015D64A /* MeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
 		5516E74A288129CA0015D64A /* StatNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatNamingTest.swift; sourceTree = "<group>"; };
 		5516E74C288129D20015D64A /* IceburgNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceburgNamingTest.swift; sourceTree = "<group>"; };
 		5525498E2882B79400C0C75A /* Complete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Complete.storyboard; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		5516E7442881299F0015D64A /* Measure */ = {
 			isa = PBXGroup;
 			children = (
-				5516E748288129C00015D64A /* MeasureNamingTest.swift */,
+				5516E748288129C00015D64A /* MeasureViewController.swift */,
 				552549902882B7ED00C0C75A /* Measure.storyboard */,
 			);
 			path = Measure;
@@ -226,7 +226,7 @@
 				5516E74D288129D20015D64A /* IceburgNamingTest.swift in Sources */,
 				5516E727288128B20015D64A /* AppDelegate.swift in Sources */,
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
-				5516E749288129C00015D64A /* MeasureNamingTest.swift in Sources */,
+				5516E749288129C00015D64A /* MeasureViewController.swift in Sources */,
 				5516E74B288129CA0015D64A /* StatNamingTest.swift in Sources */,
 				5516E747288129B90015D64A /* CompleteViewController.swift in Sources */,
 				5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */,
