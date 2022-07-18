@@ -13,7 +13,7 @@ internal class ReducedCarbonCalculator {
     private init(){}
     
     // 내가 걸은 거리만큼 계산했을 때 탄소 배출이 얼마나 감소했을까
-    func reducedCarbon(km distance :Double) -> String {
+    func reducedCarbon(km distance: Double) -> String {
         // 자가용으로 1km 이동 시 약 134g의 탄소 배출이 발생함
         return (distance * 134).formatterWithSeparator + "g"
     }
