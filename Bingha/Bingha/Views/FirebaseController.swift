@@ -11,12 +11,11 @@ import UIKit
 
 class FirebaseController {
     let database = Firestore.firestore()
-    private var todayTotalDistance : Double
-    private var todayTotalDecreaseCarbon: Double
+    var decreaseCarbonModel: DecreaseCarbonModel
     
     init(){
-        self.todayTotalDistance = 0.0
-        self.todayTotalDecreaseCarbon = 0.0
+        self.decreaseCarbonModel = DecreaseCarbonModel(todayTotalDecreaseCarbon: 0.0)
+        print(self.decreaseCarbonModel.todayTotalDecreaseCarbon)
         self.loadTodayCarbonData()
     }
     
@@ -63,24 +62,25 @@ class FirebaseController {
                 // document에서 data 뽑아오기.
                 if let datas = document.data() {
                     // 날짜 바뀌는 것을 대비한 초기화. 우리는 오늘 데이터만 필요하니까.
-                    self.todayTotalDistance = 0.0
-                    self.todayTotalDecreaseCarbon = 0.0
+                    self.decreaseCarbonModel.todayTotalDecreaseCarbon = 0.0
                     // 우리는 value값만 필요하니까.
                     let values = datas.values
+                    var todayTotalDecreaseCarbon = 0.0
                     for value in values {
                         // 다 옵셔널 타입으로 들어가 있어서 옵셔널 바인딩 해주기.
                         guard let parsedDictionary = value as? [String: Any],
-                              let distance = parsedDictionary["distance"] as? Double,
+//                              let distance = parsedDictionary["distance"] as? Double,
                               //                                  let startTime = parsedDictionary["startTime"] as? Date,
                               //                                  let endTime = parsedDictionary["endTime"] as? Date,
                                 let decreaseCarbon = parsedDictionary["decreaseCarbon"] as? Double
                         else { return }
-                        // 오늘 총 거리와 탄소 배출 저감량 더해주기.
-                        self.todayTotalDistance += distance
-                        self.todayTotalDecreaseCarbon += decreaseCarbon
+                        // 오늘 총 탄소 배출 저감량에 더해주기.
+                        todayTotalDecreaseCarbon += decreaseCarbon
                     }
-                    print("오늘 총 걸은 거리 : \(self.todayTotalDistance)")
-                    print("오늘 총 저감한 탄소량 : \(self.todayTotalDecreaseCarbon)")
+                    self.decreaseCarbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
+                    print("오늘 총 저감한 탄소량 : \(self.decreaseCarbonModel.todayTotalDecreaseCarbon)")
+//                    print("오늘 총 걸은 거리 : \(self.todayTotalDistance)")
+//                    print("오늘 총 저감한 탄소량 : \(self.todayTotalDecreaseCarbon)")
                 }
             } else {
                 print("데이터 없음")
