@@ -88,6 +88,16 @@ class FirebaseController {
         }
     }
     
+    // 경험치, 레벨 저장
+    func saveIcebergData(level: Int, exp: Double) {
+        let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
+        // 레벨 데이터 저장.
+        path.setData([
+            "level": level,
+            "exp": exp
+        ])
+        print("레벨 저장")
+    }
     
 }
 
