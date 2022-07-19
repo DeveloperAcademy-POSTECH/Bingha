@@ -17,7 +17,6 @@ class FirebaseController {
         self.carbonModel = CarbonModel(todayTotalDecreaseCarbon: 0.0, totalDistance: 0.0, totalDecreaseCarbon: 0.0)
         print(self.carbonModel.todayTotalDecreaseCarbon)
         self.loadTodayCarbonData()
-        self.loadIcebergData()
     }
     
     // 탄소 저감량 저장 (종료 버튼 눌렀을때)
@@ -70,9 +69,6 @@ class FirebaseController {
                     for value in values {
                         // 다 옵셔널 타입으로 들어가 있어서 옵셔널 바인딩 해주기.
                         guard let parsedDictionary = value as? [String: Any],
-//                              let distance = parsedDictionary["distance"] as? Double,
-                              //                                  let startTime = parsedDictionary["startTime"] as? Date,
-                              //                                  let endTime = parsedDictionary["endTime"] as? Date,
                                 let decreaseCarbon = parsedDictionary["decreaseCarbon"] as? Double
                         else { return }
                         // 오늘 총 탄소 배출 저감량에 더해주기.
@@ -80,8 +76,6 @@ class FirebaseController {
                     }
                     self.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
                     print("오늘 총 저감한 탄소량 : \(self.carbonModel.todayTotalDecreaseCarbon)")
-//                    print("오늘 총 걸은 거리 : \(self.todayTotalDistance)")
-//                    print("오늘 총 저감한 탄소량 : \(self.todayTotalDecreaseCarbon)")
                 }
             } else {
                 print("데이터 없음")
@@ -97,7 +91,6 @@ class FirebaseController {
             "totalDistance": totalDistance,
             "totalDecreaseCarbon": totalDecreaseCarbon
         ])
-        print("이동거리, 탄소 저감량 저장")
     }
     
     // 총 이동거리, 총 탄소 저감량 저장
@@ -107,17 +100,22 @@ class FirebaseController {
             (document, error) in
             if let document = document, document.exists {
                 if let datas = document.data() {
-                    print(datas)
-                    guard let levelValue = datas["totalDistance"] as? Double,
-                          let expValue = datas["totalDecreaseCarbon"] as? Double
+                    guard let totalDistance = datas["totalDistance"] as? Double,
+                          let totalDecreaseCarbon = datas["totalDecreaseCarbon"] as? Double
                     else { return }
-                    print(levelValue)
-                    print(expValue)
+                    self.carbonModel.totalDistance = totalDistance
+                    self.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
+                    print("지금까지 총 저감한 탄소량 : \(self.carbonModel.totalDecreaseCarbon)")
+                    print("지금까지 총 이동 거리 : \(self.carbonModel.totalDistance)")
                     }
+            } else {
+                print("데이터 없음")
             }
             
         }
     }
+    
+    
 }
 
 
