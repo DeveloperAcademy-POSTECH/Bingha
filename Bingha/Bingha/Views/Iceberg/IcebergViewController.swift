@@ -10,20 +10,37 @@ import UIKit
 class IcebergViewController: UIViewController {
     @IBOutlet var roundedRectangle: UIView!
     @IBOutlet var levelLabel: UILabel!
+    @IBOutlet var reducedCarbonLabel: UILabel!
+    @IBOutlet var informationLabel: UILabel!
     
     var circularProgressBarView: CircularProgressBarView!
     var circularViewDuration: TimeInterval = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        roundedRectangle.layer.cornerRadius = 20
+        setRoundedRectangle()
         setUpCircularProgressBarView()
-        setLevel()
+        setLevelLabel()
+        setReducedCarbonLabel()
+        setInformationLabel()
+    }
+    
+    func setRoundedRectangle() {
+        roundedRectangle.layer.cornerRadius = 20
     }
     
     // TODO: - 경험치에 따라 levelLabel 동적으로 변하게
-    func setLevel() {
+    func setLevelLabel() {
         levelLabel.text = "Lv.1"
+        levelLabel.font = .rounded(ofSize: 20, weight: .bold)
+    }
+    
+    func setReducedCarbonLabel() {
+        reducedCarbonLabel.font = .rounded(ofSize: 48, weight: .bold)
+    }
+    
+    func setInformationLabel() {
+        informationLabel.font = .rounded(ofSize: 16, weight: .bold)
     }
     
     func setUpCircularProgressBarView() {
@@ -38,4 +55,11 @@ class IcebergViewController: UIViewController {
 }
 
 
+extension UIFont {
+    class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
+        let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
 
+        guard #available(iOS 13.0, *), let descriptor = systemFont.fontDescriptor.withDesign(.rounded) else { return systemFont }
+        return UIFont(descriptor: descriptor, size: size)
+    }
+}

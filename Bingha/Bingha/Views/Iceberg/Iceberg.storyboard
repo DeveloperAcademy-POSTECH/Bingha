@@ -87,7 +87,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="informationLabel" destination="aIv-UI-e5q" id="07f-us-oai"/>
                         <outlet property="levelLabel" destination="uTq-6M-TDR" id="8KA-x7-850"/>
+                        <outlet property="reducedCarbonLabel" destination="glF-sr-JQj" id="oQY-Un-jXE"/>
                         <outlet property="roundedRectangle" destination="FbD-TJ-LLh" id="pNn-Ld-lVs"/>
                     </connections>
                 </viewController>
