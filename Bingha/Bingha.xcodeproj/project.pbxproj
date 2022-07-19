@@ -13,11 +13,12 @@
 		0EE172F72882ED3D00AD5100 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F62882ED3D00AD5100 /* FirebaseFirestore */; };
 		0EE172F92882ED3D00AD5100 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F82882ED3D00AD5100 /* FirebaseFirestoreSwift */; };
 		0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */; };
-		39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8843E288680D3006067C8 /* Iceberg.storyboard */; };
-		39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */; };
 		39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */; };
 		39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883DE28854901006067C8 /* FormatterExtension.swift */; };
 		39D883E128854A93006067C8 /* NumericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883E028854A93006067C8 /* NumericExtension.swift */; };
+		39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8843E288680D3006067C8 /* Iceberg.storyboard */; };
+		39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */; };
+		39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCD2887304300173E25 /* UIFontExtension.swift */; };
 		5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510E8CE2886A13F00918A96 /* HealthStore.swift */; };
 		5516E727288128B20015D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E726288128B20015D64A /* AppDelegate.swift */; };
 		5516E729288128B20015D64A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E728288128B20015D64A /* SceneDelegate.swift */; };
@@ -37,11 +38,12 @@
 		0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecreaseCarbonModel.swift; sourceTree = "<group>"; };
 		0EBB5DCA2884523600C42C3B /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		39D8843E288680D3006067C8 /* Iceberg.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Iceberg.storyboard; sourceTree = "<group>"; };
-		39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCalculator.swift; sourceTree = "<group>"; };
 		39D883DE28854901006067C8 /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
 		39D883E028854A93006067C8 /* NumericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtension.swift; sourceTree = "<group>"; };
+		39D8843E288680D3006067C8 /* Iceberg.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Iceberg.storyboard; sourceTree = "<group>"; };
+		39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		39E50CCD2887304300173E25 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		5510E8CE2886A13F00918A96 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		5516E723288128B20015D64A /* Bingha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bingha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5516E726288128B20015D64A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				39D883DE28854901006067C8 /* FormatterExtension.swift */,
 				39D883E028854A93006067C8 /* NumericExtension.swift */,
+				39E50CCD2887304300173E25 /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,7 +283,8 @@
 				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
 				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
 				39D883E128854A93006067C8 /* NumericExtension.swift in Sources */,
-				5516E74D288129D20015D64A /* IceburgNamingTest.swift in Sources */,
+				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
+				39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */,
 				5516E727288128B20015D64A /* AppDelegate.swift in Sources */,
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
