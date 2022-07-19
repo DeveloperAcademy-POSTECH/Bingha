@@ -25,26 +25,26 @@
                                     <constraint firstAttribute="width" constant="44" id="a0s-X1-ceo"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-aP-3rv">
-                                <rect key="frame" x="16" y="124" width="358" height="107"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-aP-3rv">
+                                <rect key="frame" x="16" y="124" width="358" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 걷기에서 절감한 탄소의 양은" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iip-xb-Y80">
-                                        <rect key="frame" x="48.666666666666686" y="0.0" width="261" height="24"/>
+                                        <rect key="frame" x="48.666666666666686" y="0.0" width="261" height="34.666666666666664"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d5D-Uh-mu1">
-                                        <rect key="frame" x="51.333333333333329" y="32" width="255.33333333333337" height="43"/>
+                                        <rect key="frame" x="51.333333333333329" y="42.666666666666657" width="255.33333333333337" height="34.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 그루의 소나무" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLy-J1-zgC">
-                                                <rect key="frame" x="0.0" y="0.0" width="233" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="233" height="34.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
                                                 <color key="textColor" name="Primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQn-QT-9jF">
-                                                <rect key="frame" x="238" y="0.0" width="17.333333333333343" height="43"/>
+                                                <rect key="frame" x="238" y="0.0" width="17.333333333333343" height="34.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -52,12 +52,15 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하루 동안 산소로 바꿀 수 있는 양이에요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCo-SL-7Mi">
-                                        <rect key="frame" x="26.666666666666657" y="83" width="305" height="24"/>
+                                        <rect key="frame" x="26.666666666666657" y="85.333333333333343" width="305" height="34.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="N0Z-tC-cAv"/>
+                                </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AiQ-Wt-YOP">
                                 <rect key="frame" x="16" y="545" width="358" height="265"/>
@@ -161,8 +164,8 @@
                                     <constraint firstItem="Ew5-F7-5Wj" firstAttribute="centerX" secondItem="AiQ-Wt-YOP" secondAttribute="centerX" id="cXB-d0-dUc"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-Bu-myH">
-                                <rect key="frame" x="16" y="251" width="358" height="274"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DummyTree" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-Bu-myH">
+                                <rect key="frame" x="16" y="264" width="358" height="261"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -183,6 +186,15 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AiQ-Wt-YOP" secondAttribute="trailing" constant="16" id="uwW-vH-GxN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataBackground" destination="AiQ-Wt-YOP" id="JMq-yf-xTS"/>
+                        <outlet property="exitButton" destination="YDh-7h-mNt" id="4lw-7X-I29"/>
+                        <outlet property="moveDistance" destination="mrx-BI-cho" id="7cE-LT-aNh"/>
+                        <outlet property="oxygenChangeAmount" destination="gCo-SL-7Mi" id="vbe-Kw-WMZ"/>
+                        <outlet property="reducedCarbon" destination="Inh-ZA-e99" id="7zQ-95-yVC"/>
+                        <outlet property="timeDuration" destination="nNl-vq-Umh" id="14e-x0-9y3"/>
+                        <outlet property="todayReducedCarbon" destination="eUv-Si-vaV" id="EWr-vD-EMt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,6 +202,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DummyTree" width="462" height="636"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="Primary">
             <color red="0.13725490196078433" green="0.72156862745098038" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

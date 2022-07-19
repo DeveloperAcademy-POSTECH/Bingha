@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "스크린샷 2022-07-13 22.04 3-2.png",
+      "filename" : "DummyTree.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "스크린샷 2022-07-13 22.04 3-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "스크린샷 2022-07-13 22.04 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
