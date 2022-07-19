@@ -53,7 +53,6 @@ class FirebaseController {
         let todayToString = Date().changeDayToString()
         // 파이어 스토어 데이터 경로
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString+"-carbon")/\(todayToString)")
-        
         // 데이터 불러오기
         path.getDocument {
             (document, error) in
@@ -114,8 +113,6 @@ class FirebaseController {
             
         }
     }
-    
-    
 }
 
 
@@ -132,5 +129,4 @@ extension Date {
         let timeToString = formatter.string(from: self)
         return timeToString
     }
-    
 }
