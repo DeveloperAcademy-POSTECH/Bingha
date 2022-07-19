@@ -11,12 +11,13 @@ import UIKit
 
 class FirebaseController {
     let database = Firestore.firestore()
-    var decreaseCarbonModel: DecreaseCarbonModel
+    var carbonModel: CarbonModel
     
     init(){
-        self.decreaseCarbonModel = DecreaseCarbonModel(todayTotalDecreaseCarbon: 0.0)
-        print(self.decreaseCarbonModel.todayTotalDecreaseCarbon)
+        self.carbonModel = CarbonModel(todayTotalDecreaseCarbon: 0.0, totalDistance: 0.0, totalDecreaseCarbon: 0.0)
+        print(self.carbonModel.todayTotalDecreaseCarbon)
         self.loadTodayCarbonData()
+        self.loadIcebergData()
     }
     
     // 탄소 저감량 저장 (종료 버튼 눌렀을때)
@@ -62,7 +63,7 @@ class FirebaseController {
                 // document에서 data 뽑아오기.
                 if let datas = document.data() {
                     // 날짜 바뀌는 것을 대비한 초기화. 우리는 오늘 데이터만 필요하니까.
-                    self.decreaseCarbonModel.todayTotalDecreaseCarbon = 0.0
+                    self.carbonModel.todayTotalDecreaseCarbon = 0.0
                     // 우리는 value값만 필요하니까.
                     let values = datas.values
                     var todayTotalDecreaseCarbon = 0.0
@@ -77,8 +78,8 @@ class FirebaseController {
                         // 오늘 총 탄소 배출 저감량에 더해주기.
                         todayTotalDecreaseCarbon += decreaseCarbon
                     }
-                    self.decreaseCarbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
-                    print("오늘 총 저감한 탄소량 : \(self.decreaseCarbonModel.todayTotalDecreaseCarbon)")
+                    self.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
+                    print("오늘 총 저감한 탄소량 : \(self.carbonModel.todayTotalDecreaseCarbon)")
 //                    print("오늘 총 걸은 거리 : \(self.todayTotalDistance)")
 //                    print("오늘 총 저감한 탄소량 : \(self.todayTotalDecreaseCarbon)")
                 }
@@ -88,18 +89,18 @@ class FirebaseController {
         }
     }
     
-    // 경험치, 레벨 저장
-    func saveIcebergData(level: Int, exp: Double) {
+    // 총 이동거리, 총 탄소 저감량 저장
+    func saveIcebergData(totalDistance: Double, totalDecreaseCarbon: Double) {
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
         // 레벨 데이터 저장.
         path.setData([
-            "level": level,
-            "exp": exp
+            "totalDistance": totalDistance,
+            "totalDecreaseCarbon": totalDecreaseCarbon
         ])
-        print("레벨 저장")
+        print("이동거리, 탄소 저감량 저장")
     }
     
-    // 경험치, 레벨 로드
+    // 총 이동거리, 총 탄소 저감량 저장
     func loadIcebergData() {
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
         path.getDocument {
@@ -107,8 +108,8 @@ class FirebaseController {
             if let document = document, document.exists {
                 if let datas = document.data() {
                     print(datas)
-                    guard let levelValue = datas["level"] as? Int,
-                          let expValue = datas["exp"] as? Double
+                    guard let levelValue = datas["totalDistance"] as? Double,
+                          let expValue = datas["totalDecreaseCarbon"] as? Double
                     else { return }
                     print(levelValue)
                     print(expValue)
@@ -117,8 +118,6 @@ class FirebaseController {
             
         }
     }
-    
-    
 }
 
 
