@@ -31,7 +31,12 @@ class CompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //모서리 radius 20
         dataBackground.layer.cornerRadius = 20
+        //그림자 구현
+        dataBackground.layer.shadowOffset = CGSize(width: 0, height: 2)
+        dataBackground.layer.shadowOpacity = 0.25
+        dataBackground.layer.cornerRadius = 15
         
     }
 }
