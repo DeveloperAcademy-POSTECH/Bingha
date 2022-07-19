@@ -99,6 +99,26 @@ class FirebaseController {
         print("레벨 저장")
     }
     
+    // 경험치, 레벨 로드
+    func loadIcebergData() {
+        let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
+        path.getDocument {
+            (document, error) in
+            if let document = document, document.exists {
+                if let datas = document.data() {
+                    print(datas)
+                    guard let levelValue = datas["level"] as? Int,
+                          let expValue = datas["exp"] as? Double
+                    else { return }
+                    print(levelValue)
+                    print(expValue)
+                    }
+            }
+            
+        }
+    }
+    
+    
 }
 
 
