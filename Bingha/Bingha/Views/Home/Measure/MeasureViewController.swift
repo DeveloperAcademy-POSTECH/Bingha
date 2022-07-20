@@ -22,6 +22,7 @@ class MeasureViewController: UIViewController {
     
     var startDistance: Double = 0.0
     var endDistance: Double = 0.0
+    // 이동거리 표시 Label에서 사용할 변수
     var distanceDiff: Double = 0.0
     
     var isTimerOn = false
@@ -90,6 +91,7 @@ class MeasureViewController: UIViewController {
                 self.updateSecond = 0
             }
             
+            // 타이머표시 Label에서 사용할 변수
 //            let hour = self.totalSecond / 3600
 //            let minutes = (self.totalSecond % 3600) / 60
 //            let seconds = (self.totalSecond % 3600) % 60
@@ -106,7 +108,7 @@ class MeasureViewController: UIViewController {
         // Background > Foreground
         NotificationCenter.default.addObserver(self, selector: #selector(addBackgroundTime(_:)), name: Notification.Name("sceneWillEnterForeground"), object: nil)
         // Foreground > Background
-        NotificationCenter.default.addObserver(self, selector: #selector(stopTimer), name: Notification.Name("sceneDidEnterBackground"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopTimerAndSaveSeconds), name: Notification.Name("sceneDidEnterBackground"), object: nil)
     }
     
     @objc func addBackgroundTime(_ notification: Notification) {
@@ -114,12 +116,13 @@ class MeasureViewController: UIViewController {
             let time = notification.userInfo?["time"] as? Int ?? 0
             totalSecond = time
             
+            // endMeasurement를 실행할 경우 이동거리 업데이트
             endMeasurement()
             startTimer()
         }
     }
     
-    @objc func stopTimer() {
+    @objc func stopTimerAndSaveSeconds() {
         self.timer?.invalidate()
         UserDefaults.standard.setValue(totalSecond, forKey: "totalSecond")
     }
