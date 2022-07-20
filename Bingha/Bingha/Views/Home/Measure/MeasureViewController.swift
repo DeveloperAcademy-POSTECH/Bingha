@@ -16,11 +16,18 @@ class MeasureViewController: UIViewController {
     @IBOutlet weak var WalkingDistanceLabel: UILabel!
     @IBOutlet weak var ReducedCarbonLabel: UILabel!
     
+    var timer: Timer?
+    
     var startDate = Calendar.current.startOfDay(for: Date())
     
     var startDistance: Double = 0.0
     var endDistance: Double = 0.0
     var distanceDiff: Double = 0.0
+    
+    var isTimerOn = false
+    
+    var totalSecond: Int = 0
+    var updateSecond: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +74,23 @@ class MeasureViewController: UIViewController {
             
             self.endDistance = distance
             self.distanceDiff = (self.endDistance - self.startDistance)
+        }
+    }
+    
+    private func startTimer() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.totalSecond += 1
+            self.updateSecond += 1
+            
+            if self.updateSecond == 30 {
+                self.updateSecond = 0
+            }
+            
+//            let hour = self.totalSecond / 3600
+//            let minutes = (self.totalSecond % 3600) / 60
+//            let seconds = (self.totalSecond % 3600) % 60
         }
     }
 }
