@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,14 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YDh-7h-mNt">
-                                <rect key="frame" x="326" y="65" width="44" height="42.666666666666671"/>
-                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="N8p-zo-vdB"/>
-                                    <constraint firstAttribute="width" constant="44" id="a0s-X1-ceo"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-aP-3rv">
                                 <rect key="frame" x="16" y="124" width="358" height="120"/>
                                 <subviews>
@@ -51,7 +44,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하루 동안 산소로 바꿀 수 있는 양이에요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCo-SL-7Mi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하루 동안 산소로 바꿀 수 있는 양이에요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCo-SL-7Mi" userLabel="Change To Oxy Label">
                                         <rect key="frame" x="26.666666666666657" y="85.333333333333343" width="305" height="34.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -62,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="120" id="N0Z-tC-cAv"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AiQ-Wt-YOP">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AiQ-Wt-YOP" userLabel="Data View">
                                 <rect key="frame" x="16" y="545" width="358" height="265"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 걷기의 상세 데이터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOa-Ie-gnE">
@@ -86,7 +79,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="247g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inh-ZA-e99">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="247g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inh-ZA-e99" userLabel="Reduced Carbon Label">
                                                                 <rect key="frame" x="0.0" y="19.333333333333368" width="102" height="45.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                                                 <color key="textColor" name="Primary"/>
@@ -103,7 +96,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrx-BI-cho">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrx-BI-cho" userLabel="Move Distance Label">
                                                                 <rect key="frame" x="0.0" y="19.333333333333368" width="102" height="45.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                                                 <color key="textColor" name="Primary"/>
@@ -125,7 +118,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1492g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-Si-vaV">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1492g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-Si-vaV" userLabel="Today Reduced Carbon Label">
                                                                 <rect key="frame" x="0.0" y="19.333333333333368" width="112" height="45.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                                                 <color key="textColor" name="Primary"/>
@@ -142,7 +135,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNl-vq-Umh">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNl-vq-Umh" userLabel="Time Duration Label">
                                                                 <rect key="frame" x="0.0" y="19.333333333333368" width="112" height="45.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                                                 <color key="textColor" name="Primary"/>
@@ -167,6 +160,19 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DummyTree" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-Bu-myH">
                                 <rect key="frame" x="16" y="264" width="358" height="261"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fZ-uf-8yJ">
+                                <rect key="frame" x="326" y="64" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="EPt-oN-4IB"/>
+                                    <constraint firstAttribute="height" constant="44" id="OLj-Pr-wvX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default" weight="medium"/>
+                                    <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -178,22 +184,22 @@
                             <constraint firstItem="ogF-Bu-myH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Z5Q-x0-2E8"/>
                             <constraint firstItem="AiQ-Wt-YOP" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Zi8-FQ-98x"/>
                             <constraint firstItem="1aE-aP-3rv" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="anZ-x8-VSl"/>
-                            <constraint firstItem="YDh-7h-mNt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="b1F-kK-4ej"/>
                             <constraint firstItem="1aE-aP-3rv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="bbc-X7-GLu"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YDh-7h-mNt" secondAttribute="trailing" constant="20" id="cj1-hI-vME"/>
+                            <constraint firstItem="1fZ-uf-8yJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="eC0-8H-Qvj"/>
                             <constraint firstItem="AiQ-Wt-YOP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="i29-O0-UY7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ogF-Bu-myH" secondAttribute="trailing" constant="16" id="qoF-21-AV7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1fZ-uf-8yJ" secondAttribute="trailing" constant="20" id="u0m-iP-eCm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AiQ-Wt-YOP" secondAttribute="trailing" constant="16" id="uwW-vH-GxN"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dataBackground" destination="AiQ-Wt-YOP" id="JMq-yf-xTS"/>
-                        <outlet property="exitButton" destination="YDh-7h-mNt" id="4lw-7X-I29"/>
-                        <outlet property="moveDistance" destination="mrx-BI-cho" id="7cE-LT-aNh"/>
-                        <outlet property="oxygenChangeAmount" destination="gCo-SL-7Mi" id="vbe-Kw-WMZ"/>
-                        <outlet property="reducedCarbon" destination="Inh-ZA-e99" id="7zQ-95-yVC"/>
-                        <outlet property="timeDuration" destination="nNl-vq-Umh" id="14e-x0-9y3"/>
-                        <outlet property="todayReducedCarbon" destination="eUv-Si-vaV" id="EWr-vD-EMt"/>
+                        <outlet property="changeToOxyLabel" destination="gCo-SL-7Mi" id="KR6-XM-Xwy"/>
+                        <outlet property="dataView" destination="AiQ-Wt-YOP" id="9C0-qJ-RzO"/>
+                        <outlet property="exitModalButton" destination="1fZ-uf-8yJ" id="M9B-CK-phd"/>
+                        <outlet property="moveDistanceLabel" destination="mrx-BI-cho" id="s8z-RK-N9Z"/>
+                        <outlet property="reducedCarbonLabel" destination="Inh-ZA-e99" id="Hx1-dj-JGN"/>
+                        <outlet property="timeDurationLabel" destination="nNl-vq-Umh" id="HDD-pI-zPB"/>
+                        <outlet property="todayReducedCarbonLabel" destination="eUv-Si-vaV" id="LjF-64-PAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
