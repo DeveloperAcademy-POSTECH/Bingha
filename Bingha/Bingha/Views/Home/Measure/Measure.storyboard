@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uFN-Ka-maw" userLabel="오늘 총 탄소배출 저감량">
-                                <rect key="frame" x="100.66666666666669" y="138" width="189" height="89.666666666666686"/>
+                                <rect key="frame" x="100.66666666666669" y="134" width="189" height="89.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 총 탄소배출 저감량" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsx-7y-2g1" userLabel="오늘 총 탄소배출 저감량">
                                         <rect key="frame" x="0.0" y="0.0" width="189" height="24"/>
@@ -34,7 +34,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-xb-ZMl" userLabel="이동 시간 &amp; 선">
-                                <rect key="frame" x="60" y="325" width="270" height="99"/>
+                                <rect key="frame" x="60" y="335" width="270" height="99"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="StandingMan" translatesAutoresizingMaskIntoConstraints="NO" id="a8q-Nr-2Sz">
                                         <rect key="frame" x="106" y="0.0" width="58" height="58"/>
@@ -62,11 +62,12 @@
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Tz-xb-ZMl" secondAttribute="height" multiplier="30:11" id="Kuv-p7-Ctw"/>
                                     <constraint firstItem="a8q-Nr-2Sz" firstAttribute="centerX" secondItem="0Tz-xb-ZMl" secondAttribute="centerX" id="kL5-0u-7lU"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="HWe-Eq-FzX" userLabel="이동거리 &amp; 탄소배출 저감량">
-                                <rect key="frame" x="16" y="484" width="358" height="100"/>
+                                <rect key="frame" x="16" y="474" width="358" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-6i-nUT" userLabel="이동거리 뷰">
                                         <rect key="frame" x="0.0" y="0.0" width="172" height="100"/>
@@ -129,10 +130,9 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qal-4G-7ez">
-                                <rect key="frame" x="122" y="624" width="146" height="146"/>
+                                <rect key="frame" x="122" y="614" width="146" height="146"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qal-4G-7ez" secondAttribute="height" multiplier="1:1" id="Oyf-Zy-vMR"/>
-                                    <constraint firstAttribute="height" constant="146" id="VNb-Ok-B1p"/>
                                     <constraint firstAttribute="width" constant="146" id="uIm-D6-v0d"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -154,10 +154,10 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HWe-Eq-FzX" secondAttribute="trailing" constant="16" id="08f-Bq-B03"/>
                             <constraint firstItem="0Tz-xb-ZMl" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Dwq-WH-n4Q"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Qal-4G-7ez" secondAttribute="bottom" constant="40" id="J5V-fY-T2t"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Qal-4G-7ez" secondAttribute="bottom" constant="50" id="J5V-fY-T2t"/>
                             <constraint firstItem="Qal-4G-7ez" firstAttribute="top" secondItem="HWe-Eq-FzX" secondAttribute="bottom" constant="40" id="SHa-bm-52Z"/>
-                            <constraint firstItem="uFN-Ka-maw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="94" id="XXS-nl-BA4"/>
-                            <constraint firstItem="HWe-Eq-FzX" firstAttribute="top" secondItem="0Tz-xb-ZMl" secondAttribute="bottom" constant="60" id="a0Z-6Z-EiU"/>
+                            <constraint firstItem="uFN-Ka-maw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="90" id="XXS-nl-BA4"/>
+                            <constraint firstItem="HWe-Eq-FzX" firstAttribute="top" secondItem="0Tz-xb-ZMl" secondAttribute="bottom" constant="40" id="a0Z-6Z-EiU"/>
                             <constraint firstItem="HWe-Eq-FzX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="dbF-CU-E9Q"/>
                             <constraint firstItem="Qal-4G-7ez" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="j7S-qY-zNg"/>
                             <constraint firstItem="uFN-Ka-maw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="rQZ-BL-dD3"/>
