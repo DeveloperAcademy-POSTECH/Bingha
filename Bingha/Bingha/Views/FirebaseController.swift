@@ -101,7 +101,7 @@ class FirebaseController {
                     FirebaseController.carbonModel.totalDistance = totalDistance
                     FirebaseController.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
                     print("지금까지 총 저감한 탄소량 : \(FirebaseController.carbonModel.totalDistance)")
-                    print("지금까지 총 이동 거리 : \(FirebaseController.carbonModel.totalDistance)")
+                    print("지금까지 총 이동 거리 : \(FirebaseController.carbonModel.totalDecreaseCarbon)")
                     completion(totalDistance)
                     }
             } else {

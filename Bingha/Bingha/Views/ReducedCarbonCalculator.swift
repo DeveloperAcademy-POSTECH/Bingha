@@ -23,5 +23,9 @@ internal class ReducedCarbonCalculator {
         // 자가용으로 1km 이동 시 약 2kg의 빙하가 소멸 -> 1km를 걸어갔을 경우 2kg의 빙하를 지킴
         return (distance * 2).formatterWithSeparator + "kg"
     }
+    
+    func reducedCarbonDouble(km distance: Double) -> Double {
+        return (distance * 134)
+    }
 }
 
