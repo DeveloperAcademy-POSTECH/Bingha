@@ -36,13 +36,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-xb-ZMl" userLabel="이동 시간 &amp; 선">
                                 <rect key="frame" x="60" y="286" width="270" height="99"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="StandingMan" translatesAutoresizingMaskIntoConstraints="NO" id="a8q-Nr-2Sz">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-jw-Kgn">
                                         <rect key="frame" x="106" y="0.0" width="58" height="58"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="StandingMan" translatesAutoresizingMaskIntoConstraints="NO" id="a8q-Nr-2Sz">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="58" id="lW4-Yx-mN2"/>
+                                                    <constraint firstAttribute="height" constant="58" id="rnW-f9-hgx"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="58" id="lW4-Yx-mN2"/>
-                                            <constraint firstAttribute="height" constant="58" id="rnW-f9-hgx"/>
+                                            <constraint firstItem="a8q-Nr-2Sz" firstAttribute="centerX" secondItem="5Of-jw-Kgn" secondAttribute="centerX" id="B0h-ml-jKE"/>
+                                            <constraint firstItem="a8q-Nr-2Sz" firstAttribute="centerY" secondItem="5Of-jw-Kgn" secondAttribute="centerY" id="rue-uI-zW8"/>
+                                            <constraint firstItem="a8q-Nr-2Sz" firstAttribute="leading" secondItem="5Of-jw-Kgn" secondAttribute="leading" id="vZa-f1-SYD"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGl-5W-C13" userLabel="line">
                                         <rect key="frame" x="0.0" y="58" width="270" height="1"/>
                                         <color key="backgroundColor" systemColor="labelColor"/>
@@ -63,7 +73,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Tz-xb-ZMl" secondAttribute="height" multiplier="30:11" id="Kuv-p7-Ctw"/>
-                                    <constraint firstItem="a8q-Nr-2Sz" firstAttribute="centerX" secondItem="0Tz-xb-ZMl" secondAttribute="centerX" id="kL5-0u-7lU"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="HWe-Eq-FzX" userLabel="이동거리 &amp; 탄소배출 저감량">
@@ -130,23 +139,20 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qal-4G-7ez">
-                                <rect key="frame" x="122" y="565" width="146" height="146"/>
+                                <rect key="frame" x="122" y="614" width="146" height="146"/>
+                                <color key="backgroundColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qal-4G-7ez" secondAttribute="height" multiplier="1:1" id="Oyf-Zy-vMR"/>
                                     <constraint firstAttribute="width" constant="146" id="uIm-D6-v0d"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="시작">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="32"/>
-                                                <font key="NSOriginalFont" metaFont="system" size="32"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseBackgroundColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name=".AppleSDGothicNeoI-Regular" family=".Apple SD Gothic NeoI" pointSize="32"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="시작">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchDown" id="zUU-m4-Cti"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -167,10 +173,12 @@
                     <tabBarItem key="tabBarItem" title="Measure" image="house" catalog="system" id="N3M-5k-kCM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="ImageView" destination="5Of-jw-Kgn" id="MOZ-iV-ffc"/>
                         <outlet property="ReducedCarbonLabel" destination="QMw-I8-26o" id="eAr-0h-ebk"/>
                         <outlet property="ReducedCarbonView" destination="3ke-Kr-hGc" id="sP3-Bz-9BO"/>
                         <outlet property="StartButton" destination="Qal-4G-7ez" id="cwU-PK-NB5"/>
                         <outlet property="TotalReducedCarbonLabel" destination="MYQ-if-AEg" id="0zG-qz-rDc"/>
+                        <outlet property="WalkerImageView" destination="a8q-Nr-2Sz" id="qAq-O2-auV"/>
                         <outlet property="WalkingDistanceLabel" destination="ia0-BT-cal" id="yxC-bg-vMF"/>
                         <outlet property="WalkingDistanceView" destination="4Lk-6i-nUT" id="MVJ-b7-OFK"/>
                     </connections>
