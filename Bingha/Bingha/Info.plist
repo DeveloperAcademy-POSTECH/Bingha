@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>이동거리 측정을 위해 건강 데이터 정보를 업데이트합니다.</string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>이동거리 측정을 위해건강 데이터 정보를 기록합니다.</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>이동거리 측정을 위해건강 데이터 정보를 공유합니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -22,7 +16,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Complete</string>
+					<string>TabBar</string>
 				</dict>
 			</array>
 		</dict>

@@ -11,14 +11,8 @@ import UIKit
 
 class FirebaseController {
     let database = Firestore.firestore()
-    var carbonModel: CarbonModel
-    
-    init(){
-        self.carbonModel = CarbonModel(todayTotalDecreaseCarbon: 0.0, totalDistance: 0.0, totalDecreaseCarbon: 0.0)
-        print(self.carbonModel.todayTotalDecreaseCarbon)
-        self.loadTodayCarbonData()
-    }
-    
+    public static var carbonModel: CarbonModel = CarbonModel(todayTotalDecreaseCarbon: 0.0, totalDistance: 0.0, totalDecreaseCarbon: 0.0)
+
     // 탄소 저감량 저장 (종료 버튼 눌렀을때)
     func saveDecreaseCarbonData(startTime: Date, endTime: Date, distance: Double, decreaseCarbon: Double) {
         // 버튼 누른 시간 기점으로 들어감.
@@ -49,11 +43,12 @@ class FirebaseController {
     }
     
     // 오늘 총 이동 거리, 탄소 저감량 로드 (최초 앱 들어올때!, 측정 완료시 확인용?)
-    func loadTodayCarbonData() {
+    func loadTodayCarbonData(completion: @escaping (Double) -> Void) {
         let todayToString = Date().changeDayToString()
         // 파이어 스토어 데이터 경로
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString+"-carbon")/\(todayToString)")
         // 데이터 불러오기
+        print(UIDevice.current.identifierForVendor!.uuidString)
         path.getDocument {
             (document, error) in
             // 데이터가 있다면.
@@ -61,7 +56,7 @@ class FirebaseController {
                 // document에서 data 뽑아오기.
                 if let datas = document.data() {
                     // 날짜 바뀌는 것을 대비한 초기화. 우리는 오늘 데이터만 필요하니까.
-                    self.carbonModel.todayTotalDecreaseCarbon = 0.0
+                    FirebaseController.carbonModel.todayTotalDecreaseCarbon = 0.0
                     // 우리는 value값만 필요하니까.
                     let values = datas.values
                     var todayTotalDecreaseCarbon = 0.0
@@ -73,8 +68,9 @@ class FirebaseController {
                         // 오늘 총 탄소 배출 저감량에 더해주기.
                         todayTotalDecreaseCarbon += decreaseCarbon
                     }
-                    self.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
-                    print("오늘 총 저감한 탄소량 : \(self.carbonModel.todayTotalDecreaseCarbon)")
+                    FirebaseController.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
+                    completion(todayTotalDecreaseCarbon)
+                    print("오늘 총 저감한 탄소량 : \(FirebaseController.carbonModel.todayTotalDecreaseCarbon)")
                 }
             } else {
                 print("데이터 없음")
@@ -93,7 +89,7 @@ class FirebaseController {
     }
     
     // 총 이동거리, 총 탄소 저감량 저장
-    func loadIcebergData() {
+    func loadIcebergData(completion: @escaping (Double) -> Void) {
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
         path.getDocument {
             (document, error) in
@@ -106,6 +102,7 @@ class FirebaseController {
                     self.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
                     print("지금까지 총 저감한 탄소량 : \(self.carbonModel.totalDecreaseCarbon)")
                     print("지금까지 총 이동 거리 : \(self.carbonModel.totalDistance)")
+                    completion(totalDistance)
                     }
             } else {
                 print("데이터 없음")
