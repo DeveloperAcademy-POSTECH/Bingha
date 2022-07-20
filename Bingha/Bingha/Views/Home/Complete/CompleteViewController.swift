@@ -15,7 +15,8 @@ class CompleteViewController: UIViewController {
     @IBOutlet weak var exitModalButton: UIButton!
     //상세 데이터 백그라운드 뷰
     @IBOutlet weak var dataView: UIView!
-    
+    //빙하 레벨업 알림 뷰
+    @IBOutlet weak var icebergLevelAlertView: UIView!
     
     //~~동안 산소로 바꾸는 양
     @IBOutlet weak var changeToOxyLabel: UILabel!
@@ -32,18 +33,33 @@ class CompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rectangleCustom()
+        //View 커스텀
+        viewCornerAndShadowCustom(viewName: icebergLevelAlertView) //빙하 레벨업
+        viewCornerAndShadowCustom(viewName: dataView) //상세 데이터
         exitButtonCustom()
+        
+        //Label 폰트 커스텀
+        
+        //데이터 연결
+        
+        
+        
     }
     
-    //dataView 커스텀
-    func rectangleCustom() {
+    //View 커스텀 함수
+    func viewCornerAndShadowCustom(viewName: UIView) {
         //모서리 radius 20
-        dataView.layer.cornerRadius = 20
+        viewName.layer.cornerRadius = 20
         //그림자 구현
-        dataView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        dataView.layer.shadowOpacity = 0.25
-        dataView.layer.cornerRadius = 15
+        viewName.layer.shadowOffset = CGSize(width: 0, height: 2)
+        viewName.layer.shadowOpacity = 0.25
+        viewName.layer.cornerRadius = 15
+    }
+    
+    //Label 폰트 커스텀 함수
+    func setRoundedFont(labelName: UILabel) {
+        UILabel.font.UIFont(descriptor: rounded, size: 0)
+        
     }
     
     //exitModalButton커스텀
