@@ -25,6 +25,7 @@ internal class HealthStore {
             if success {
                 debugPrint("권한이 허락되었습니다.")
             } else {
+                print("권한 허락 안됨.")
                 debugPrint(error.debugDescription)
             }
         }
@@ -34,8 +35,9 @@ internal class HealthStore {
         func convertMileToKM(_ mile: Double) -> Double {
             mile * 1.60934
         }
-        
+        print("여기")
         if HKHealthStore.isHealthDataAvailable() {
+            print("가능?")
             requestAuthorization()
             
             guard let quantityType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) else { return }
@@ -45,7 +47,6 @@ internal class HealthStore {
             
             let query = HKStatisticsQuery(quantityType: quantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, error in
                 var distance: Double = 0.0
-                
                 guard let result = result else {
                     debugPrint("HealthKit Query 생성 실패")
                     return
