@@ -89,7 +89,7 @@ class FirebaseController {
     }
     
     // 총 이동거리, 총 탄소 저감량 저장
-    func loadIcebergData() {
+    func loadIcebergData(completion: @escaping (Double) -> Void) {
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
         path.getDocument {
             (document, error) in
@@ -98,10 +98,11 @@ class FirebaseController {
                     guard let totalDistance = datas["totalDistance"] as? Double,
                           let totalDecreaseCarbon = datas["totalDecreaseCarbon"] as? Double
                     else { return }
-                    FirebaseController.carbonModel.totalDistance = totalDistance
-                    FirebaseController.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
-                    print("지금까지 총 저감한 탄소량 : \(FirebaseController.carbonModel.totalDecreaseCarbon)")
-                    print("지금까지 총 이동 거리 : \(FirebaseController.carbonModel.totalDistance)")
+                    self.carbonModel.totalDistance = totalDistance
+                    self.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
+                    print("지금까지 총 저감한 탄소량 : \(self.carbonModel.totalDecreaseCarbon)")
+                    print("지금까지 총 이동 거리 : \(self.carbonModel.totalDistance)")
+                    completion(totalDistance)
                     }
             } else {
                 print("데이터 없음")
