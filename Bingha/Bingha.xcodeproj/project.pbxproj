@@ -13,6 +13,9 @@
 		0EE172F72882ED3D00AD5100 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F62882ED3D00AD5100 /* FirebaseFirestore */; };
 		0EE172F92882ED3D00AD5100 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F82882ED3D00AD5100 /* FirebaseFirestoreSwift */; };
 		0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */; };
+		397706452887EDB300C4F82F /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397706442887EDB300C4F82F /* TabBar.storyboard */; };
+		397706472887F21100C4F82F /* Stat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397706462887F21100C4F82F /* Stat.storyboard */; };
+		397706492887F23300C4F82F /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397706482887F23300C4F82F /* StatViewController.swift */; };
 		39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */; };
 		39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883DE28854901006067C8 /* FormatterExtension.swift */; };
 		39D883E128854A93006067C8 /* NumericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883E028854A93006067C8 /* NumericExtension.swift */; };
@@ -28,7 +31,6 @@
 		5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E73F2881292B0015D64A /* UtilsNamingTest.swift */; };
 		5516E747288129B90015D64A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E746288129B90015D64A /* CompleteViewController.swift */; };
 		5516E749288129C00015D64A /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E748288129C00015D64A /* MeasureViewController.swift */; };
-		5516E74B288129CA0015D64A /* StatNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74A288129CA0015D64A /* StatNamingTest.swift */; };
 		5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74C288129D20015D64A /* IcebergViewController.swift */; };
 		5525498F2882B79400C0C75A /* Complete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5525498E2882B79400C0C75A /* Complete.storyboard */; };
 		552549912882B7ED00C0C75A /* Measure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552549902882B7ED00C0C75A /* Measure.storyboard */; };
@@ -41,6 +43,9 @@
 		0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecreaseCarbonModel.swift; sourceTree = "<group>"; };
 		0EBB5DCA2884523600C42C3B /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		397706442887EDB300C4F82F /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		397706462887F21100C4F82F /* Stat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stat.storyboard; sourceTree = "<group>"; };
+		397706482887F23300C4F82F /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		14A2C6ED54668062E5FDE9B6 /* Pods-Bingha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bingha.debug.xcconfig"; path = "Target Support Files/Pods-Bingha/Pods-Bingha.debug.xcconfig"; sourceTree = "<group>"; };
 		54E58FD1367E28BC36540824 /* Pods-Bingha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bingha.release.xcconfig"; path = "Target Support Files/Pods-Bingha/Pods-Bingha.release.xcconfig"; sourceTree = "<group>"; };
 		39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCalculator.swift; sourceTree = "<group>"; };
@@ -60,7 +65,6 @@
 		5516E73F2881292B0015D64A /* UtilsNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsNamingTest.swift; sourceTree = "<group>"; };
 		5516E746288129B90015D64A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		5516E748288129C00015D64A /* MeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
-		5516E74A288129CA0015D64A /* StatNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatNamingTest.swift; sourceTree = "<group>"; };
 		5516E74C288129D20015D64A /* IcebergViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergViewController.swift; sourceTree = "<group>"; };
 		5525498E2882B79400C0C75A /* Complete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Complete.storyboard; sourceTree = "<group>"; };
 		552549902882B7ED00C0C75A /* Measure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Measure.storyboard; sourceTree = "<group>"; };
@@ -92,6 +96,14 @@
 				39E50CCD2887304300173E25 /* UIFontExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39E50CDB2887ED7B00173E25 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				397706442887EDB300C4F82F /* TabBar.storyboard */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		5516E71A288128B20015D64A = {
@@ -134,6 +146,7 @@
 		5516E73A288128CF0015D64A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39E50CDB2887ED7B00173E25 /* TabBar */,
 				5516E741288129380015D64A /* Home */,
 				5516E7422881294A0015D64A /* Stat */,
 				5516E743288129610015D64A /* Iceberg */,
@@ -174,7 +187,8 @@
 		5516E7422881294A0015D64A /* Stat */ = {
 			isa = PBXGroup;
 			children = (
-				5516E74A288129CA0015D64A /* StatNamingTest.swift */,
+				397706462887F21100C4F82F /* Stat.storyboard */,
+				397706482887F23300C4F82F /* StatViewController.swift */,
 			);
 			path = Stat;
 			sourceTree = "<group>";
@@ -295,10 +309,12 @@
 				B5EB63CB2887F26000A0B915 /* walker.json in Resources */,
 				39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */,
 				5516E733288128B30015D64A /* LaunchScreen.storyboard in Resources */,
+				397706472887F21100C4F82F /* Stat.storyboard in Resources */,
 				5525498F2882B79400C0C75A /* Complete.storyboard in Resources */,
 				B54FF5A0288833F5004AB220 /* background.json in Resources */,
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
 				5516E730288128B30015D64A /* Assets.xcassets in Resources */,
+				397706452887EDB300C4F82F /* TabBar.storyboard in Resources */,
 				552549912882B7ED00C0C75A /* Measure.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +370,7 @@
 			files = (
 				0EBB5DCB2884523600C42C3B /* FirebaseController.swift in Sources */,
 				5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */,
+				397706492887F23300C4F82F /* StatViewController.swift in Sources */,
 				5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */,
 				39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */,
 				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
@@ -366,7 +383,6 @@
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
 				5516E749288129C00015D64A /* MeasureViewController.swift in Sources */,
 				0E8C8E5E2885428300A9ABDB /* DecreaseCarbonModel.swift in Sources */,
-				5516E74B288129CA0015D64A /* StatNamingTest.swift in Sources */,
 				39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */,
 				5516E747288129B90015D64A /* CompleteViewController.swift in Sources */,
 				5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */,

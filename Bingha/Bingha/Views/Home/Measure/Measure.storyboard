@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Measure View Controller-->
+        <!--Measure-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController restorationIdentifier="MeasureViewController" storyboardIdentifier="MeasureViewController" id="Y6W-OH-hqX" customClass="MeasureViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Measure" storyboardIdentifier="Measure" id="Y6W-OH-hqX" customClass="MeasureViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-xb-ZMl" userLabel="이동 시간 &amp; 선">
-                                <rect key="frame" x="60" y="335" width="270" height="99"/>
+                                <rect key="frame" x="60" y="286" width="270" height="99"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-jw-Kgn">
                                         <rect key="frame" x="106" y="0.0" width="58" height="58"/>
@@ -76,7 +76,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="HWe-Eq-FzX" userLabel="이동거리 &amp; 탄소배출 저감량">
-                                <rect key="frame" x="16" y="474" width="358" height="100"/>
+                                <rect key="frame" x="16" y="425" width="358" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-6i-nUT" userLabel="이동거리 뷰">
                                         <rect key="frame" x="0.0" y="0.0" width="172" height="100"/>
@@ -91,7 +91,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia0-BT-cal">
-                                                        <rect key="frame" x="0.0" y="20.333333333333314" width="107" height="43"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333371" width="107" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                         <color key="textColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -121,7 +121,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMw-I8-26o" userLabel="0g">
-                                                        <rect key="frame" x="27.666666666666657" y="19.333333333333371" width="46" height="43"/>
+                                                        <rect key="frame" x="27.666666666666657" y="19.333333333333314" width="46" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                         <color key="textColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -170,6 +170,8 @@
                             <constraint firstItem="HWe-Eq-FzX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xcr-bA-xsz"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Measure" image="house" catalog="system" id="N3M-5k-kCM"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ImageView" destination="5Of-jw-Kgn" id="MOZ-iV-ffc"/>
                         <outlet property="ReducedCarbonLabel" destination="QMw-I8-26o" id="eAr-0h-ebk"/>
@@ -188,6 +190,7 @@
     </scenes>
     <resources>
         <image name="StandingMan" width="512" height="512"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
