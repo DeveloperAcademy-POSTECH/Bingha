@@ -60,4 +60,13 @@ class MeasureViewController: UIViewController {
             self.distanceDiff = 0.0
         }
     }
+    
+    private func endMeasurement() {
+        HealthStore.shared.requestDistanceWalkingRunning(startDate: startDate) { [weak self] distance in
+            guard let self = self else { return }
+            
+            self.endDistance = distance
+            self.distanceDiff = (self.endDistance - self.startDistance)
+        }
+    }
 }
