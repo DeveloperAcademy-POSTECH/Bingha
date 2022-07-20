@@ -18,11 +18,13 @@ class MeasureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ViewCustom()
-        
+        let firebaseController = FirebaseController()
+        firebaseController.loadTodayCarbonData { [weak self] double in
+            self?.TotalReducedCarbonLabel.text = String(double) + " kg"
+        }
     }
-    
+
     private func ViewCustom() {
         
     //WalkingDistanceView Custom
