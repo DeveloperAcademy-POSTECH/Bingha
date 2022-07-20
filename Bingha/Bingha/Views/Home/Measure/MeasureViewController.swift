@@ -78,6 +78,8 @@ class MeasureViewController: UIViewController {
     }
     
     private func startTimer() {
+        isTimerOn = true
+        
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             
@@ -92,5 +94,11 @@ class MeasureViewController: UIViewController {
 //            let minutes = (self.totalSecond % 3600) / 60
 //            let seconds = (self.totalSecond % 3600) % 60
         }
+    }
+    
+    private func endTimer() {
+        isTimerOn = false
+        
+        self.timer?.invalidate()
     }
 }
