@@ -13,6 +13,7 @@
 		0EE172F72882ED3D00AD5100 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F62882ED3D00AD5100 /* FirebaseFirestore */; };
 		0EE172F92882ED3D00AD5100 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F82882ED3D00AD5100 /* FirebaseFirestoreSwift */; };
 		0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */; };
+		397706452887EDB300C4F82F /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397706442887EDB300C4F82F /* TabBar.storyboard */; };
 		39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */; };
 		39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883DE28854901006067C8 /* FormatterExtension.swift */; };
 		39D883E128854A93006067C8 /* NumericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883E028854A93006067C8 /* NumericExtension.swift */; };
@@ -38,6 +39,7 @@
 		0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecreaseCarbonModel.swift; sourceTree = "<group>"; };
 		0EBB5DCA2884523600C42C3B /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		397706442887EDB300C4F82F /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCalculator.swift; sourceTree = "<group>"; };
 		39D883DE28854901006067C8 /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
 		39D883E028854A93006067C8 /* NumericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtension.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		39E50CDB2887ED7B00173E25 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				397706442887EDB300C4F82F /* TabBar.storyboard */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		5516E71A288128B20015D64A = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		5516E73A288128CF0015D64A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39E50CDB2887ED7B00173E25 /* TabBar */,
 				5516E741288129380015D64A /* Home */,
 				5516E7422881294A0015D64A /* Stat */,
 				5516E743288129610015D64A /* Iceberg */,
@@ -265,6 +276,7 @@
 				5525498F2882B79400C0C75A /* Complete.storyboard in Resources */,
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
 				5516E730288128B30015D64A /* Assets.xcassets in Resources */,
+				397706452887EDB300C4F82F /* TabBar.storyboard in Resources */,
 				552549912882B7ED00C0C75A /* Measure.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
