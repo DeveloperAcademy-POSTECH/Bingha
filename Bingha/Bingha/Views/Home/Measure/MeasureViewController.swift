@@ -102,11 +102,27 @@ class MeasureViewController: UIViewController {
         self.timer?.invalidate()
     }
     
-    // TODO: Back > Fore, Fore > Back objc 함수 구현
-    func setNotification() {
+    private func setNotification() {
         // Background > Foreground
-//        NotificationCenter.default.addObserver(self, selector: #selector(<#T##@objc method#>), name: Notification.Name("sceneWillEnterForeground"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addBackgroundTime(_:)), name: Notification.Name("sceneWillEnterForeground"), object: nil)
         // Foreground > Background
-//        NotificationCenter.default.addObserver(self, selector: #selector(<#T##@objc method#>), name: Notification.Name("sceneDidEnterBackground"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopTimer), name: Notification.Name("sceneDidEnterBackground"), object: nil)
+    }
+    
+    @objc func addBackgroundTime(_ notification: Notification) {
+        if isTimerOn {
+            let time = notification.userInfo?["time"] as? Int ?? 0
+            totalSecond = time
+            
+            // TODO: 이동거리측정 update 함수 구현
+            //self.updateDistanceDiff()
+            
+            startTimer()
+        }
+    }
+    
+    @objc func stopTimer() {
+        self.timer?.invalidate()
+        UserDefaults.standard.setValue(totalSecond, forKey: "totalSecond")
     }
 }
