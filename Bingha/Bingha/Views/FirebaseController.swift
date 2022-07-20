@@ -11,12 +11,11 @@ import UIKit
 
 class FirebaseController {
     let database = Firestore.firestore()
-    private var todayTotalDistance : Double
-    private var todayTotalDecreaseCarbon: Double
+    var carbonModel: CarbonModel
     
     init(){
-        self.todayTotalDistance = 0.0
-        self.todayTotalDecreaseCarbon = 0.0
+        self.carbonModel = CarbonModel(todayTotalDecreaseCarbon: 0.0, totalDistance: 0.0, totalDecreaseCarbon: 0.0)
+        print(self.carbonModel.todayTotalDecreaseCarbon)
         self.loadTodayCarbonData()
     }
     
@@ -54,7 +53,6 @@ class FirebaseController {
         let todayToString = Date().changeDayToString()
         // 파이어 스토어 데이터 경로
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString+"-carbon")/\(todayToString)")
-        
         // 데이터 불러오기
         path.getDocument {
             (document, error) in
@@ -63,24 +61,20 @@ class FirebaseController {
                 // document에서 data 뽑아오기.
                 if let datas = document.data() {
                     // 날짜 바뀌는 것을 대비한 초기화. 우리는 오늘 데이터만 필요하니까.
-                    self.todayTotalDistance = 0.0
-                    self.todayTotalDecreaseCarbon = 0.0
+                    self.carbonModel.todayTotalDecreaseCarbon = 0.0
                     // 우리는 value값만 필요하니까.
                     let values = datas.values
+                    var todayTotalDecreaseCarbon = 0.0
                     for value in values {
                         // 다 옵셔널 타입으로 들어가 있어서 옵셔널 바인딩 해주기.
                         guard let parsedDictionary = value as? [String: Any],
-                              let distance = parsedDictionary["distance"] as? Double,
-                              //                                  let startTime = parsedDictionary["startTime"] as? Date,
-                              //                                  let endTime = parsedDictionary["endTime"] as? Date,
                                 let decreaseCarbon = parsedDictionary["decreaseCarbon"] as? Double
                         else { return }
-                        // 오늘 총 거리와 탄소 배출 저감량 더해주기.
-                        self.todayTotalDistance += distance
-                        self.todayTotalDecreaseCarbon += decreaseCarbon
+                        // 오늘 총 탄소 배출 저감량에 더해주기.
+                        todayTotalDecreaseCarbon += decreaseCarbon
                     }
-                    print("오늘 총 걸은 거리 : \(self.todayTotalDistance)")
-                    print("오늘 총 저감한 탄소량 : \(self.todayTotalDecreaseCarbon)")
+                    self.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
+                    print("오늘 총 저감한 탄소량 : \(self.carbonModel.todayTotalDecreaseCarbon)")
                 }
             } else {
                 print("데이터 없음")
@@ -88,7 +82,37 @@ class FirebaseController {
         }
     }
     
+    // 총 이동거리, 총 탄소 저감량 저장
+    func saveIcebergData(totalDistance: Double, totalDecreaseCarbon: Double) {
+        let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
+        // 레벨 데이터 저장.
+        path.setData([
+            "totalDistance": totalDistance,
+            "totalDecreaseCarbon": totalDecreaseCarbon
+        ])
+    }
     
+    // 총 이동거리, 총 탄소 저감량 저장
+    func loadIcebergData() {
+        let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
+        path.getDocument {
+            (document, error) in
+            if let document = document, document.exists {
+                if let datas = document.data() {
+                    guard let totalDistance = datas["totalDistance"] as? Double,
+                          let totalDecreaseCarbon = datas["totalDecreaseCarbon"] as? Double
+                    else { return }
+                    self.carbonModel.totalDistance = totalDistance
+                    self.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
+                    print("지금까지 총 저감한 탄소량 : \(self.carbonModel.totalDecreaseCarbon)")
+                    print("지금까지 총 이동 거리 : \(self.carbonModel.totalDistance)")
+                    }
+            } else {
+                print("데이터 없음")
+            }
+            
+        }
+    }
 }
 
 
@@ -105,5 +129,4 @@ extension Date {
         let timeToString = formatter.string(from: self)
         return timeToString
     }
-    
 }
