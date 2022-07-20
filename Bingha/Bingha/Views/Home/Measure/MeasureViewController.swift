@@ -11,8 +11,10 @@ class MeasureViewController: UIViewController {
     
     @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var WalkingDistanceView: UIView!
-    @IBOutlet weak var CarbonReductionView: UIView!
-    
+    @IBOutlet weak var ReducedCarbonView: UIView!
+    @IBOutlet weak var TotalReducedCarbonLabel: UILabel!
+    @IBOutlet weak var WalkingDistanceLabel: UILabel!
+    @IBOutlet weak var ReducedCarbonLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +32,11 @@ class MeasureViewController: UIViewController {
         WalkingDistanceView.layer.shadowColor = UIColor.darkGray.cgColor
         WalkingDistanceView.layer.cornerRadius = 20
         
-    //CarbonReductionView Custom
-        CarbonReductionView.layer.shadowOpacity = 0.2
-        CarbonReductionView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        CarbonReductionView.layer.shadowColor = UIColor.darkGray.cgColor
-        CarbonReductionView.layer.cornerRadius = 20
+    //ReducedCarbonView Custom
+        ReducedCarbonView.layer.shadowOpacity = 0.2
+        ReducedCarbonView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        ReducedCarbonView.layer.shadowColor = UIColor.darkGray.cgColor
+        ReducedCarbonView.layer.cornerRadius = 20
         
     //StartButton Custom
         StartButton.layer.cornerRadius = StartButton.frame.width / 2
