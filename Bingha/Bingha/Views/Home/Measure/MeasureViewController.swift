@@ -23,7 +23,6 @@ class MeasureViewController: UIViewController {
         
     }
     
-    
     private func ViewCustom() {
         
     //WalkingDistanceView Custom
@@ -46,4 +45,5 @@ class MeasureViewController: UIViewController {
         StartButton.layer.shadowColor = UIColor.darkGray.cgColor
         StartButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
     }
+    
 }

@@ -165,10 +165,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="NowReducedCarbonLabel" destination="QMw-I8-26o" id="MBW-e4-kJo"/>
+                        <outlet property="ReducedCarbonLabel" destination="QMw-I8-26o" id="eAr-0h-ebk"/>
                         <outlet property="ReducedCarbonView" destination="3ke-Kr-hGc" id="sP3-Bz-9BO"/>
                         <outlet property="StartButton" destination="Qal-4G-7ez" id="cwU-PK-NB5"/>
-                        <outlet property="TodayReducedCarbonLabel" destination="MYQ-if-AEg" id="DbP-C3-OE8"/>
+                        <outlet property="TotalReducedCarbonLabel" destination="MYQ-if-AEg" id="0zG-qz-rDc"/>
                         <outlet property="WalkingDistanceLabel" destination="ia0-BT-cal" id="yxC-bg-vMF"/>
                         <outlet property="WalkingDistanceView" destination="4Lk-6i-nUT" id="MVJ-b7-OFK"/>
                     </connections>
