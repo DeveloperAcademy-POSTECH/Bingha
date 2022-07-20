@@ -26,6 +26,10 @@ class MeasureViewController: UIViewController {
         super.viewDidLoad()
         self.ImageView.addSubview(self.WalkerImageView)
         ViewCustom()
+        let firebaseController = FirebaseController()
+        firebaseController.loadTodayCarbonData { [weak self] todaycarbon in
+            self?.TotalReducedCarbonLabel.text = String(todaycarbon) + " kg"
+        }
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
