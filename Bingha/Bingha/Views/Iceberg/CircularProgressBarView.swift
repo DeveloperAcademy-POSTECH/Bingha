@@ -21,7 +21,21 @@ class CircularProgressBarView: UIView {
         super.init(coder: coder)
     }
     
-    func createCircularPath(endPoint: CGFloat) {
+    func createCircularPath(distance: Double) {
+        let endPoint: CGFloat
+        switch distance {
+            case 0..<2:
+                endPoint = CGFloat(3 * (2 - distance) / 2 * Double.pi / 2)
+            case 2..<8:
+                endPoint = CGFloat(3 * (8 - distance) / 8 * Double.pi / 2)
+            case 8..<32:
+                endPoint = CGFloat(3 * (32 - distance) / 32 * Double.pi / 2)
+            case 32..<64:
+                endPoint = CGFloat(3 * (64 - distance) / 64 * Double.pi / 2)
+            default:
+                endPoint = CGFloat(3 * Double.pi / 2)
+        }
+        
         let outterCircularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: 35, startAngle: startPoint, endAngle: CGFloat(3 * Double.pi / 2), clockwise: true)
         let innerCircularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: 35, startAngle: startPoint, endAngle: endPoint, clockwise: true)
         circleLayer.path = outterCircularPath.cgPath
