@@ -18,10 +18,11 @@ class MeasureViewController: UIViewController {
     @IBOutlet weak var ReducedCarbonLabel: UILabel!
     @IBOutlet weak var WalkerImageView: UIImageView!
     @IBOutlet weak var ImageView: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
     
     let walkerAnimationView = AnimationView()
     let backgroundAnimationView = AnimationView()
-    
+    let firebaseController = FirebaseController()
     var timer: Timer?
     
     var startDate = Calendar.current.startOfDay(for: Date())
@@ -32,10 +33,10 @@ class MeasureViewController: UIViewController {
     var distanceDiff: Double = 0.0
     
     var isTimerOn = false
-    
+    var alldistance = 0.0
     var totalSecond: Int = 0
     var updateSecond: Int = 0
-    
+    var todayCarbonDecrease: Double = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,19 +45,32 @@ class MeasureViewController: UIViewController {
         ViewCustom()
         let firebaseController = FirebaseController()
         firebaseController.loadTodayCarbonData { [weak self] todaycarbon in
-            self?.TotalReducedCarbonLabel.text = String(todaycarbon) + " kg"
+            self?.todayCarbonDecrease = todaycarbon
+            self?.TotalReducedCarbonLabel.text = String(todaycarbon) + "Kg"
         }
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
     @IBAction func buttonTapped(_ sender: UIButton) {
         if (sender.tag == 0) {
+            self.startTimer()
+            self.startMeasurement()
             WalkerAnimation()
             backgroundAnimation()
             ChangeToEndButton()
             sender.tag = 1
         }
         else if (sender.tag == 1) {
+            self.endTimer()
+            self.endMeasurement()
+            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
+            
+            firebaseController.loadIcebergData { totaldistance in
+                self.alldistance = totaldistance
+            }
+            firebaseController.saveIcebergData(totalDistance: self.alldistance + self.distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.alldistance + self.distanceDiff))
+            self.alldistance += self.distanceDiff
+            
             defaultView()
             sender.tag = 0
         }
@@ -141,7 +155,7 @@ class MeasureViewController: UIViewController {
     
     private func startTimer() {
         isTimerOn = true
-        
+        self.totalSecond = 0
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             
@@ -150,19 +164,21 @@ class MeasureViewController: UIViewController {
             
             if self.updateSecond == 30 {
                 self.updateSecond = 0
+                self.endMeasurement()
+                self.TotalReducedCarbonLabel.text = String(self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff))
             }
             
             // 타이머표시 Label에서 사용할 변수
-//            let hour = self.totalSecond / 3600
-//            let minutes = (self.totalSecond % 3600) / 60
-//            let seconds = (self.totalSecond % 3600) % 60
+            let minutes = (self.totalSecond % 3600) / 60
+            let seconds = (self.totalSecond % 3600) % 60
+            self.timerLabel.text = String(format: "%d:%02d", minutes, seconds)
         }
     }
     
     private func endTimer() {
         isTimerOn = false
-        
         self.timer?.invalidate()
+        self.timerLabel.text = "0:00"
     }
     
     private func setNotification() {

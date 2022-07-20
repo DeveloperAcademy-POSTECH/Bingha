@@ -25,7 +25,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0Kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-if-AEg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0Kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-if-AEg">
                                         <rect key="frame" x="25.666666666666657" y="34" width="137.66666666666666" height="55.666666666666657"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="48"/>
                                         <color key="textColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -139,7 +139,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qal-4G-7ez">
-                                <rect key="frame" x="122" y="614" width="146" height="146"/>
+                                <rect key="frame" x="122" y="565" width="146" height="146"/>
                                 <color key="backgroundColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qal-4G-7ez" secondAttribute="height" multiplier="1:1" id="Oyf-Zy-vMR"/>
@@ -181,6 +181,7 @@
                         <outlet property="WalkerImageView" destination="a8q-Nr-2Sz" id="qAq-O2-auV"/>
                         <outlet property="WalkingDistanceLabel" destination="ia0-BT-cal" id="yxC-bg-vMF"/>
                         <outlet property="WalkingDistanceView" destination="4Lk-6i-nUT" id="MVJ-b7-OFK"/>
+                        <outlet property="timerLabel" destination="wNv-37-XMG" id="l2k-5e-JoL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
