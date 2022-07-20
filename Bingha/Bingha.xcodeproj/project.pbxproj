@@ -24,11 +24,16 @@
 		5516E74D288129D20015D64A /* IceburgNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74C288129D20015D64A /* IceburgNamingTest.swift */; };
 		5525498F2882B79400C0C75A /* Complete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5525498E2882B79400C0C75A /* Complete.storyboard */; };
 		552549912882B7ED00C0C75A /* Measure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552549902882B7ED00C0C75A /* Measure.storyboard */; };
+		A1F94B40189B50DB50FA3069 /* Pods_Bingha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49AEAC8CCC0BAEA89A34932 /* Pods_Bingha.framework */; };
+		B54FF5A0288833F5004AB220 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = B54FF59F288833F5004AB220 /* background.json */; };
+		B5EB63CB2887F26000A0B915 /* walker.json in Resources */ = {isa = PBXBuildFile; fileRef = B5EB63CA2887F26000A0B915 /* walker.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0EBB5DCA2884523600C42C3B /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		14A2C6ED54668062E5FDE9B6 /* Pods-Bingha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bingha.debug.xcconfig"; path = "Target Support Files/Pods-Bingha/Pods-Bingha.debug.xcconfig"; sourceTree = "<group>"; };
+		54E58FD1367E28BC36540824 /* Pods-Bingha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bingha.release.xcconfig"; path = "Target Support Files/Pods-Bingha/Pods-Bingha.release.xcconfig"; sourceTree = "<group>"; };
 		5516E723288128B20015D64A /* Bingha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bingha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5516E726288128B20015D64A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5516E728288128B20015D64A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +48,9 @@
 		5516E74C288129D20015D64A /* IceburgNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceburgNamingTest.swift; sourceTree = "<group>"; };
 		5525498E2882B79400C0C75A /* Complete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Complete.storyboard; sourceTree = "<group>"; };
 		552549902882B7ED00C0C75A /* Measure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Measure.storyboard; sourceTree = "<group>"; };
+		A49AEAC8CCC0BAEA89A34932 /* Pods_Bingha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bingha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54FF59F288833F5004AB220 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
+		B5EB63CA2887F26000A0B915 /* walker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = walker.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,7 @@
 				0EE172F52882ED3D00AD5100 /* FirebaseAnalytics in Frameworks */,
 				0EE172F72882ED3D00AD5100 /* FirebaseFirestore in Frameworks */,
 				0EE172F92882ED3D00AD5100 /* FirebaseFirestoreSwift in Frameworks */,
+				A1F94B40189B50DB50FA3069 /* Pods_Bingha.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +73,8 @@
 			children = (
 				5516E725288128B20015D64A /* Bingha */,
 				5516E724288128B20015D64A /* Products */,
+				E05CDC16D29291905939BB88 /* Pods */,
+				A610F711947211AE8231CB9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +89,8 @@
 		5516E725288128B20015D64A /* Bingha */ = {
 			isa = PBXGroup;
 			children = (
+				B54FF59F288833F5004AB220 /* background.json */,
+				B5EB63CA2887F26000A0B915 /* walker.json */,
 				5516E726288128B20015D64A /* AppDelegate.swift */,
 				5516E728288128B20015D64A /* SceneDelegate.swift */,
 				5516E73B288128F20015D64A /* Utils */,
@@ -162,6 +175,23 @@
 			path = Complete;
 			sourceTree = "<group>";
 		};
+		A610F711947211AE8231CB9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A49AEAC8CCC0BAEA89A34932 /* Pods_Bingha.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E05CDC16D29291905939BB88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14A2C6ED54668062E5FDE9B6 /* Pods-Bingha.debug.xcconfig */,
+				54E58FD1367E28BC36540824 /* Pods-Bingha.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5516E737288128B30015D64A /* Build configuration list for PBXNativeTarget "Bingha" */;
 			buildPhases = (
+				A99158168DA8A25FB974D49B /* [CP] Check Pods Manifest.lock */,
 				5516E71F288128B20015D64A /* Sources */,
 				5516E720288128B20015D64A /* Frameworks */,
 				5516E721288128B20015D64A /* Resources */,
+				07A8D29C8B340E3A1F8B6D31 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,8 +260,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EB63CB2887F26000A0B915 /* walker.json in Resources */,
 				5516E733288128B30015D64A /* LaunchScreen.storyboard in Resources */,
 				5525498F2882B79400C0C75A /* Complete.storyboard in Resources */,
+				B54FF5A0288833F5004AB220 /* background.json in Resources */,
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
 				5516E730288128B30015D64A /* Assets.xcassets in Resources */,
 				552549912882B7ED00C0C75A /* Measure.storyboard in Resources */,
@@ -237,6 +271,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07A8D29C8B340E3A1F8B6D31 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bingha/Pods-Bingha-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bingha/Pods-Bingha-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bingha/Pods-Bingha-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A99158168DA8A25FB974D49B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bingha-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5516E71F288128B20015D64A /* Sources */ = {
@@ -385,6 +461,7 @@
 		};
 		5516E738288128B30015D64A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14A2C6ED54668062E5FDE9B6 /* Pods-Bingha.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -403,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.curry.Bingha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eve.Bingha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -413,6 +490,7 @@
 		};
 		5516E739288128B30015D64A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54E58FD1367E28BC36540824 /* Pods-Bingha.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -431,7 +509,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.curry.Bingha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eve.Bingha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

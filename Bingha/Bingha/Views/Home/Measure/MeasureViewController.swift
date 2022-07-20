@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class MeasureViewController: UIViewController {
     
@@ -15,14 +16,39 @@ class MeasureViewController: UIViewController {
     @IBOutlet weak var TotalReducedCarbonLabel: UILabel!
     @IBOutlet weak var WalkingDistanceLabel: UILabel!
     @IBOutlet weak var ReducedCarbonLabel: UILabel!
+    @IBOutlet weak var WalkerImageView: UIImageView!
+    @IBOutlet weak var ImageView: UIView!
+
+    let walkerAnimationView = AnimationView()
+    let backgroundAnimationView = AnimationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.ImageView.addSubview(self.WalkerImageView)
         ViewCustom()
-        
     }
     
+    // lottie 파일 walker 애니메이션
+    private func WalkerAnimation() {
+        // walker 이미지, 애니메이션 보이기 설정
+        self.ImageView.addSubview(self.walkerAnimationView)
+        WalkerImageView.image = nil;
+        walkerAnimationView.isHidden = false
+        
+        walkerAnimationView.animation = Animation.named("walker")
+        walkerAnimationView.frame = CGRect(x: 0, y: 4, width: 58, height: 58)
+        walkerAnimationView.contentMode = .scaleAspectFit
+        walkerAnimationView.loopMode = .loop
+        walkerAnimationView.play()
+    }
+    
+    // background 애니메이션 (임시)
+    private func backgroundAnimation() {
+        self.view.backgroundColor = UIColor(displayP3Red: 0.87, green: 0.93, blue: 0.93, alpha: 1)
+    }
+
+    
+    // 이동거리뷰, 탄소배출 저감량뷰, 시작버튼 커스텀
     private func ViewCustom() {
         
     //WalkingDistanceView Custom
@@ -45,5 +71,4 @@ class MeasureViewController: UIViewController {
         StartButton.layer.shadowColor = UIColor.darkGray.cgColor
         StartButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
     }
-    
 }
