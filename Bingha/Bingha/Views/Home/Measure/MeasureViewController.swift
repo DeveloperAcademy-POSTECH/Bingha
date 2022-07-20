@@ -32,8 +32,8 @@ class MeasureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNotification()
         ViewCustom()
-        
     }
     
     private func ViewCustom() {
@@ -100,5 +100,13 @@ class MeasureViewController: UIViewController {
         isTimerOn = false
         
         self.timer?.invalidate()
+    }
+    
+    // TODO: Back > Fore, Fore > Back objc 함수 구현
+    func setNotification() {
+        // Background > Foreground
+//        NotificationCenter.default.addObserver(self, selector: #selector(<#T##@objc method#>), name: Notification.Name("sceneWillEnterForeground"), object: nil)
+        // Foreground > Background
+//        NotificationCenter.default.addObserver(self, selector: #selector(<#T##@objc method#>), name: Notification.Name("sceneDidEnterBackground"), object: nil)
     }
 }
