@@ -28,7 +28,7 @@ class MeasureViewController: UIViewController {
     var isTimerOn = false
     
     var totalSecond: Int = 0
-    var updateSecond: Int = 0ㅇ
+    var updateSecond: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
