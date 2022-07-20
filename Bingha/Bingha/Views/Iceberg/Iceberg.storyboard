@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Iceberg-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="Iceberg" id="Y6W-OH-hqX" customClass="IcebergViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,7 +86,7 @@
                             <constraint firstAttribute="bottom" secondItem="rC6-cM-8wa" secondAttribute="bottom" id="oPy-3m-ETo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="snow" catalog="system" id="ox0-hc-D7E"/>
+                    <tabBarItem key="tabBarItem" title="Iceberg" image="snow" catalog="system" id="ox0-hc-D7E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="informationLabel" destination="aIv-UI-e5q" id="07f-us-oai"/>

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Measure-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController restorationIdentifier="Measure" storyboardIdentifier="Measure" id="Y6W-OH-hqX" customClass="MeasureViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
@@ -164,7 +164,7 @@
                             <constraint firstItem="HWe-Eq-FzX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xcr-bA-xsz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="house" catalog="system" id="N3M-5k-kCM"/>
+                    <tabBarItem key="tabBarItem" title="Measure" image="house" catalog="system" id="N3M-5k-kCM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ReducedCarbonLabel" destination="QMw-I8-26o" id="eAr-0h-ebk"/>
