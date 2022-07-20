@@ -11,6 +11,12 @@ class CompleteViewController: UIViewController {
     
     //스토리보드 연결
     
+    //모달 닫기 액션
+    @IBAction func tapExitModalButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     //모달 닫기 버튼
     @IBOutlet weak var exitModalButton: UIButton!
     //상세 데이터 백그라운드 뷰
@@ -29,6 +35,12 @@ class CompleteViewController: UIViewController {
     //소요시간
     @IBOutlet weak var timeDurationLabel: UILabel!
     
+    //완료화면 모달용 더미데이터
+    var reducedCarbon: String = ""
+    var todayReducedCarbon: String = ""
+    var moveDistance: String = ""
+    var timeDuration: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +53,11 @@ class CompleteViewController: UIViewController {
         //Label 폰트 커스텀
         
         //데이터 연결
-        
-        
+        self.reducedCarbonLabel.text = reducedCarbon
+        self.todayReducedCarbonLabel.text = todayReducedCarbon
+        self.moveDistanceLabel.text = moveDistance
+        self.timeDurationLabel.text = timeDuration
+
         
     }
     
@@ -58,7 +73,7 @@ class CompleteViewController: UIViewController {
     
     //Label 폰트 커스텀 함수
     func setRoundedFont(labelName: UILabel) {
-        UILabel.font.UIFont(descriptor: rounded, size: 0)
+//        UILabel.font.UIFont(descriptor: rounded, size: 0)
         
     }
     

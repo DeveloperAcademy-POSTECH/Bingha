@@ -36,6 +36,10 @@ class MeasureViewController: UIViewController {
     var alldistance = 0.0
     var totalSecond: Int = 0
     var updateSecond: Int = 0
+    
+    //완료화면 모달용 더미데이터
+    var moveDistanceData: String = "1.4"
+    var timeDurationData: String = "12:34"
     var todayCarbonDecrease: Double = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +76,23 @@ class MeasureViewController: UIViewController {
             self.alldistance += self.distanceDiff
             
             defaultView()
+            
+            //완료버튼 눌렀을 때 결과화면으로 데이터 전달
+            
+            
+            //완료버튼 눌렀을 때 결과 화면 모달 띄우기
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CompleteReference") as? CompleteViewController else { return }
+            
+            nextVC.reducedCarbon = self.ReducedCarbonLabel.text ?? ""
+            nextVC.todayReducedCarbon = self.TotalReducedCarbonLabel.text ?? ""
+            nextVC.moveDistance = self.moveDistanceData
+            nextVC.timeDuration = self.timeDurationData
+            
+            
+            nextVC.modalTransitionStyle = .coverVertical
+            nextVC.modalPresentationStyle = .fullScreen
+            
+            self.present(nextVC, animated: true, completion: nil)
             sender.tag = 0
         }
     }

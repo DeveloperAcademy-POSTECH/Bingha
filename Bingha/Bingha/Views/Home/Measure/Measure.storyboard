@@ -188,6 +188,14 @@
             </objects>
             <point key="canvasLocation" x="-60" y="98.815165876777243"/>
         </scene>
+        <!--Complete-->
+        <scene sceneID="wol-bp-8sq">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CompleteReference" storyboardName="Complete" id="ul2-Qh-60R" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LK1-Cq-I63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="99"/>
+        </scene>
     </scenes>
     <resources>
         <image name="StandingMan" width="512" height="512"/>
