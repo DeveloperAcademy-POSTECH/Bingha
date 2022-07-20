@@ -68,7 +68,7 @@ class FirebaseController {
                         // 오늘 총 탄소 배출 저감량에 더해주기.
                         todayTotalDecreaseCarbon += decreaseCarbon
                     }
-//                    FirebaseController.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
+                    FirebaseController.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
                     completion(todayTotalDecreaseCarbon)
                     print("오늘 총 저감한 탄소량 : \(FirebaseController.carbonModel.todayTotalDecreaseCarbon)")
                 }

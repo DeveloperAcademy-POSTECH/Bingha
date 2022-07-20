@@ -20,8 +20,8 @@ class MeasureViewController: UIViewController {
         super.viewDidLoad()
         ViewCustom()
         let firebaseController = FirebaseController()
-        firebaseController.loadTodayCarbonData { [weak self] double in
-            self?.TotalReducedCarbonLabel.text = String(double) + " kg"
+        firebaseController.loadTodayCarbonData { [weak self] todaycarbon in
+            self?.TotalReducedCarbonLabel.text = String(todaycarbon) + " kg"
         }
     }
 
