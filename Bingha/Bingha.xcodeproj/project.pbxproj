@@ -16,6 +16,9 @@
 		39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */; };
 		39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883DE28854901006067C8 /* FormatterExtension.swift */; };
 		39D883E128854A93006067C8 /* NumericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883E028854A93006067C8 /* NumericExtension.swift */; };
+		39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8843E288680D3006067C8 /* Iceberg.storyboard */; };
+		39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */; };
+		39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCD2887304300173E25 /* UIFontExtension.swift */; };
 		5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510E8CE2886A13F00918A96 /* HealthStore.swift */; };
 		5516E727288128B20015D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E726288128B20015D64A /* AppDelegate.swift */; };
 		5516E729288128B20015D64A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E728288128B20015D64A /* SceneDelegate.swift */; };
@@ -26,7 +29,7 @@
 		5516E747288129B90015D64A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E746288129B90015D64A /* CompleteViewController.swift */; };
 		5516E749288129C00015D64A /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E748288129C00015D64A /* MeasureViewController.swift */; };
 		5516E74B288129CA0015D64A /* StatNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74A288129CA0015D64A /* StatNamingTest.swift */; };
-		5516E74D288129D20015D64A /* IceburgNamingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74C288129D20015D64A /* IceburgNamingTest.swift */; };
+		5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74C288129D20015D64A /* IcebergViewController.swift */; };
 		5525498F2882B79400C0C75A /* Complete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5525498E2882B79400C0C75A /* Complete.storyboard */; };
 		552549912882B7ED00C0C75A /* Measure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552549902882B7ED00C0C75A /* Measure.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,9 @@
 		39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCalculator.swift; sourceTree = "<group>"; };
 		39D883DE28854901006067C8 /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
 		39D883E028854A93006067C8 /* NumericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtension.swift; sourceTree = "<group>"; };
+		39D8843E288680D3006067C8 /* Iceberg.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Iceberg.storyboard; sourceTree = "<group>"; };
+		39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
+		39E50CCD2887304300173E25 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		5510E8CE2886A13F00918A96 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		5516E723288128B20015D64A /* Bingha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bingha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5516E726288128B20015D64A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +56,7 @@
 		5516E746288129B90015D64A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		5516E748288129C00015D64A /* MeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
 		5516E74A288129CA0015D64A /* StatNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatNamingTest.swift; sourceTree = "<group>"; };
-		5516E74C288129D20015D64A /* IceburgNamingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceburgNamingTest.swift; sourceTree = "<group>"; };
+		5516E74C288129D20015D64A /* IcebergViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergViewController.swift; sourceTree = "<group>"; };
 		5525498E2882B79400C0C75A /* Complete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Complete.storyboard; sourceTree = "<group>"; };
 		552549902882B7ED00C0C75A /* Measure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Measure.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +80,7 @@
 			children = (
 				39D883DE28854901006067C8 /* FormatterExtension.swift */,
 				39D883E028854A93006067C8 /* NumericExtension.swift */,
+				39E50CCD2887304300173E25 /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -116,7 +123,7 @@
 			children = (
 				5516E741288129380015D64A /* Home */,
 				5516E7422881294A0015D64A /* Stat */,
-				5516E743288129610015D64A /* Iceburg */,
+				5516E743288129610015D64A /* Iceberg */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,12 +166,14 @@
 			path = Stat;
 			sourceTree = "<group>";
 		};
-		5516E743288129610015D64A /* Iceburg */ = {
+		5516E743288129610015D64A /* Iceberg */ = {
 			isa = PBXGroup;
 			children = (
-				5516E74C288129D20015D64A /* IceburgNamingTest.swift */,
+				5516E74C288129D20015D64A /* IcebergViewController.swift */,
+				39D8843E288680D3006067C8 /* Iceberg.storyboard */,
+				39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */,
 			);
-			path = Iceburg;
+			path = Iceberg;
 			sourceTree = "<group>";
 		};
 		5516E7442881299F0015D64A /* Measure */ = {
@@ -251,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */,
 				5516E733288128B30015D64A /* LaunchScreen.storyboard in Resources */,
 				5525498F2882B79400C0C75A /* Complete.storyboard in Resources */,
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
@@ -269,8 +279,12 @@
 				0EBB5DCB2884523600C42C3B /* FirebaseController.swift in Sources */,
 				5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */,
 				5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */,
+				39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */,
+				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
+				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
 				39D883E128854A93006067C8 /* NumericExtension.swift in Sources */,
-				5516E74D288129D20015D64A /* IceburgNamingTest.swift in Sources */,
+				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
+				39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */,
 				5516E727288128B20015D64A /* AppDelegate.swift in Sources */,
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
@@ -423,7 +437,7 @@
 				INFOPLIST_FILE = Bingha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Measure;
+				INFOPLIST_KEY_UIMainStoryboardFile = Iceberg;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -451,7 +465,7 @@
 				INFOPLIST_FILE = Bingha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Measure;
+				INFOPLIST_KEY_UIMainStoryboardFile = Iceberg;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
