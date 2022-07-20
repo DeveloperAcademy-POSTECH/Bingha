@@ -20,9 +20,16 @@ class IcebergViewController: UIViewController {
         super.viewDidLoad()
         setRoundedRectangle()
         setUpCircularProgressBarView()
-        setLevelLabel()
         setReducedCarbonLabel()
         setInformationLabel()
+        fetchTotalDistance()
+    }
+    
+    func fetchTotalDistance() {
+        let firebaseController = FirebaseController()
+        firebaseController.loadIcebergData { [weak self] totalDistance in
+            print("[총 이동 거리] : \(totalDistance)")
+        }
     }
     
     func setRoundedRectangle() {
@@ -30,8 +37,8 @@ class IcebergViewController: UIViewController {
     }
     
     // TODO: - 경험치에 따라 levelLabel 동적으로 변하게
-    func setLevelLabel() {
-        levelLabel.text = "Lv.1"
+    func setLevelLabel(level: String) {
+        levelLabel.text = level
         levelLabel.font = .rounded(ofSize: 20, weight: .bold)
     }
     
