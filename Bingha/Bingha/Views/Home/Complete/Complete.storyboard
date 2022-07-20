@@ -169,6 +169,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default" weight="medium"/>
                                     <color key="baseForegroundColor" systemColor="systemGrayColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapExitModalButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JtM-JO-xOh"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9y-L7-A0h">
                                 <rect key="frame" x="16" y="537" width="382" height="50"/>

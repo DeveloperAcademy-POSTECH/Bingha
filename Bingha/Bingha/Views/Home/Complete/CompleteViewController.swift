@@ -11,6 +11,12 @@ class CompleteViewController: UIViewController {
     
     //스토리보드 연결
     
+    //모달 닫기 액션
+    @IBAction func tapExitModalButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     //모달 닫기 버튼
     @IBOutlet weak var exitModalButton: UIButton!
     //상세 데이터 백그라운드 뷰
@@ -58,7 +64,7 @@ class CompleteViewController: UIViewController {
     
     //Label 폰트 커스텀 함수
     func setRoundedFont(labelName: UILabel) {
-        UILabel.font.UIFont(descriptor: rounded, size: 0)
+//        UILabel.font.UIFont(descriptor: rounded, size: 0)
         
     }
     

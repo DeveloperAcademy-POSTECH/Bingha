@@ -58,6 +58,12 @@ class MeasureViewController: UIViewController {
         }
         else if (sender.tag == 1) {
             defaultView()
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CompleteReference") as? CompleteViewController else { return }
+            
+            nextVC.modalTransitionStyle = .coverVertical
+            nextVC.modalPresentationStyle = .fullScreen
+            
+            self.present(nextVC, animated: true, completion: nil)
             sender.tag = 0
         }
     }
