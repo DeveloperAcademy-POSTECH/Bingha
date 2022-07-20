@@ -16,6 +16,12 @@ class MeasureViewController: UIViewController {
     @IBOutlet weak var WalkingDistanceLabel: UILabel!
     @IBOutlet weak var ReducedCarbonLabel: UILabel!
     
+    var startDate = Calendar.current.startOfDay(for: Date())
+    
+    var startDistance: Double = 0.0
+    var endDistance: Double = 0.0
+    var distanceDiff: Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,4 +52,12 @@ class MeasureViewController: UIViewController {
         StartButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
     }
     
+    private func startMeasurement() {
+        HealthStore.shared.requestDistanceWalkingRunning(startDate: startDate) { [weak self] distance in
+            guard let self = self else { return }
+            
+            self.startDistance = distance
+            self.distanceDiff = 0.0
+        }
+    }
 }
