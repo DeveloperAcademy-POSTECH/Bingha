@@ -114,9 +114,7 @@ class MeasureViewController: UIViewController {
             let time = notification.userInfo?["time"] as? Int ?? 0
             totalSecond = time
             
-            // TODO: 이동거리측정 update 함수 구현
-            //self.updateDistanceDiff()
-            
+            endMeasurement()
             startTimer()
         }
     }
