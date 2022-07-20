@@ -432,9 +432,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HN3RL67C46;
+				DEVELOPMENT_TEAM = BXU6534P3P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bingha/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "이동거리 측정을 위해건강 데이터 정보를 기록합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "이동거리 측정을 위해건강 데이터 정보를 공유합니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "이동거리 측정을 위해 건강 데이터 정보를 업데이트합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Iceberg;
@@ -445,7 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.halogen.Bingha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.curry.Bingha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -460,9 +463,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HN3RL67C46;
+				DEVELOPMENT_TEAM = BXU6534P3P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bingha/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "이동거리 측정을 위해건강 데이터 정보를 기록합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "이동거리 측정을 위해건강 데이터 정보를 공유합니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "이동거리 측정을 위해 건강 데이터 정보를 업데이트합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Iceberg;
@@ -473,7 +479,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.halogen.Bingha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.curry.Bingha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
