@@ -13,6 +13,7 @@
 		0EE172F72882ED3D00AD5100 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F62882ED3D00AD5100 /* FirebaseFirestore */; };
 		0EE172F92882ED3D00AD5100 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F82882ED3D00AD5100 /* FirebaseFirestoreSwift */; };
 		0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */; };
+		393F45F5288834E900B1055D /* IcebergLevelCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */; };
 		39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */; };
 		39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883DE28854901006067C8 /* FormatterExtension.swift */; };
 		39D883E128854A93006067C8 /* NumericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883E028854A93006067C8 /* NumericExtension.swift */; };
@@ -38,6 +39,7 @@
 		0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecreaseCarbonModel.swift; sourceTree = "<group>"; };
 		0EBB5DCA2884523600C42C3B /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergLevelCalculator.swift; sourceTree = "<group>"; };
 		39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCalculator.swift; sourceTree = "<group>"; };
 		39D883DE28854901006067C8 /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
 		39D883E028854A93006067C8 /* NumericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtension.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */,
 				0EBB5DCA2884523600C42C3B /* FirebaseController.swift */,
 				5510E8CE2886A13F00918A96 /* HealthStore.swift */,
+				393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */,
 			);
 			name = Utils;
 			path = Views;
@@ -279,6 +282,7 @@
 				0EBB5DCB2884523600C42C3B /* FirebaseController.swift in Sources */,
 				5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */,
 				5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */,
+				393F45F5288834E900B1055D /* IcebergLevelCalculator.swift in Sources */,
 				39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */,
 				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
 				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
