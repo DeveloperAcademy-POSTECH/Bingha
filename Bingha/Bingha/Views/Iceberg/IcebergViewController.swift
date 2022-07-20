@@ -19,7 +19,6 @@ class IcebergViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setRoundedRectangle()
-        setUpCircularProgressBarView()
         setInformationLabel()
         fetchTotalDistance()
     }
@@ -30,6 +29,7 @@ class IcebergViewController: UIViewController {
             print("[총 이동 거리] : \(totalDistance)")
             self?.setLevelLabel(level: IcebergLevelCalculator.shared.IcebergLevelCalculator(distance: totalDistance))
             self?.setReducedCarbonLabel(distance: totalDistance)
+            self?.setUpCircularProgressBarView(distance: totalDistance)
         }
     }
     
@@ -53,10 +53,10 @@ class IcebergViewController: UIViewController {
         informationLabel.font = .rounded(ofSize: 16, weight: .bold)
     }
     
-    func setUpCircularProgressBarView() {
+    func setUpCircularProgressBarView(distance: Double = 0.0) {
         circularProgressBarView = CircularProgressBarView(frame: .zero)
         // TODO: - 경험치에 맞게 endPoint 파라미터 넣어주기
-        circularProgressBarView.createCircularPath(endPoint: CGFloat(2 * Double.pi / 2))
+        circularProgressBarView.createCircularPath(distance: distance)
         // TODO: - center로 맞췄는데도 불구하고 중심이 안맞음 추후에 수정 필요
         circularProgressBarView.center = levelLabel.center
         circularProgressBarView.progressAnimation(duration: circularViewDuration)
