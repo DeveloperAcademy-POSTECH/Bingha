@@ -28,6 +28,15 @@ class MeasureViewController: UIViewController {
         ViewCustom()
     }
     
+    // 홈 디폴트 뷰 세팅
+       private func defaultView(){
+           StartButton.setTitle("시작",for:.normal)
+           StartButton.backgroundColor = UIColor(named: "Primary")
+           WalkerImageView.image = UIImage(named: "StandingMan")
+           walkerAnimationView.isHidden = true
+           self.view.backgroundColor = .white
+       }
+    
     // lottie 파일 walker 애니메이션
     private func WalkerAnimation() {
         // walker 이미지, 애니메이션 보이기 설정
