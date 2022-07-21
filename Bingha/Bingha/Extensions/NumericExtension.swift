@@ -12,3 +12,11 @@ extension Numeric {
         Formatter.withSeparator.string(for: self) ?? ""
     }
 }
+
+extension Double {
+    func setThreeDemical() -> String {
+        let str = String(format: "%.3f", self)
+        
+        return str
+    }
+}
