@@ -88,6 +88,7 @@ class MeasureViewController: UIViewController {
         walkerAnimationView.frame = CGRect(x: 0, y: 4, width: 58, height: 58)
         walkerAnimationView.contentMode = .scaleAspectFit
         walkerAnimationView.loopMode = .loop
+        walkerAnimationView.backgroundBehavior = .pauseAndRestore
         walkerAnimationView.play()
     }
     
