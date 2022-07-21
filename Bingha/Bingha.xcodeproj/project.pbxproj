@@ -49,6 +49,7 @@
 		0EEC2B3928885B36007C5F91 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		14A2C6ED54668062E5FDE9B6 /* Pods-Bingha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bingha.debug.xcconfig"; path = "Target Support Files/Pods-Bingha/Pods-Bingha.debug.xcconfig"; sourceTree = "<group>"; };
 		393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergLevelCalculator.swift; sourceTree = "<group>"; };
+		393F45F628888D9600B1055D /* BinghaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinghaRelease.entitlements; sourceTree = "<group>"; };
 		397706442887EDB300C4F82F /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		397706462887F21100C4F82F /* Stat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stat.storyboard; sourceTree = "<group>"; };
 		397706482887F23300C4F82F /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		5516E725288128B20015D64A /* Bingha */ = {
 			isa = PBXGroup;
 			children = (
+				393F45F628888D9600B1055D /* BinghaRelease.entitlements */,
 				0EEC2B3828885B36007C5F91 /* Bingha.entitlements */,
 				B54FF59F288833F5004AB220 /* background.json */,
 				B5EB63CA2887F26000A0B915 /* walker.json */,
@@ -570,7 +572,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
-				CODE_SIGN_ENTITLEMENTS = Bingha/Bingha.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Bingha/BinghaRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
