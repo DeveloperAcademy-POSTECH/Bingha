@@ -48,7 +48,7 @@ class MeasureViewController: UIViewController {
         let firebaseController = FirebaseController()
         firebaseController.loadTodayCarbonData { [weak self] todaycarbon in
             self?.todayCarbonDecrease = todaycarbon
-            self?.TotalReducedCarbonLabel.text = String(todaycarbon) + "Kg"
+            self?.TotalReducedCarbonLabel.text = todaycarbon.setOneDemical() + "Kg"
         }
     }
     
@@ -85,7 +85,7 @@ class MeasureViewController: UIViewController {
             
             nextVC.reducedCarbon = self.ReducedCarbonLabel.text ?? ""
             nextVC.todayReducedCarbon = self.TotalReducedCarbonLabel.text ?? ""
-            nextVC.moveDistance = String(distanceDiff) + "Km"
+            nextVC.moveDistance = distanceDiff.setOneDemical() + "Km"
             nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
             
             nextVC.modalTransitionStyle = .coverVertical
@@ -184,7 +184,7 @@ class MeasureViewController: UIViewController {
             if self.updateSecond == 30 {
                 self.updateSecond = 0
                 self.endMeasurement()
-                self.TotalReducedCarbonLabel.text = String(self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff))
+                self.TotalReducedCarbonLabel.text = (self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical()
             }
             
             // 타이머표시 Label에서 사용할 변수

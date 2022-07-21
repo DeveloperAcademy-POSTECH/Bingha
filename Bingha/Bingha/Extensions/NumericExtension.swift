@@ -14,8 +14,8 @@ extension Numeric {
 }
 
 extension Double {
-    func setThreeDemical() -> String {
-        let str = String(format: "%.3f", self)
+    func setOneDemical() -> String {
+        let str = String(format: "%.1f", self)
         
         return str
     }
