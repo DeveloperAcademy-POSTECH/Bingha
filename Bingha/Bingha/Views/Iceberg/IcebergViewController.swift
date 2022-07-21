@@ -23,6 +23,13 @@ class IcebergViewController: UIViewController {
         fetchTotalDistance()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setRoundedRectangle()
+        setInformationLabel()
+        fetchTotalDistance()
+    }
+    
     func fetchTotalDistance() {
         let firebaseController = FirebaseController()
         firebaseController.loadIcebergData { [weak self] totalDistance in
