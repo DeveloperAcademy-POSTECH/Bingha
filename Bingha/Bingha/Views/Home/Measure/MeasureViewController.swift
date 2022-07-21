@@ -55,6 +55,7 @@ class MeasureViewController: UIViewController {
     // 버튼 눌렀을 때 뷰 스위칭
     @IBAction func buttonTapped(_ sender: UIButton) {
         if (sender.tag == 0) {
+            self.totalSecond = 0
             self.startTimer()
             self.startMeasurement()
             WalkerAnimation()
@@ -174,7 +175,6 @@ class MeasureViewController: UIViewController {
     
     private func startTimer() {
         isTimerOn = true
-        self.totalSecond = 0
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             

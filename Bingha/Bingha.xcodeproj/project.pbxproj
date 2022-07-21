@@ -25,6 +25,7 @@
 		39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */; };
 		39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCD2887304300173E25 /* UIFontExtension.swift */; };
 		5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510E8CE2886A13F00918A96 /* HealthStore.swift */; };
+		5510E8D42888670100918A96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5510E8D32888670100918A96 /* HealthKit.framework */; };
 		5516E727288128B20015D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E726288128B20015D64A /* AppDelegate.swift */; };
 		5516E729288128B20015D64A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E728288128B20015D64A /* SceneDelegate.swift */; };
 		5516E730288128B30015D64A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5516E72F288128B30015D64A /* Assets.xcassets */; };
@@ -60,6 +61,9 @@
 		39E50CCD2887304300173E25 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		54E58FD1367E28BC36540824 /* Pods-Bingha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bingha.release.xcconfig"; path = "Target Support Files/Pods-Bingha/Pods-Bingha.release.xcconfig"; sourceTree = "<group>"; };
 		5510E8CE2886A13F00918A96 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		5510E8D22888670100918A96 /* Bingha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bingha.entitlements; sourceTree = "<group>"; };
+		5510E8D32888670100918A96 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		5510E8D528887E8000918A96 /* BinghaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinghaDebug.entitlements; sourceTree = "<group>"; };
 		5516E723288128B20015D64A /* Bingha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bingha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5516E726288128B20015D64A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5516E728288128B20015D64A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				0EE172F92882ED3D00AD5100 /* FirebaseFirestoreSwift in Frameworks */,
 				A1F94B40189B50DB50FA3069 /* Pods_Bingha.framework in Frameworks */,
 				0EEC2B3A28885B36007C5F91 /* HealthKit.framework in Frameworks */,
+				5510E8D42888670100918A96 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				0EEC2B3828885B36007C5F91 /* Bingha.entitlements */,
+				5510E8D528887E8000918A96 /* BinghaDebug.entitlements */,
+				5510E8D22888670100918A96 /* Bingha.entitlements */,
 				B54FF59F288833F5004AB220 /* background.json */,
 				B5EB63CA2887F26000A0B915 /* walker.json */,
 				39D883DB28854654006067C8 /* Extensions */,
@@ -233,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				0EEC2B3928885B36007C5F91 /* HealthKit.framework */,
+				5510E8D32888670100918A96 /* HealthKit.framework */,
 				A49AEAC8CCC0BAEA89A34932 /* Pods_Bingha.framework */,
 			);
 			name = Frameworks;
@@ -535,6 +543,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = Bingha/Bingha.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Bingha/BinghaDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
