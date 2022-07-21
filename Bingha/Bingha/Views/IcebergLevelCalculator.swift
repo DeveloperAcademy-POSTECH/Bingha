@@ -23,7 +23,7 @@ internal class IcebergLevelCalculator {
         case 32..<64:
             return "4"
         default:
-            return "MAX"
+            return "5"
         }
     }
 }
