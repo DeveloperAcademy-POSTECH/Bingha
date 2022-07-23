@@ -74,6 +74,7 @@ class FirebaseController {
                 }
             } else {
                 print("데이터 없음")
+                completion(0.0)
             }
         }
     }
@@ -106,6 +107,7 @@ class FirebaseController {
                     }
             } else {
                 print("데이터 없음")
+                completion(0.0)
             }
             
         }
