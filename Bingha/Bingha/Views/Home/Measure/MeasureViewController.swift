@@ -19,10 +19,10 @@ class MeasureViewController: UIViewController {
     @IBOutlet weak var WalkerImageView: UIImageView!
     @IBOutlet weak var ImageView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
-    
+    let firebaseController = FirebaseController()
     let walkerAnimationView = AnimationView()
     let backgroundAnimationView = AnimationView()
-    let firebaseController = FirebaseController()
+
     var timer: Timer?
     
     var startDate = Calendar.current.startOfDay(for: Date())
@@ -47,7 +47,7 @@ class MeasureViewController: UIViewController {
         ViewCustom()
         // 비동기 처리. 파이어베이스에서 오늘 총 탄소 저감량 데이터 불러와서 라벨에 매핑.
         loadTodayCarbondata()
-
+        
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
@@ -64,14 +64,7 @@ class MeasureViewController: UIViewController {
         else if (sender.tag == 1) {
             self.endTimer()
             self.endMeasurement()
-            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
-            
-            firebaseController.loadIcebergData { totaldistance in
-                self.alldistance = totaldistance
-            }
-            firebaseController.saveIcebergData(totalDistance: self.alldistance + self.distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.alldistance + self.distanceDiff))
-            self.alldistance += self.distanceDiff
-            
+            saveData()
             defaultView()
             
             //완료버튼 눌렀을 때 결과화면으로 데이터 전달
@@ -224,10 +217,18 @@ class MeasureViewController: UIViewController {
     
     private func loadTodayCarbondata() {
         Task {
-            let firebaseController = FirebaseController()
             try await firebaseController.loadTodayCarbonData()
-            self.todayCarbonDecrease = FirebaseController.carbonModel.todayTotalDecreaseCarbon
-            self.TotalReducedCarbonLabel.text = self.todayCarbonDecrease.setOneDemical()
+            todayCarbonDecrease = FirebaseController.carbonModel.todayTotalDecreaseCarbon
+            TotalReducedCarbonLabel.text = todayCarbonDecrease.setOneDemical() + "g"
+        }
+    }
+    
+    private func saveData() {
+        firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
+        Task {
+            try await firebaseController.loadIcebergData()
+            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
+            alldistance += distanceDiff
         }
     }
     

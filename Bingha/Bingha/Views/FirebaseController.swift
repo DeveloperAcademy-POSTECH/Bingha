@@ -80,31 +80,21 @@ class FirebaseController {
     }
     
     // 총 이동거리, 총 탄소 저감량 저장
-    func loadIcebergData(completion: @escaping (Double) -> Void) {
-        let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
-        path.getDocument {
-            (document, error) in
-            if let document = document, document.exists {
-                if let datas = document.data() {
-                    guard let totalDistance = datas["totalDistance"] as? Double,
-                          let totalDecreaseCarbon = datas["totalDecreaseCarbon"] as? Double
-                    else { return }
-                    FirebaseController.carbonModel.totalDistance = totalDistance
-                    FirebaseController.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
-                    print("지금까지 총 저감한 탄소량 : \(FirebaseController.carbonModel.totalDistance)")
-                    print("지금까지 총 이동 거리 : \(FirebaseController.carbonModel.totalDecreaseCarbon)")
-                    completion(totalDistance)
-                    }
-                else {
-                    completion(0.0)
-                }
-            } else {
-                print("데이터 없음")
-                completion(0.0)
-            }
-            
+    func loadIcebergData() async throws {
+        let path = database.document("\( await UIDevice.current.identifierForVendor!.uuidString + "-iceberg")/icebergInfo")
+        print(await UIDevice.current.identifierForVendor!.uuidString)
+        let snapshot = try await path.getDocument()
+        if let document = snapshot.data(), document.count != 0 {
+            guard let totalDistance = document["totalDistance"] as? Double,
+                  let totalDecreaseCarbon = document["totalDecreaseCarbon"] as? Double
+            else { return }
+            FirebaseController.carbonModel.totalDistance = totalDistance
+            FirebaseController.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
+            print("지금까지 총 저감한 탄소량 : \(FirebaseController.carbonModel.totalDistance)")
+            print("지금까지 총 이동 거리 : \(FirebaseController.carbonModel.totalDecreaseCarbon)")
         }
     }
+    
 }
 
 
