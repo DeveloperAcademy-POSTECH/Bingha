@@ -45,11 +45,9 @@ class MeasureViewController: UIViewController {
         setNotification()
         self.ImageView.addSubview(self.WalkerImageView)
         ViewCustom()
-        let firebaseController = FirebaseController()
-        firebaseController.loadTodayCarbonData { [weak self] todaycarbon in
-            self?.todayCarbonDecrease = todaycarbon
-            self?.TotalReducedCarbonLabel.text = todaycarbon.setOneDemical() + "g"
-        }
+        // 비동기 처리. 파이어베이스에서 오늘 총 탄소 저감량 데이터 불러와서 라벨에 매핑.
+        loadTodayCarbondata()
+
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
@@ -223,4 +221,14 @@ class MeasureViewController: UIViewController {
         self.timer?.invalidate()
         UserDefaults.standard.setValue(totalSecond, forKey: "totalSecond")
     }
+    
+    private func loadTodayCarbondata() {
+        Task {
+            let firebaseController = FirebaseController()
+            try await firebaseController.loadTodayCarbonData()
+            self.todayCarbonDecrease = FirebaseController.carbonModel.todayTotalDecreaseCarbon
+            self.TotalReducedCarbonLabel.text = self.todayCarbonDecrease.setOneDemical()
+        }
+    }
+    
 }
