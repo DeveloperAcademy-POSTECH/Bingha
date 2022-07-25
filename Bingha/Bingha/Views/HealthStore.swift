@@ -35,9 +35,8 @@ internal class HealthStore {
         func convertMileToKM(_ mile: Double) -> Double {
             mile * 1.60934
         }
-        print("여기")
+        
         if HKHealthStore.isHealthDataAvailable() {
-            print("가능?")
             requestAuthorization()
             
             guard let quantityType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) else { return }
@@ -56,6 +55,7 @@ internal class HealthStore {
                     return
                 }
                 
+                // TODO: meter단위로 받아오기 수정
                 distance = sum.doubleValue(for: HKUnit.mile())
                 
                 DispatchQueue.main.async {

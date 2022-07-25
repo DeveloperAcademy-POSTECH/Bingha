@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +12,11 @@
             <objects>
                 <viewController restorationIdentifier="Measure" storyboardIdentifier="Measure" id="Y6W-OH-hqX" customClass="MeasureViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uFN-Ka-maw" userLabel="오늘 총 탄소배출 저감량">
-                                <rect key="frame" x="100.66666666666669" y="134" width="189" height="89.666666666666686"/>
+                                <rect key="frame" x="205.5" y="90" width="189" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 총 탄소배출 저감량" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsx-7y-2g1" userLabel="오늘 총 탄소배출 저감량">
                                         <rect key="frame" x="0.0" y="0.0" width="189" height="24"/>
@@ -26,7 +25,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-if-AEg">
-                                        <rect key="frame" x="43.333333333333336" y="34" width="102.33333333333331" height="55.666666666666657"/>
+                                        <rect key="frame" x="43.5" y="34" width="102.5" height="56"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="48"/>
                                         <color key="textColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -34,7 +33,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-xb-ZMl" userLabel="이동 시간 &amp; 선">
-                                <rect key="frame" x="60" y="286" width="270" height="99"/>
+                                <rect key="frame" x="165" y="15" width="270" height="99"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-jw-Kgn">
                                         <rect key="frame" x="106" y="0.0" width="58" height="58"/>
@@ -62,7 +61,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNv-37-XMG">
-                                        <rect key="frame" x="118.66666666666667" y="59" width="32.666666666666671" height="40"/>
+                                        <rect key="frame" x="118.5" y="59" width="33" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kr7-sm-hij"/>
                                         </constraints>
@@ -76,22 +75,22 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="HWe-Eq-FzX" userLabel="이동거리 &amp; 탄소배출 저감량">
-                                <rect key="frame" x="16" y="425" width="358" height="100"/>
+                                <rect key="frame" x="16" y="154" width="568" height="161"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-6i-nUT" userLabel="이동거리 뷰">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="277" height="161"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0UT-ME-N9C" userLabel="이동거리 ">
-                                                <rect key="frame" x="32.666666666666657" y="18.333333333333318" width="107" height="63.333333333333343"/>
+                                                <rect key="frame" x="85" y="49" width="107" height="63"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="이동거리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AH-Jh-0m5">
-                                                        <rect key="frame" x="25.666666666666668" y="0.0" width="55.666666666666657" height="20.333333333333332"/>
+                                                        <rect key="frame" x="26" y="0.0" width="55.5" height="20"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia0-BT-cal">
-                                                        <rect key="frame" x="0.0" y="20.333333333333371" width="107" height="43"/>
+                                                        <rect key="frame" x="0.0" y="20" width="107" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                         <color key="textColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -109,19 +108,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ke-Kr-hGc" userLabel="탄소배출저감량 뷰">
-                                        <rect key="frame" x="186" y="0.0" width="172" height="100"/>
+                                        <rect key="frame" x="291" y="0.0" width="277" height="161"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IIM-kd-9al" userLabel="탄소배출저감량 ">
-                                                <rect key="frame" x="35.333333333333336" y="19.000000000000004" width="101.33333333333331" height="62.333333333333343"/>
+                                                <rect key="frame" x="88" y="49" width="101.5" height="62.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탄소배출 저감량" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78z-s5-tuh" userLabel="탄소배출저감량">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="19.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMw-I8-26o" userLabel="0g">
-                                                        <rect key="frame" x="27.666666666666657" y="19.333333333333314" width="46" height="43"/>
+                                                        <rect key="frame" x="27.5" y="19.5" width="46" height="43"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                         <color key="textColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -139,7 +138,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qal-4G-7ez">
-                                <rect key="frame" x="122" y="565" width="146" height="146"/>
+                                <rect key="frame" x="227" y="355" width="146" height="146"/>
                                 <color key="backgroundColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qal-4G-7ez" secondAttribute="height" multiplier="1:1" id="Oyf-Zy-vMR"/>
@@ -173,15 +172,15 @@
                     <tabBarItem key="tabBarItem" title="Measure" image="house" catalog="system" id="N3M-5k-kCM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="ImageView" destination="5Of-jw-Kgn" id="MOZ-iV-ffc"/>
-                        <outlet property="ReducedCarbonLabel" destination="QMw-I8-26o" id="eAr-0h-ebk"/>
-                        <outlet property="ReducedCarbonView" destination="3ke-Kr-hGc" id="sP3-Bz-9BO"/>
-                        <outlet property="StartButton" destination="Qal-4G-7ez" id="cwU-PK-NB5"/>
-                        <outlet property="TotalReducedCarbonLabel" destination="MYQ-if-AEg" id="0zG-qz-rDc"/>
-                        <outlet property="WalkerImageView" destination="a8q-Nr-2Sz" id="qAq-O2-auV"/>
-                        <outlet property="WalkingDistanceLabel" destination="ia0-BT-cal" id="yxC-bg-vMF"/>
-                        <outlet property="WalkingDistanceView" destination="4Lk-6i-nUT" id="MVJ-b7-OFK"/>
+                        <outlet property="imageView" destination="5Of-jw-Kgn" id="MOZ-iV-ffc"/>
+                        <outlet property="reducedCarbonLabel" destination="QMw-I8-26o" id="eAr-0h-ebk"/>
+                        <outlet property="reducedCarbonView" destination="3ke-Kr-hGc" id="sP3-Bz-9BO"/>
+                        <outlet property="startButton" destination="Qal-4G-7ez" id="cwU-PK-NB5"/>
                         <outlet property="timerLabel" destination="wNv-37-XMG" id="l2k-5e-JoL"/>
+                        <outlet property="totalReducedCarbonLabel" destination="MYQ-if-AEg" id="0zG-qz-rDc"/>
+                        <outlet property="walkerImageView" destination="a8q-Nr-2Sz" id="qAq-O2-auV"/>
+                        <outlet property="walkingDistanceLabel" destination="ia0-BT-cal" id="yxC-bg-vMF"/>
+                        <outlet property="walkingDistanceView" destination="4Lk-6i-nUT" id="MVJ-b7-OFK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
