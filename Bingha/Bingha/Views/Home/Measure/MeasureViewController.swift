@@ -23,7 +23,10 @@ class MeasureViewController: UIViewController {
     let walkerAnimationView = AnimationView()
     let backgroundAnimationView = AnimationView()
     let firebaseController = FirebaseController()
+    
     var timer: Timer?
+    
+    let healthStore: HealthStore = HealthStore.shared
     
     var anchorDate = Calendar.current.startOfDay(for: Date())
     var startDate: Date?
@@ -165,7 +168,7 @@ class MeasureViewController: UIViewController {
     }
     
     private func measureStartDistance() {
-        HealthStore.shared.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
+        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
             guard let self = self else { return }
             
             self.startDistance = distance
@@ -174,7 +177,7 @@ class MeasureViewController: UIViewController {
     }
     
     private func measureEndDistance() {
-        HealthStore.shared.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
+        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
             guard let self = self else { return }
             
             self.endDistance = distance
