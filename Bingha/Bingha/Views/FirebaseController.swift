@@ -71,9 +71,12 @@ class FirebaseController {
                     FirebaseController.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreaseCarbon
                     completion(todayTotalDecreaseCarbon)
                     print("오늘 총 저감한 탄소량 : \(FirebaseController.carbonModel.todayTotalDecreaseCarbon)")
+                } else {
+                    completion(0.0)
                 }
             } else {
                 print("데이터 없음")
+                completion(0.0)
             }
         }
     }
@@ -104,8 +107,12 @@ class FirebaseController {
                     print("지금까지 총 이동 거리 : \(FirebaseController.carbonModel.totalDecreaseCarbon)")
                     completion(totalDistance)
                     }
+                else {
+                    completion(0.0)
+                }
             } else {
                 print("데이터 없음")
+                completion(0.0)
             }
             
         }
