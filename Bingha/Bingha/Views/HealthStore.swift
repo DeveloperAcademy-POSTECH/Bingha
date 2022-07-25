@@ -32,10 +32,6 @@ internal class HealthStore {
     }
 
     func requestDistanceWalkingRunning(startDate: Date, completion: @escaping (Double) -> (Void)) {
-        func convertMileToKM(_ mile: Double) -> Double {
-            mile * 1.60934
-        }
-        
         if HKHealthStore.isHealthDataAvailable() {
             requestAuthorization()
             
@@ -55,11 +51,10 @@ internal class HealthStore {
                     return
                 }
                 
-                // TODO: meter단위로 받아오기 수정
-                distance = sum.doubleValue(for: HKUnit.mile())
+                distance = sum.doubleValue(for: HKUnit.meter())
                 
                 DispatchQueue.main.async {
-                    completion(convertMileToKM(distance))
+                    completion((distance * 0.001))
                 }
             }
             
