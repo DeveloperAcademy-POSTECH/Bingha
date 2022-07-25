@@ -35,7 +35,6 @@ class MeasureViewController: UIViewController {
     var isTimerOn = false
     var totalDistance = 0.0
     var totalSecond: Int = 0
-    var updateSecond: Int = 0
     
     var todayCarbonDecrease: Double = 0.0
     
@@ -189,11 +188,8 @@ class MeasureViewController: UIViewController {
             guard let self = self else { return }
             
             self.totalSecond += 1
-            self.updateSecond += 1
             
-            // TODO: (totalSecond % 30) 으로 사용해서 updateSecond 사용 안하도록 수정
-            if self.updateSecond == 30 {
-                self.updateSecond = 0
+            if (self.totalSecond % 30) == 0 {
                 self.measureEndDistance()
                 self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
             }
