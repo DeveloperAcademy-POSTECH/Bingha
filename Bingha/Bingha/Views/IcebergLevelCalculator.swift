@@ -12,7 +12,7 @@ internal class IcebergLevelCalculator {
     
     private init(){}
     
-    func IcebergLevelCalculator(distance: Double) -> String {
+    func requestIcebergLevel(distance: Double) -> String {
         switch distance {
         case 0..<2:
             return "1"
