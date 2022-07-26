@@ -37,6 +37,7 @@
 		5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74C288129D20015D64A /* IcebergViewController.swift */; };
 		5525498F2882B79400C0C75A /* Complete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5525498E2882B79400C0C75A /* Complete.storyboard */; };
 		552549912882B7ED00C0C75A /* Measure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552549902882B7ED00C0C75A /* Measure.storyboard */; };
+		A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */; };
 		B54FF5A0288833F5004AB220 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = B54FF59F288833F5004AB220 /* background.json */; };
 		B5B91377288D553000F1161B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B5B91376288D553000F1161B /* Lottie */; };
 		B5EB63CB2887F26000A0B915 /* walker.json in Resources */ = {isa = PBXBuildFile; fileRef = B5EB63CA2887F26000A0B915 /* walker.json */; };
@@ -76,6 +77,7 @@
 		5516E74C288129D20015D64A /* IcebergViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergViewController.swift; sourceTree = "<group>"; };
 		5525498E2882B79400C0C75A /* Complete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Complete.storyboard; sourceTree = "<group>"; };
 		552549902882B7ED00C0C75A /* Measure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Measure.storyboard; sourceTree = "<group>"; };
+		A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureBackgroundAnimation.swift; sourceTree = "<group>"; };
 		B54FF59F288833F5004AB220 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
 		B5EB63CA2887F26000A0B915 /* walker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = walker.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 			children = (
 				5516E748288129C00015D64A /* MeasureViewController.swift */,
 				552549902882B7ED00C0C75A /* Measure.storyboard */,
+				A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */,
 			);
 			path = Measure;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				0E8C8E5E2885428300A9ABDB /* DecreaseCarbonModel.swift in Sources */,
 				39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */,
 				5516E747288129B90015D64A /* CompleteViewController.swift in Sources */,
+				A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */,
 				5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
