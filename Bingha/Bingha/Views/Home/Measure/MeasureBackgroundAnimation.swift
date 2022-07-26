@@ -90,20 +90,16 @@ struct MeasureBackgroundAnimation: View {
                     .repeatForever(autoreverses: false),
                     value: isAnimated
                 )
-            
         }
-        
         .onAppear(){
             self.isAnimated = true
         }
         .blur(radius: 12)
-        
     }
     
     func getWave(interval:CGFloat, amplitude: CGFloat = 100 ,baseline:CGFloat = UIScreen.main.bounds.height/2) -> Path {
         Path{path in
-            path.move(to: CGPoint(x: 0, y: baseline
-                                 ))
+            path.move(to: CGPoint(x: 0, y: baseline))
             path.addCurve(
                 to: CGPoint(x: 1*interval,y: baseline),
                 control1: CGPoint(x: interval * (0.35),y: amplitude + baseline),
@@ -116,10 +112,7 @@ struct MeasureBackgroundAnimation: View {
             )
             path.addLine(to: CGPoint(x: 2*interval, y: universalSize.height))
             path.addLine(to: CGPoint(x: 0, y: universalSize.height))
-            
-            
-        }
-        
+        } 
     }
 }
 struct MeasureBackgroundAnimation_Previews: PreviewProvider {
