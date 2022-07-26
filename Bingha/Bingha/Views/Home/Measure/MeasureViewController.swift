@@ -97,6 +97,7 @@ class MeasureViewController: UIViewController {
         startButton.setTitle("시작",for:.normal)
         startButton.backgroundColor = UIColor(named: "Primary")
         walkerImageView.image = UIImage(named: "StandingMan")
+        walkerImageView.frame = CGRect(x: 0, y: 5, width: 58, height: 58)
         walkerAnimationView.isHidden = true
         view.backgroundColor = .white
     }
