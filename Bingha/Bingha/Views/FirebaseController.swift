@@ -95,6 +95,29 @@ class FirebaseController {
         }
     }
     
+    // 주간 데이터 저장. 운동 끝나는 시간 넣을까?
+    func saveWeeklyData(endTime: Date, distance: Double, decreaseCarbon: Double) {
+        // 오늘 날짜로부터 월요일날짜 구하기.
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM-dd-e-EEEE"
+        
+        let day = formatter.string(from: endTime)
+        var today = day.components(separatedBy: "-")
+        print(today)
+        // 일요일 = 1, 월요일 = 2, .... 토요일: 7
+        if today[2] == "1" {
+            today[2] = "8"
+            //일요일일 경우 8로 계산해야 월 ~ 일까지의 주기가 맞춰진다.
+        }
+        guard let interval = Double(today[2]) else { return }
+        // 시작 날짜를 어떻게 잡을까..? 월요일이면 그대로, 화요일이면
+        // 월요일 -> interval = 2 -> interval - 1
+        let startDay = Date(timeIntervalSinceNow: -(86400) * (interval-2))
+        let startDayToString = formatter.string(from: startDay).components(separatedBy: "-")
+        print("이번주 월요일 날짜?? : \(startDayToString)")
+        
+    }
+    
 }
 
 
