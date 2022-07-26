@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +13,11 @@
             <objects>
                 <viewController restorationIdentifier="Measure" storyboardIdentifier="Measure" id="Y6W-OH-hqX" customClass="MeasureViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uFN-Ka-maw" userLabel="오늘 총 탄소배출 저감량">
-                                <rect key="frame" x="205.5" y="90" width="189" height="90"/>
+                                <rect key="frame" x="112.5" y="134" width="189" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 총 탄소배출 저감량" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsx-7y-2g1" userLabel="오늘 총 탄소배출 저감량">
                                         <rect key="frame" x="0.0" y="0.0" width="189" height="24"/>
@@ -33,13 +34,13 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-xb-ZMl" userLabel="이동 시간 &amp; 선">
-                                <rect key="frame" x="165" y="15" width="270" height="99"/>
+                                <rect key="frame" x="72" y="331" width="270" height="99"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-jw-Kgn">
                                         <rect key="frame" x="106" y="0.0" width="58" height="58"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="StandingMan" translatesAutoresizingMaskIntoConstraints="NO" id="a8q-Nr-2Sz">
-                                                <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                <rect key="frame" x="0.0" y="5" width="58" height="58"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="58" id="lW4-Yx-mN2"/>
                                                     <constraint firstAttribute="height" constant="58" id="rnW-f9-hgx"/>
@@ -48,7 +49,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="a8q-Nr-2Sz" firstAttribute="centerX" secondItem="5Of-jw-Kgn" secondAttribute="centerX" id="B0h-ml-jKE"/>
-                                            <constraint firstItem="a8q-Nr-2Sz" firstAttribute="centerY" secondItem="5Of-jw-Kgn" secondAttribute="centerY" id="rue-uI-zW8"/>
+                                            <constraint firstItem="a8q-Nr-2Sz" firstAttribute="centerY" secondItem="5Of-jw-Kgn" secondAttribute="centerY" constant="5" id="rue-uI-zW8"/>
                                             <constraint firstItem="a8q-Nr-2Sz" firstAttribute="leading" secondItem="5Of-jw-Kgn" secondAttribute="leading" id="vZa-f1-SYD"/>
                                         </constraints>
                                     </view>
@@ -75,13 +76,13 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="HWe-Eq-FzX" userLabel="이동거리 &amp; 탄소배출 저감량">
-                                <rect key="frame" x="16" y="154" width="568" height="161"/>
+                                <rect key="frame" x="16" y="470" width="382" height="107"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-6i-nUT" userLabel="이동거리 뷰">
-                                        <rect key="frame" x="0.0" y="0.0" width="277" height="161"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="184" height="107"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0UT-ME-N9C" userLabel="이동거리 ">
-                                                <rect key="frame" x="85" y="49" width="107" height="63"/>
+                                                <rect key="frame" x="38.5" y="22" width="107" height="63"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="이동거리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AH-Jh-0m5">
                                                         <rect key="frame" x="26" y="0.0" width="55.5" height="20"/>
@@ -108,10 +109,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ke-Kr-hGc" userLabel="탄소배출저감량 뷰">
-                                        <rect key="frame" x="291" y="0.0" width="277" height="161"/>
+                                        <rect key="frame" x="198" y="0.0" width="184" height="107"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IIM-kd-9al" userLabel="탄소배출저감량 ">
-                                                <rect key="frame" x="88" y="49" width="101.5" height="62.5"/>
+                                                <rect key="frame" x="41.5" y="22.5" width="101.5" height="62.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탄소배출 저감량" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78z-s5-tuh" userLabel="탄소배출저감량">
                                                         <rect key="frame" x="0.0" y="0.0" width="101.5" height="19.5"/>
@@ -138,7 +139,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qal-4G-7ez">
-                                <rect key="frame" x="227" y="355" width="146" height="146"/>
+                                <rect key="frame" x="134" y="617" width="146" height="146"/>
                                 <color key="backgroundColor" red="0.13725490870000001" green="0.72156864399999998" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qal-4G-7ez" secondAttribute="height" multiplier="1:1" id="Oyf-Zy-vMR"/>
@@ -197,7 +198,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="StandingMan" width="512" height="512"/>
+        <image name="StandingMan" width="640" height="640"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
