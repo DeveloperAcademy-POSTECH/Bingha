@@ -10,72 +10,77 @@ import Lottie
 
 class MeasureViewController: UIViewController {
     
-    @IBOutlet weak var StartButton: UIButton!
-    @IBOutlet weak var WalkingDistanceView: UIView!
-    @IBOutlet weak var ReducedCarbonView: UIView!
-    @IBOutlet weak var TotalReducedCarbonLabel: UILabel!
-    @IBOutlet weak var WalkingDistanceLabel: UILabel!
-    @IBOutlet weak var ReducedCarbonLabel: UILabel!
-    @IBOutlet weak var WalkerImageView: UIImageView!
-    @IBOutlet weak var ImageView: UIView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var walkingDistanceView: UIView!
+    @IBOutlet weak var reducedCarbonView: UIView!
+    @IBOutlet weak var totalReducedCarbonLabel: UILabel!
+    @IBOutlet weak var walkingDistanceLabel: UILabel!
+    @IBOutlet weak var reducedCarbonLabel: UILabel!
+    @IBOutlet weak var walkerImageView: UIImageView!
+    @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
+
     let firebaseController = FirebaseController()
     let walkerAnimationView = AnimationView()
     let backgroundAnimationView = AnimationView()
 
     var timer: Timer?
     
-    var startDate = Calendar.current.startOfDay(for: Date())
+    let healthStore: HealthStore = HealthStore.shared
+    
+    var anchorDate = Calendar.current.startOfDay(for: Date())
+    var startDate: Date?
     
     var startDistance: Double = 0.0
     var endDistance: Double = 0.0
-    // 이동거리 표시 Label에서 사용할 변수
     var distanceDiff: Double = 0.0
     
     var isTimerOn = false
-    var alldistance = 0.0
+    var totalDistance = 0.0
     var totalSecond: Int = 0
-    var updateSecond: Int = 0
     
-    //완료화면 모달용 더미데이터
     var todayCarbonDecrease: Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.imageView.addSubview(self.walkerImageView)
+        
         setNotification()
-        self.ImageView.addSubview(self.WalkerImageView)
-        ViewCustom()
+        setAttribute()
+
         // 비동기 처리. 파이어베이스에서 오늘 총 탄소 저감량 데이터 불러와서 라벨에 매핑.
         loadTodayCarbondata()
-        
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
     @IBAction func buttonTapped(_ sender: UIButton) {
         if (sender.tag == 0) {
-            self.totalSecond = 0
-            self.startTimer()
-            self.startMeasurement()
-            WalkerAnimation()
-            backgroundAnimation()
-            ChangeToEndButton()
+            totalSecond = 0
+            startDate = Date()
+            
+            startTimer()
+            measureStartDistance()
+            playAnimation()
+            changeToEndButton()
             sender.tag = 1
         }
         else if (sender.tag == 1) {
-            self.endTimer()
-            self.endMeasurement()
+            endTimer()
+            measureEndDistance()
+            
             saveData()
-            defaultView()
+            totalDistance += distanceDiff
             
-            //완료버튼 눌렀을 때 결과화면으로 데이터 전달
+            setDefaultView()
             
-            let minutes = (self.totalSecond % 3600) / 60
-            let seconds = (self.totalSecond % 3600) % 60
-            //완료버튼 눌렀을 때 결과 화면 모달 띄우기
+            let minutes = (totalSecond % 3600) / 60
+            let seconds = (totalSecond % 3600) % 60
+
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CompleteReference") as? CompleteViewController else { return }
             
-            nextVC.reducedCarbon = self.ReducedCarbonLabel.text ?? ""
-            nextVC.todayReducedCarbon = self.TotalReducedCarbonLabel.text ?? ""
+            nextVC.reducedCarbon = reducedCarbonLabel.text ?? ""
+            nextVC.todayReducedCarbon = totalReducedCarbonLabel.text ?? ""
             nextVC.moveDistance = distanceDiff.setOneDemical() + "Km"
             nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
             
@@ -88,25 +93,25 @@ class MeasureViewController: UIViewController {
     }
     
     // 홈 디폴트 뷰 세팅
-    private func defaultView(){
-        StartButton.setTitle("시작",for:.normal)
-        StartButton.backgroundColor = UIColor(named: "Primary")
-        WalkerImageView.image = UIImage(named: "StandingMan")
+    private func setDefaultView(){
+        startButton.setTitle("시작",for:.normal)
+        startButton.backgroundColor = UIColor(named: "Primary")
+        walkerImageView.image = UIImage(named: "StandingMan")
         walkerAnimationView.isHidden = true
-        self.view.backgroundColor = .white
+        view.backgroundColor = .white
     }
     
     // 시작 버튼에서 완료 버튼으로 변환
-    private func ChangeToEndButton(){
-        StartButton.setTitle("완료",for:.normal)
-        StartButton.backgroundColor = UIColor(named: "PointOrange")
+    private func changeToEndButton(){
+        startButton.setTitle("완료",for:.normal)
+        startButton.backgroundColor = UIColor(named: "PointOrange")
     }
     
     // lottie 파일 walker 애니메이션
-    private func WalkerAnimation() {
+    private func playWalkAnimation() {
         // walker 이미지, 애니메이션 보이기 설정
-        self.ImageView.addSubview(self.walkerAnimationView)
-        WalkerImageView.image = nil;
+        imageView.addSubview(walkerAnimationView)
+        walkerImageView.image = nil;
         walkerAnimationView.isHidden = false
         
         walkerAnimationView.animation = Animation.named("walker")
@@ -118,37 +123,42 @@ class MeasureViewController: UIViewController {
     }
     
     // background 애니메이션 (임시)
-    private func backgroundAnimation() {
-        self.view.backgroundColor = UIColor(displayP3Red: 0.87, green: 0.93, blue: 0.93, alpha: 1)
+    private func playBackgroundAnimation() {
+        view.backgroundColor = UIColor(displayP3Red: 0.87, green: 0.93, blue: 0.93, alpha: 1)
+    }
+    
+    private func playAnimation() {
+        playWalkAnimation()
+        playBackgroundAnimation()
     }
     
     
     // 이동거리뷰, 탄소배출 저감량뷰, 시작버튼 커스텀
-    private func ViewCustom() {
+    private func setAttribute() {
         
         //WalkingDistanceView Custom
-        WalkingDistanceView.layer.shadowOpacity = 0.2
-        WalkingDistanceView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        WalkingDistanceView.layer.shadowColor = UIColor.darkGray.cgColor
-        WalkingDistanceView.layer.cornerRadius = 20
+        walkingDistanceView.layer.shadowOpacity = 0.2
+        walkingDistanceView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        walkingDistanceView.layer.shadowColor = UIColor.darkGray.cgColor
+        walkingDistanceView.layer.cornerRadius = 20
         
         //ReducedCarbonView Custom
-        ReducedCarbonView.layer.shadowOpacity = 0.2
-        ReducedCarbonView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        ReducedCarbonView.layer.shadowColor = UIColor.darkGray.cgColor
-        ReducedCarbonView.layer.cornerRadius = 20
+        reducedCarbonView.layer.shadowOpacity = 0.2
+        reducedCarbonView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        reducedCarbonView.layer.shadowColor = UIColor.darkGray.cgColor
+        reducedCarbonView.layer.cornerRadius = 20
         
         //StartButton Custom
-        StartButton.layer.cornerRadius = StartButton.frame.width / 2
-        StartButton.layer.masksToBounds = true
-        StartButton.layer.shadowOpacity = 0.2
-        StartButton.layer.shadowOffset = CGSize(width: 0, height: 2)
-        StartButton.layer.shadowColor = UIColor.darkGray.cgColor
-        StartButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        startButton.layer.cornerRadius = startButton.frame.width / 2
+        startButton.layer.masksToBounds = true
+        startButton.layer.shadowOpacity = 0.2
+        startButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        startButton.layer.shadowColor = UIColor.darkGray.cgColor
+        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
     }
     
-    private func startMeasurement() {
-        HealthStore.shared.requestDistanceWalkingRunning(startDate: startDate) { [weak self] distance in
+    private func measureStartDistance() {
+        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
             guard let self = self else { return }
             
             self.startDistance = distance
@@ -156,8 +166,8 @@ class MeasureViewController: UIViewController {
         }
     }
     
-    private func endMeasurement() {
-        HealthStore.shared.requestDistanceWalkingRunning(startDate: startDate) { [weak self] distance in
+    private func measureEndDistance() {
+        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
             guard let self = self else { return }
             
             self.endDistance = distance
@@ -171,12 +181,10 @@ class MeasureViewController: UIViewController {
             guard let self = self else { return }
             
             self.totalSecond += 1
-            self.updateSecond += 1
             
-            if self.updateSecond == 30 {
-                self.updateSecond = 0
-                self.endMeasurement()
-                self.TotalReducedCarbonLabel.text = ((self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
+            if (self.totalSecond % 30) == 0 {
+                self.measureEndDistance()
+                self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
             }
             
             // 타이머표시 Label에서 사용할 변수
@@ -205,7 +213,7 @@ class MeasureViewController: UIViewController {
             totalSecond = time
             
             // endMeasurement를 실행할 경우 이동거리 업데이트
-            endMeasurement()
+            measureEndDistance()
             startTimer()
         }
     }
@@ -219,16 +227,19 @@ class MeasureViewController: UIViewController {
         Task {
             try await firebaseController.loadTodayCarbonData()
             todayCarbonDecrease = FirebaseController.carbonModel.todayTotalDecreaseCarbon
-            TotalReducedCarbonLabel.text = todayCarbonDecrease.setOneDemical() + "g"
+            totalReducedCarbonLabel.text = todayCarbonDecrease.setOneDemical() + "g"
         }
     }
     
     private func saveData() {
-        firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
+        // 시작시간 있을때만 파이어스토어에 저장.
+        if let startDate = startDate {
+            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
+        }
+        
         Task {
             try await firebaseController.loadIcebergData()
             firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
-            alldistance += distanceDiff
         }
     }
     
