@@ -12,7 +12,7 @@ class IcebergViewController: UIViewController {
     @IBOutlet var levelLabel: UILabel!
     @IBOutlet var reducedCarbonLabel: UILabel!
     @IBOutlet var informationLabel: UILabel!
-    
+    let firebaseController = FirebaseController()
     var circularProgressBarView: CircularProgressBarView!
     var circularViewDuration: TimeInterval = 2
     
@@ -20,7 +20,6 @@ class IcebergViewController: UIViewController {
         super.viewDidLoad()
         setRoundedRectangle()
         setInformationLabel()
-        fetchTotalDistance()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,12 +30,11 @@ class IcebergViewController: UIViewController {
     }
     
     func fetchTotalDistance() {
-        let firebaseController = FirebaseController()
-        firebaseController.loadIcebergData { [weak self] totalDistance in
-            print("[총 이동 거리] : \(totalDistance)")
-            self?.setLevelLabel(level: IcebergLevelCalculator.shared.IcebergLevelCalculator(distance: totalDistance))
-            self?.setReducedCarbonLabel(distance: totalDistance)
-            self?.setUpCircularProgressBarView(distance: totalDistance)
+        Task {
+            try await firebaseController.loadIcebergData()
+            setLevelLabel(level: IcebergLevelCalculator.shared.IcebergLevelCalculator(distance: FirebaseController.carbonModel.totalDistance))
+            setReducedCarbonLabel(distance: FirebaseController.carbonModel.totalDistance)
+            setUpCircularProgressBarView(distance: FirebaseController.carbonModel.totalDistance)
         }
     }
     
