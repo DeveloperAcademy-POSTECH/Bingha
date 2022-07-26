@@ -113,8 +113,28 @@ class FirebaseController {
         // 시작 날짜를 어떻게 잡을까..? 월요일이면 그대로, 화요일이면
         // 월요일 -> interval = 2 -> interval - 1
         let startDay = Date(timeIntervalSinceNow: -(86400) * (interval-2))
-        let startDayToString = formatter.string(from: startDay).components(separatedBy: "-")
+        let startDayToString = startDay.changeDayToString()
         print("이번주 월요일 날짜?? : \(startDayToString)")
+        
+        let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-weekly")/\(startDayToString)")
+        
+        // TODO: 아래 로직은 데이터 추가하는거. 근데 꼭 그렇게 관리해야할까? 그냥 한번 저장하고 업데이트 할까. 로드 로직 필요할거같은데 그럼?
+        // TODO: 근데 생각해보니까 어차피 세이브 하는거는 비동기 처리 안해도 되잖아. 그럼 그냥 로드하고 업데이트 갈겨버리자.
+        path.getDocument { (document, error) in
+            if let document = document, document.exists {
+                path.updateData(["\(startDayToString)": [
+                    "weeklyDistance": distance,
+                    "weeklyDecreaseCarbon": decreaseCarbon
+                ]])
+                // 근데 경로가 없다면? 생성해준다!
+            } else {
+                // 시작시간, 끝 시간, 거리, 탄소 저감량 저장.
+                path.setData([ "\(startDayToString)": [
+                    "weeklyDistance": distance,
+                    "weeklyDecreaseCarbon": decreaseCarbon
+                ]])
+            }
+        }
         
     }
     
