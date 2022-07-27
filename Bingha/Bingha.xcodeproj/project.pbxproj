@@ -24,6 +24,8 @@
 		39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */; };
 		39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCD2887304300173E25 /* UIFontExtension.swift */; };
 		39F87AE5289121B900708744 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AE4289121B900708744 /* StatViewController.swift */; };
+		39F87AE82891260000708744 /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */; };
+		39F87AE92891260000708744 /* StatisticsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */; };
 		5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510E8CE2886A13F00918A96 /* HealthStore.swift */; };
 		5510E8D42888670100918A96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5510E8D32888670100918A96 /* HealthKit.framework */; };
 		5516E727288128B20015D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E726288128B20015D64A /* AppDelegate.swift */; };
@@ -61,6 +63,8 @@
 		39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		39E50CCD2887304300173E25 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		39F87AE4289121B900708744 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
+		39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCollectionViewCell.xib; sourceTree = "<group>"; };
 		5510E8CE2886A13F00918A96 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		5510E8D22888670100918A96 /* Bingha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bingha.entitlements; sourceTree = "<group>"; };
 		5510E8D32888670100918A96 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -122,6 +126,8 @@
 		39F87ADF28911DB500708744 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */,
+				39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -172,7 +178,6 @@
 				39E50CDB2887ED7B00173E25 /* TabBar */,
 				5516E741288129380015D64A /* Home */,
 				5516E7422881294A0015D64A /* Stat */,
-				5516E743288129610015D64A /* Iceberg */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				39F87ADF28911DB500708744 /* Cells */,
 				397706462887F21100C4F82F /* Stat.storyboard */,
 				39F87AE4289121B900708744 /* StatViewController.swift */,
+				5516E743288129610015D64A /* Iceberg */,
 			);
 			path = Stat;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
 				5516E730288128B30015D64A /* Assets.xcassets in Resources */,
 				397706452887EDB300C4F82F /* TabBar.storyboard in Resources */,
+				39F87AE92891260000708744 /* StatisticsCollectionViewCell.xib in Resources */,
 				552549912882B7ED00C0C75A /* Measure.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +373,7 @@
 				A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */,
 				A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */,
 				5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */,
+				39F87AE82891260000708744 /* StatisticsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
