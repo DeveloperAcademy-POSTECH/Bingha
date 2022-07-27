@@ -26,6 +26,7 @@
 		39F87AE5289121B900708744 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AE4289121B900708744 /* StatViewController.swift */; };
 		39F87AE82891260000708744 /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */; };
 		39F87AE92891260000708744 /* StatisticsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */; };
+		39F87AEB2891263500708744 /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AEA2891263500708744 /* StatisticsModel.swift */; };
 		5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510E8CE2886A13F00918A96 /* HealthStore.swift */; };
 		5510E8D42888670100918A96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5510E8D32888670100918A96 /* HealthKit.framework */; };
 		5516E727288128B20015D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E726288128B20015D64A /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		39F87AE4289121B900708744 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
 		39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCollectionViewCell.xib; sourceTree = "<group>"; };
+		39F87AEA2891263500708744 /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
 		5510E8CE2886A13F00918A96 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		5510E8D22888670100918A96 /* Bingha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bingha.entitlements; sourceTree = "<group>"; };
 		5510E8D32888670100918A96 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -200,6 +202,7 @@
 			children = (
 				5516E73D2881291F0015D64A /* ModelNamingTest.swift */,
 				0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */,
+				39F87AEA2891263500708744 /* StatisticsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			files = (
 				0EBB5DCB2884523600C42C3B /* FirebaseController.swift in Sources */,
 				5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */,
+				39F87AEB2891263500708744 /* StatisticsModel.swift in Sources */,
 				5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */,
 				393F45F5288834E900B1055D /* IcebergLevelCalculator.swift in Sources */,
 				39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */,
