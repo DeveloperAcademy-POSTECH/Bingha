@@ -233,7 +233,8 @@ class MeasureViewController: UIViewController {
     
     private func saveData() {
         // 시작시간 있을때만 파이어스토어에 저장.
-        firebaseController.saveWeeklyData(endTime: Date(), distance: 3.0, decreaseCarbon: 3.0)
+        // 주간 데이터 업데이트.
+//        firebaseController.saveWeeklyData(endTime: Date(), distance: 3.0, decreaseCarbon: 3.0)
         
         if let startDate = startDate {
             firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
@@ -242,7 +243,8 @@ class MeasureViewController: UIViewController {
         Task {
             try await firebaseController.loadIcebergData()
             firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
-            try await firebaseController.loadWeeklyData()
+            // 주간 데이터 로드
+//            try await firebaseController.loadWeeklyData()
         }
     }
     

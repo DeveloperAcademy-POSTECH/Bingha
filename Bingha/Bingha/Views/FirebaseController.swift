@@ -141,7 +141,8 @@ class FirebaseController {
                 guard let weeklyDistance = document["weeklyDistance"] as? Double,
                       let weeklyDecreaseCarbon = document["weeklyDecreaseCarbon"] as? Double
                 else { return }
-                
+                print(weeklyDistance)
+                print(weeklyDecreaseCarbon)
                 
             }
             
