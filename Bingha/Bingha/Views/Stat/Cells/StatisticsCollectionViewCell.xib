@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="statistics" id="gTV-IL-0wX" customClass="StatisticsCollectionViewCell" customModule="Bingha" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StatisticsCollectionViewCell" id="gTV-IL-0wX" customClass="StatisticsCollectionViewCell" customModule="Bingha" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="166" height="168"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -51,7 +51,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="4wd-0u-YSR" firstAttribute="leading" secondItem="HoK-dG-WCo" secondAttribute="leading" id="1YN-gZ-wpV"/>
                             <constraint firstItem="HoK-dG-WCo" firstAttribute="top" secondItem="y9B-fS-PRG" secondAttribute="bottom" constant="6" id="GA8-YC-6sI"/>
@@ -68,7 +68,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="RXE-3c-UOl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MNs-kY-0Jz"/>
                 <constraint firstAttribute="trailing" secondItem="RXE-3c-UOl" secondAttribute="trailing" id="fUm-vg-K2T"/>
@@ -87,11 +87,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

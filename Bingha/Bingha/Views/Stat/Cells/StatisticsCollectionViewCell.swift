@@ -21,7 +21,6 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
     
     func setCardViewCorderRadius() {
         cardView.layer.cornerRadius = 20
-        cardView.backgroundColor = UIColor.red
     }
     
     func update(info: Statistics) {
