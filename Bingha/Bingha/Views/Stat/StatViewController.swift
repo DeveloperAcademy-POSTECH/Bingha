@@ -7,7 +7,14 @@
 
 import UIKit
 
-class StatViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class StatViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+
+extension StatViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -16,11 +23,6 @@ class StatViewController: UIViewController, UICollectionViewDataSource, UICollec
         var cell = UICollectionViewCell()
         return cell
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
-
 
 
