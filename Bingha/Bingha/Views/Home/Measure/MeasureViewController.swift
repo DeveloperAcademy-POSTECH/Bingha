@@ -242,6 +242,7 @@ class MeasureViewController: UIViewController {
         Task {
             try await firebaseController.loadIcebergData()
             firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
+            try await firebaseController.loadWeeklyData()
         }
     }
     
