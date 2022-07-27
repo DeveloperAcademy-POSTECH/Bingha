@@ -41,6 +41,7 @@
 		5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E74C288129D20015D64A /* IcebergViewController.swift */; };
 		5525498F2882B79400C0C75A /* Complete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5525498E2882B79400C0C75A /* Complete.storyboard */; };
 		552549912882B7ED00C0C75A /* Measure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552549902882B7ED00C0C75A /* Measure.storyboard */; };
+		A329A5D828912DED0034D0AD /* CompareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */; };
 		A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */; };
 		A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8F658288FC5490083D033 /* IcebergBackgroundAnimation.swift */; };
 		B54FF5A0288833F5004AB220 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = B54FF59F288833F5004AB220 /* background.json */; };
@@ -86,6 +87,7 @@
 		5516E74C288129D20015D64A /* IcebergViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergViewController.swift; sourceTree = "<group>"; };
 		5525498E2882B79400C0C75A /* Complete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Complete.storyboard; sourceTree = "<group>"; };
 		552549902882B7ED00C0C75A /* Measure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Measure.storyboard; sourceTree = "<group>"; };
+		A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompareCollectionViewCell.xib; sourceTree = "<group>"; };
 		A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureBackgroundAnimation.swift; sourceTree = "<group>"; };
 		A3D8F658288FC5490083D033 /* IcebergBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergBackgroundAnimation.swift; sourceTree = "<group>"; };
 		B54FF59F288833F5004AB220 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */,
+				A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */,
 				39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */,
 			);
 			path = Cells;
@@ -341,6 +344,7 @@
 				39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */,
 				5516E733288128B30015D64A /* LaunchScreen.storyboard in Resources */,
 				397706472887F21100C4F82F /* Stat.storyboard in Resources */,
+				A329A5D828912DED0034D0AD /* CompareCollectionViewCell.xib in Resources */,
 				5525498F2882B79400C0C75A /* Complete.storyboard in Resources */,
 				B54FF5A0288833F5004AB220 /* background.json in Resources */,
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
