@@ -5,18 +5,47 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Stat-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController restorationIdentifier="Stat" storyboardIdentifier="Stat" title="Stat" id="Y6W-OH-hqX" customClass="SFSafariViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Stat" storyboardIdentifier="Stat" title="Stat" id="Y6W-OH-hqX" customClass="StatViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sx5-c0-VaD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="59V-4I-Sgw">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Whl-aD-0KN">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yUM-77-T3L">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sx5-c0-VaD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="WUY-KB-fPW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Sx5-c0-VaD" secondAttribute="bottom" id="XxS-5n-FId"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Sx5-c0-VaD" secondAttribute="trailing" id="k3H-Ow-I0r"/>
+                            <constraint firstItem="Sx5-c0-VaD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kfC-xd-kYU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chart" image="newspaper" catalog="system" id="i6Q-H2-oOw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -27,7 +56,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="newspaper" catalog="system" width="128" height="111"/>
+        <image name="newspaper" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

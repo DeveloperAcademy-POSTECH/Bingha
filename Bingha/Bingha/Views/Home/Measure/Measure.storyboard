@@ -199,7 +199,7 @@
     </scenes>
     <resources>
         <image name="StandingMan" width="640" height="640"/>
-        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house" catalog="system" width="32" height="32"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
