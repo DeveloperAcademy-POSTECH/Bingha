@@ -53,6 +53,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Chart" image="newspaper" catalog="system" id="i6Q-H2-oOw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Sx5-c0-VaD" id="XaZ-vh-3If"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
