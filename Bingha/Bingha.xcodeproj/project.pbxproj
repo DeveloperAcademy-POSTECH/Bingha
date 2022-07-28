@@ -15,13 +15,9 @@
 		0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */; };
 		0EEC2B3A28885B36007C5F91 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEC2B3928885B36007C5F91 /* HealthKit.framework */; };
 		393F45F5288834E900B1055D /* IcebergLevelCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */; };
-		394392A628919F16007F3BDC /* Information1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394392A528919F16007F3BDC /* Information1.storyboard */; };
-		394392A828919F94007F3BDC /* Information1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394392A728919F94007F3BDC /* Information1ViewController.swift */; };
 		394392AA2891A3D6007F3BDC /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394392A92891A3D6007F3BDC /* Storage.swift */; };
-		394392AC2891A84E007F3BDC /* Information2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394392AB2891A84E007F3BDC /* Information2.storyboard */; };
-		394392AE2891A853007F3BDC /* Information3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394392AD2891A853007F3BDC /* Information3.storyboard */; };
-		394392B02891A85D007F3BDC /* Information2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394392AF2891A85D007F3BDC /* Information2ViewController.swift */; };
-		394392B22891A865007F3BDC /* Information3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394392B12891A865007F3BDC /* Information3ViewController.swift */; };
+		394392D828927C96007F3BDC /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394392D728927C96007F3BDC /* Onboarding.storyboard */; };
+		394392DA28927D16007F3BDC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394392D928927D16007F3BDC /* OnboardingViewController.swift */; };
 		397706452887EDB300C4F82F /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397706442887EDB300C4F82F /* TabBar.storyboard */; };
 		397706472887F21100C4F82F /* Stat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397706462887F21100C4F82F /* Stat.storyboard */; };
 		39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */; };
@@ -63,13 +59,9 @@
 		0EEC2B3928885B36007C5F91 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergLevelCalculator.swift; sourceTree = "<group>"; };
 		393F45F628888D9600B1055D /* BinghaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinghaRelease.entitlements; sourceTree = "<group>"; };
-		394392A528919F16007F3BDC /* Information1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information1.storyboard; sourceTree = "<group>"; };
-		394392A728919F94007F3BDC /* Information1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information1ViewController.swift; sourceTree = "<group>"; };
 		394392A92891A3D6007F3BDC /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		394392AB2891A84E007F3BDC /* Information2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information2.storyboard; sourceTree = "<group>"; };
-		394392AD2891A853007F3BDC /* Information3.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information3.storyboard; sourceTree = "<group>"; };
-		394392AF2891A85D007F3BDC /* Information2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information2ViewController.swift; sourceTree = "<group>"; };
-		394392B12891A865007F3BDC /* Information3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information3ViewController.swift; sourceTree = "<group>"; };
+		394392D728927C96007F3BDC /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		394392D928927D16007F3BDC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		397706442887EDB300C4F82F /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		397706462887F21100C4F82F /* Stat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stat.storyboard; sourceTree = "<group>"; };
 		39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCalculator.swift; sourceTree = "<group>"; };
@@ -126,12 +118,8 @@
 		394392A428919EB0007F3BDC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				394392A528919F16007F3BDC /* Information1.storyboard */,
-				394392A728919F94007F3BDC /* Information1ViewController.swift */,
-				394392AF2891A85D007F3BDC /* Information2ViewController.swift */,
-				394392B12891A865007F3BDC /* Information3ViewController.swift */,
-				394392AB2891A84E007F3BDC /* Information2.storyboard */,
-				394392AD2891A853007F3BDC /* Information3.storyboard */,
+				394392D728927C96007F3BDC /* Onboarding.storyboard */,
+				394392D928927D16007F3BDC /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -369,15 +357,13 @@
 				B5EB63CB2887F26000A0B915 /* walker.json in Resources */,
 				39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */,
 				5516E733288128B30015D64A /* LaunchScreen.storyboard in Resources */,
+				394392D828927C96007F3BDC /* Onboarding.storyboard in Resources */,
 				397706472887F21100C4F82F /* Stat.storyboard in Resources */,
 				5525498F2882B79400C0C75A /* Complete.storyboard in Resources */,
 				B54FF5A0288833F5004AB220 /* background.json in Resources */,
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
-				394392AC2891A84E007F3BDC /* Information2.storyboard in Resources */,
 				5516E730288128B30015D64A /* Assets.xcassets in Resources */,
 				397706452887EDB300C4F82F /* TabBar.storyboard in Resources */,
-				394392A628919F16007F3BDC /* Information1.storyboard in Resources */,
-				394392AE2891A853007F3BDC /* Information3.storyboard in Resources */,
 				39F87AE92891260000708744 /* StatisticsCollectionViewCell.xib in Resources */,
 				552549912882B7ED00C0C75A /* Measure.storyboard in Resources */,
 			);
@@ -403,20 +389,18 @@
 				39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */,
 				39F87AED2891280800708744 /* StatisticsViewModel.swift in Sources */,
 				5516E727288128B20015D64A /* AppDelegate.swift in Sources */,
-				394392B02891A85D007F3BDC /* Information2ViewController.swift in Sources */,
+				394392DA28927D16007F3BDC /* OnboardingViewController.swift in Sources */,
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
 				5516E749288129C00015D64A /* MeasureViewController.swift in Sources */,
 				0E8C8E5E2885428300A9ABDB /* DecreaseCarbonModel.swift in Sources */,
 				39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */,
-				394392A828919F94007F3BDC /* Information1ViewController.swift in Sources */,
 				39F87AE5289121B900708744 /* StatViewController.swift in Sources */,
 				5516E747288129B90015D64A /* CompleteViewController.swift in Sources */,
 				A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */,
 				A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */,
 				5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */,
 				39F87AE82891260000708744 /* StatisticsCollectionViewCell.swift in Sources */,
-				394392B22891A865007F3BDC /* Information3ViewController.swift in Sources */,
 				394392AA2891A3D6007F3BDC /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
