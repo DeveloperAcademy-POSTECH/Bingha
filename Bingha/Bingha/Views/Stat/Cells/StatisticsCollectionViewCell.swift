@@ -11,7 +11,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var reducedCarbonLabel: UILabel!
-    @IBOutlet weak var walkingDistance: UILabel!
+    @IBOutlet weak var walkingDistanceLabel: UILabel!
     @IBOutlet weak var walkingTime: UILabel!
     @IBOutlet weak var baseDate: UILabel!
     
