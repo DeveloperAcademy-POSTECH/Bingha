@@ -17,13 +17,17 @@
 		393F45F5288834E900B1055D /* IcebergLevelCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */; };
 		397706452887EDB300C4F82F /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397706442887EDB300C4F82F /* TabBar.storyboard */; };
 		397706472887F21100C4F82F /* Stat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397706462887F21100C4F82F /* Stat.storyboard */; };
-		397706492887F23300C4F82F /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397706482887F23300C4F82F /* StatViewController.swift */; };
 		39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */; };
 		39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883DE28854901006067C8 /* FormatterExtension.swift */; };
 		39D883E128854A93006067C8 /* NumericExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D883E028854A93006067C8 /* NumericExtension.swift */; };
 		39D8843F288680D3006067C8 /* Iceberg.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8843E288680D3006067C8 /* Iceberg.storyboard */; };
 		39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */; };
 		39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E50CCD2887304300173E25 /* UIFontExtension.swift */; };
+		39F87AE5289121B900708744 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AE4289121B900708744 /* StatViewController.swift */; };
+		39F87AE82891260000708744 /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */; };
+		39F87AE92891260000708744 /* StatisticsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */; };
+		39F87AEB2891263500708744 /* StatisticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AEA2891263500708744 /* StatisticsModel.swift */; };
+		39F87AED2891280800708744 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F87AEC2891280800708744 /* StatisticsViewModel.swift */; };
 		5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510E8CE2886A13F00918A96 /* HealthStore.swift */; };
 		5510E8D42888670100918A96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5510E8D32888670100918A96 /* HealthKit.framework */; };
 		5516E727288128B20015D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516E726288128B20015D64A /* AppDelegate.swift */; };
@@ -54,13 +58,17 @@
 		393F45F628888D9600B1055D /* BinghaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinghaRelease.entitlements; sourceTree = "<group>"; };
 		397706442887EDB300C4F82F /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		397706462887F21100C4F82F /* Stat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stat.storyboard; sourceTree = "<group>"; };
-		397706482887F23300C4F82F /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		39D883D928853C5F006067C8 /* ReducedCarbonCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCalculator.swift; sourceTree = "<group>"; };
 		39D883DE28854901006067C8 /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
 		39D883E028854A93006067C8 /* NumericExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtension.swift; sourceTree = "<group>"; };
 		39D8843E288680D3006067C8 /* Iceberg.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Iceberg.storyboard; sourceTree = "<group>"; };
 		39E50CCB28870DC600173E25 /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		39E50CCD2887304300173E25 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		39F87AE4289121B900708744 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
+		39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCollectionViewCell.xib; sourceTree = "<group>"; };
+		39F87AEA2891263500708744 /* StatisticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsModel.swift; sourceTree = "<group>"; };
+		39F87AEC2891280800708744 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		5510E8CE2886A13F00918A96 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		5510E8D22888670100918A96 /* Bingha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bingha.entitlements; sourceTree = "<group>"; };
 		5510E8D32888670100918A96 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -119,6 +127,15 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		39F87ADF28911DB500708744 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */,
+				39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		5516E71A288128B20015D64A = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +182,6 @@
 				39E50CDB2887ED7B00173E25 /* TabBar */,
 				5516E741288129380015D64A /* Home */,
 				5516E7422881294A0015D64A /* Stat */,
-				5516E743288129610015D64A /* Iceberg */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +194,7 @@
 				0EBB5DCA2884523600C42C3B /* FirebaseController.swift */,
 				5510E8CE2886A13F00918A96 /* HealthStore.swift */,
 				393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */,
+				39F87AEC2891280800708744 /* StatisticsViewModel.swift */,
 			);
 			name = Utils;
 			path = Views;
@@ -188,6 +205,7 @@
 			children = (
 				5516E73D2881291F0015D64A /* ModelNamingTest.swift */,
 				0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */,
+				39F87AEA2891263500708744 /* StatisticsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,8 +222,10 @@
 		5516E7422881294A0015D64A /* Stat */ = {
 			isa = PBXGroup;
 			children = (
+				39F87ADF28911DB500708744 /* Cells */,
 				397706462887F21100C4F82F /* Stat.storyboard */,
-				397706482887F23300C4F82F /* StatViewController.swift */,
+				39F87AE4289121B900708744 /* StatViewController.swift */,
+				5516E743288129610015D64A /* Iceberg */,
 			);
 			path = Stat;
 			sourceTree = "<group>";
@@ -326,6 +346,7 @@
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
 				5516E730288128B30015D64A /* Assets.xcassets in Resources */,
 				397706452887EDB300C4F82F /* TabBar.storyboard in Resources */,
+				39F87AE92891260000708744 /* StatisticsCollectionViewCell.xib in Resources */,
 				552549912882B7ED00C0C75A /* Measure.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,7 +360,7 @@
 			files = (
 				0EBB5DCB2884523600C42C3B /* FirebaseController.swift in Sources */,
 				5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */,
-				397706492887F23300C4F82F /* StatViewController.swift in Sources */,
+				39F87AEB2891263500708744 /* StatisticsModel.swift in Sources */,
 				5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */,
 				393F45F5288834E900B1055D /* IcebergLevelCalculator.swift in Sources */,
 				39E50CCC28870DC600173E25 /* CircularProgressBarView.swift in Sources */,
@@ -348,16 +369,19 @@
 				39D883E128854A93006067C8 /* NumericExtension.swift in Sources */,
 				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
 				39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */,
+				39F87AED2891280800708744 /* StatisticsViewModel.swift in Sources */,
 				5516E727288128B20015D64A /* AppDelegate.swift in Sources */,
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
 				5516E749288129C00015D64A /* MeasureViewController.swift in Sources */,
 				0E8C8E5E2885428300A9ABDB /* DecreaseCarbonModel.swift in Sources */,
 				39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */,
+				39F87AE5289121B900708744 /* StatViewController.swift in Sources */,
 				5516E747288129B90015D64A /* CompleteViewController.swift in Sources */,
 				A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */,
 				A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */,
 				5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */,
+				39F87AE82891260000708744 /* StatisticsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

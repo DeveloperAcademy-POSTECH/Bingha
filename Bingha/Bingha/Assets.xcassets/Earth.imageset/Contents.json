@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "PineTree.png",
+      "filename" : "Earth-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "PineTree-1.png",
+      "filename" : "Earth.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "PineTree-2.png",
+      "filename" : "Earth-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
