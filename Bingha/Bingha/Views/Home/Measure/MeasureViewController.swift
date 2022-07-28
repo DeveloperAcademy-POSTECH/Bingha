@@ -28,6 +28,19 @@ class MeasureViewController: UIViewController {
     
     let healthStore: HealthStore = HealthStore.shared
     
+    var healthAuthority: HealthStore.Authority = .notAuthorized {
+        didSet {
+            switch healthAuthority {
+            case .approved:
+                debugPrint("사용자가 HealthKit권한을 승인하였습니다.")
+                measureStartDistance()
+                startTimer()
+            default:
+                debugPrint("사용자가 HealthKit권한을 승인하지 않았습니다.")
+            }
+        }
+    }
+    
     var anchorDate = Calendar.current.startOfDay(for: Date())
     var startDate: Date?
     
@@ -59,8 +72,7 @@ class MeasureViewController: UIViewController {
             totalSecond = 0
             startDate = Date()
             
-            startTimer()
-            measureStartDistance()
+            requestAuthorization()
             playAnimation()
             changeToEndButton()
             sender.tag = 1
@@ -157,6 +169,17 @@ class MeasureViewController: UIViewController {
         startButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
     }
     
+    private func requestAuthorization() {
+        healthStore.requestAuthorization { [weak self] isApproved in
+            guard let self = self else { return }
+            if isApproved {
+                self.healthAuthority = .approved
+            } else {
+                self.healthAuthority = .notAuthorized
+            }
+        }
+    }
+    
     private func measureStartDistance() {
         healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
             guard let self = self else { return }
@@ -177,20 +200,24 @@ class MeasureViewController: UIViewController {
     
     private func startTimer() {
         isTimerOn = true
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.totalSecond += 1
-            
-            if (self.totalSecond % 30) == 0 {
-                self.measureEndDistance()
-                self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
+        
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.totalSecond += 1
+                
+                if (self.totalSecond % 30) == 0 {
+                    self.measureEndDistance()
+                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
+                }
+                
+                // 타이머표시 Label에서 사용할 변수
+                let minutes = (self.totalSecond % 3600) / 60
+                let seconds = (self.totalSecond % 3600) % 60
+                
+                self.timerLabel.text = String(format: "%d:%02d", minutes, seconds)
             }
-            
-            // 타이머표시 Label에서 사용할 변수
-            let minutes = (self.totalSecond % 3600) / 60
-            let seconds = (self.totalSecond % 3600) % 60
-            self.timerLabel.text = String(format: "%d:%02d", minutes, seconds)
         }
     }
     
