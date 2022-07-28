@@ -78,7 +78,7 @@
                             <constraint firstAttribute="bottom" secondItem="rC6-cM-8wa" secondAttribute="bottom" id="oPy-3m-ETo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Iceberg" image="snow" catalog="system" id="ox0-hc-D7E"/>
+                    <tabBarItem key="tabBarItem" title="Iceberg" image="snowflake" catalog="system" id="ox0-hc-D7E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="informationLabel" destination="aIv-UI-e5q" id="07f-us-oai"/>
@@ -94,7 +94,7 @@
     </scenes>
     <resources>
         <image name="bingha1" width="2000" height="2000"/>
-        <image name="snow" catalog="system" width="121" height="128"/>
+        <image name="snowflake" catalog="system" width="121" height="128"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
