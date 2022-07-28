@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CompareCollectionViewCell" customModule="Bingha" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -70,6 +70,11 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wXO-FT-0Qm" secondAttribute="trailing" constant="14" id="xMw-5r-Hav"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="compareAmountLabel" destination="Kgq-Lh-sBQ" id="6d4-lR-csH"/>
+                <outlet property="compareDescriptionLabel" destination="TNd-Ny-FCV" id="C9P-P5-Jbu"/>
+                <outlet property="compareImageView" destination="rpe-aF-rWd" id="w69-uc-h4n"/>
+            </connections>
             <point key="canvasLocation" x="160" y="391.70616113744074"/>
         </view>
     </objects>

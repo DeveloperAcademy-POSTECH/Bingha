@@ -42,6 +42,9 @@
 		5525498F2882B79400C0C75A /* Complete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5525498E2882B79400C0C75A /* Complete.storyboard */; };
 		552549912882B7ED00C0C75A /* Measure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552549902882B7ED00C0C75A /* Measure.storyboard */; };
 		A329A5D828912DED0034D0AD /* CompareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */; };
+		A329A5DC28924E750034D0AD /* CompareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329A5DB28924E750034D0AD /* CompareCollectionViewCell.swift */; };
+		A33B4C4A28927657001F419E /* CompareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B4C4928927657001F419E /* CompareModel.swift */; };
+		A33B4C4C28927748001F419E /* CompareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B4C4B28927748001F419E /* CompareViewModel.swift */; };
 		A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */; };
 		A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8F658288FC5490083D033 /* IcebergBackgroundAnimation.swift */; };
 		B54FF5A0288833F5004AB220 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = B54FF59F288833F5004AB220 /* background.json */; };
@@ -88,6 +91,9 @@
 		5525498E2882B79400C0C75A /* Complete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Complete.storyboard; sourceTree = "<group>"; };
 		552549902882B7ED00C0C75A /* Measure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Measure.storyboard; sourceTree = "<group>"; };
 		A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompareCollectionViewCell.xib; sourceTree = "<group>"; };
+		A329A5DB28924E750034D0AD /* CompareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCollectionViewCell.swift; sourceTree = "<group>"; };
+		A33B4C4928927657001F419E /* CompareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareModel.swift; sourceTree = "<group>"; };
+		A33B4C4B28927748001F419E /* CompareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewModel.swift; sourceTree = "<group>"; };
 		A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureBackgroundAnimation.swift; sourceTree = "<group>"; };
 		A3D8F658288FC5490083D033 /* IcebergBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergBackgroundAnimation.swift; sourceTree = "<group>"; };
 		B54FF59F288833F5004AB220 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
@@ -133,8 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				39F87AE62891260000708744 /* StatisticsCollectionViewCell.swift */,
-				A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */,
 				39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */,
+				A329A5DB28924E750034D0AD /* CompareCollectionViewCell.swift */,
+				A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 				5510E8CE2886A13F00918A96 /* HealthStore.swift */,
 				393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */,
 				39F87AEC2891280800708744 /* StatisticsViewModel.swift */,
+				A33B4C4B28927748001F419E /* CompareViewModel.swift */,
 			);
 			name = Utils;
 			path = Views;
@@ -208,6 +216,7 @@
 			children = (
 				5516E73D2881291F0015D64A /* ModelNamingTest.swift */,
 				0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */,
+				A33B4C4928927657001F419E /* CompareModel.swift */,
 				39F87AEA2891263500708744 /* StatisticsModel.swift */,
 			);
 			path = Model;
@@ -373,7 +382,9 @@
 				39D883E128854A93006067C8 /* NumericExtension.swift in Sources */,
 				5516E74D288129D20015D64A /* IcebergViewController.swift in Sources */,
 				39E50CCE2887304300173E25 /* UIFontExtension.swift in Sources */,
+				A329A5DC28924E750034D0AD /* CompareCollectionViewCell.swift in Sources */,
 				39F87AED2891280800708744 /* StatisticsViewModel.swift in Sources */,
+				A33B4C4C28927748001F419E /* CompareViewModel.swift in Sources */,
 				5516E727288128B20015D64A /* AppDelegate.swift in Sources */,
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
@@ -384,6 +395,7 @@
 				5516E747288129B90015D64A /* CompleteViewController.swift in Sources */,
 				A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */,
 				A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */,
+				A33B4C4A28927657001F419E /* CompareModel.swift in Sources */,
 				5516E73E2881291F0015D64A /* ModelNamingTest.swift in Sources */,
 				39F87AE82891260000708744 /* StatisticsCollectionViewCell.swift in Sources */,
 			);
@@ -580,7 +592,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.curry.Bingha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = binghaProvisioning;
+				PROVISIONING_PROFILE_SPECIFIER = Bingha;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
