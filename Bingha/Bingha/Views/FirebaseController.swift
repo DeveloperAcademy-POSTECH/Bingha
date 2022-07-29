@@ -130,8 +130,8 @@ class FirebaseController {
         let today = Date()
         // 이번주, 지난주, 2주전, 3주전. 불러오기.
         for i in 0...4 {
-            let k = Double(i * 7)
-            let pastMonday = today.findPastMonday(interval: k)
+            let interval = Double(i * 7)
+            let pastMonday = today.findPastMonday(interval: interval)
             let pastMondayToString = pastMonday.changeDayToString()
             let path = database.document("\( await UIDevice.current.identifierForVendor!.uuidString + "-weekly")/\(pastMondayToString)")
             let snapshot = try await path.getDocument()
@@ -143,7 +143,59 @@ class FirebaseController {
                 else { return }
                 print(weeklyDistance)
                 print(weeklyDecreaseCarbon)
-                
+            }
+            
+        }
+    }
+    
+    // 월간 데이터 저장.
+    func saveMonthlyData(endTime: Date, distance: Double, decreaseCarbon: Double) {
+        let today = Date()
+        let presentMonth = today.findMonth()
+        let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-monthly")/\(presentMonth)")
+        
+        path.getDocument { (document, error) in
+            if let document = document?.data(), document.count != 0 {
+                guard let weeklyDistance = document["monthlyDistance"] as? Double,
+                      let weeklyDecrease = document["monthlyDecreaseCarbon"] as? Double
+                else { return }
+                path.setData([
+                    "monthlyDistance": distance + weeklyDistance,
+                    "monthlyDecreaseCarbon": decreaseCarbon + weeklyDecrease
+                ])
+            } else {
+                path.setData([
+                    "monthlyDistance": distance,
+                    "monthlyDecreaseCarbon": decreaseCarbon
+                ])
+            }
+        }
+    }
+    
+    // 월간 데이터 로드
+    func loadMonthlyData() async throws {
+        let today = Date()
+        let presentMonth = today.findMonth().components(separatedBy: "-").map({(value : String) -> Int in return Int(value)!})
+        // 이번달, 지난달, 2달 전, 3달 전 데이터 가져오기.
+        for i in 0...4 {
+            let interval = Int(i)
+            var currentMonth = presentMonth[1] - interval
+            var currentYear = presentMonth[0]
+            if currentMonth < 1 {
+                currentMonth = 12
+                currentYear -= 1
+            }
+            let currentMonthToString = String(format: "%02d", currentMonth)
+            let presentTime = "\(currentYear)-\(currentMonthToString)"
+            let path = database.document("\( await UIDevice.current.identifierForVendor!.uuidString + "-monthly")/\(presentTime)")
+            let snapshot = try await path.getDocument()
+            if let document = snapshot.data(), document.count != 0 {
+                //MARK: 얘네 저장만 해주면 끝
+                guard let monthlyDistance = document["monthlyDistance"] as? Double,
+                      let monthlyDecreaseCarbon = document["monthlyDecreaseCarbon"] as? Double
+                else { return }
+                print(monthlyDistance)
+                print(monthlyDecreaseCarbon)
             }
             
         }
@@ -192,5 +244,11 @@ extension Date {
         return pastMonday
     }
     
+    func findMonth() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM"
+        let monthToString = formatter.string(from: self)
+        return monthToString
+    }
     
 }
