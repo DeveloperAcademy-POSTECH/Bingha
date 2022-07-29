@@ -176,7 +176,6 @@ class FirebaseController {
     func loadMonthlyData() async throws {
         let today = Date()
         let presentMonth = today.findMonth().components(separatedBy: "-").map({(value : String) -> Int in return Int(value)!})
-//        print(presentMonth)
         // 이번달, 지난달, 2달 전, 3달 전 데이터 가져오기.
         for i in 0...4 {
             let interval = Int(i)
@@ -188,7 +187,6 @@ class FirebaseController {
             }
             let currentMonthToString = String(format: "%02d", currentMonth)
             let presentTime = "\(currentYear)-\(currentMonthToString)"
-//            print(presentTime)
             let path = database.document("\( await UIDevice.current.identifierForVendor!.uuidString + "-monthly")/\(presentTime)")
             let snapshot = try await path.getDocument()
             if let document = snapshot.data(), document.count != 0 {
