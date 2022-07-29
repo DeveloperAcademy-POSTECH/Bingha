@@ -30,8 +30,8 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         reducedCarbonLabel.text = info.reducedCarbon
         reducedCarbonLabel.font = .rounded(ofSize: 28, weight: .bold)
         reducedCarbonLabel.textColor = UIColor(named: "Primary")
-        walkingDistance.text = info.walkingDistance
-        walkingDistance.font = .rounded(ofSize: 18, weight: .semibold)
+        walkingDistanceLabel.text = info.walkingDistance
+        walkingDistanceLabel.font = .rounded(ofSize: 18, weight: .semibold)
         walkingTime.text = info.walkingTime
         walkingTime.font = .rounded(ofSize: 18, weight: .semibold)
         baseDate.text = info.baseDate

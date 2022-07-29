@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import SwiftUI
 
 class MeasureViewController: UIViewController {
     
@@ -22,7 +23,7 @@ class MeasureViewController: UIViewController {
 
     let firebaseController = FirebaseController()
     let walkerAnimationView = AnimationView()
-    let backgroundAnimationView = AnimationView()
+    let measureBackgroundAnimationView = UIHostingController(rootView: MeasureBackgroundAnimation())
 
     var timer: Timer?
     
@@ -83,7 +84,6 @@ class MeasureViewController: UIViewController {
             
             saveData()
             totalDistance += distanceDiff
-            
             setDefaultView()
             
             let minutes = (totalSecond % 3600) / 60
@@ -111,7 +111,7 @@ class MeasureViewController: UIViewController {
         walkerImageView.image = UIImage(named: "StandingMan")
         walkerImageView.frame = CGRect(x: 0, y: 5, width: 58, height: 58)
         walkerAnimationView.isHidden = true
-        view.backgroundColor = .white
+        measureBackgroundAnimationView.view.removeFromSuperview()
     }
     
     // 시작 버튼에서 완료 버튼으로 변환
@@ -135,16 +135,21 @@ class MeasureViewController: UIViewController {
         walkerAnimationView.play()
     }
     
-    // background 애니메이션 (임시)
+    // background 애니메이션
     private func playBackgroundAnimation() {
-        view.backgroundColor = UIColor(displayP3Red: 0.87, green: 0.93, blue: 0.93, alpha: 1)
+        view.insertSubview(measureBackgroundAnimationView.view, at: 0)
+        measureBackgroundAnimationView.didMove(toParent: self)
+        measureBackgroundAnimationView.view.translatesAutoresizingMaskIntoConstraints = false
+        measureBackgroundAnimationView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        measureBackgroundAnimationView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        measureBackgroundAnimationView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        measureBackgroundAnimationView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     private func playAnimation() {
         playWalkAnimation()
         playBackgroundAnimation()
     }
-    
     
     // 이동거리뷰, 탄소배출 저감량뷰, 시작버튼 커스텀
     private func setAttribute() {
