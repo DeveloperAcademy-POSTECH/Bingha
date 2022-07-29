@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -20,7 +21,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sx5-c0-VaD">
                                 <rect key="frame" x="0.0" y="104" width="414" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="59V-4I-Sgw">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="59V-4I-Sgw">
                                     <size key="itemSize" width="412" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -35,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eDm-Cw-dpN">
-                                                    <rect key="frame" x="20" y="4.5" width="372" height="32"/>
+                                                    <rect key="frame" x="0.0" y="4.5" width="412" height="32"/>
                                                     <segments>
                                                         <segment title="오늘"/>
                                                         <segment title="주"/>
@@ -46,10 +47,11 @@
                                             <constraints>
                                                 <constraint firstItem="eDm-Cw-dpN" firstAttribute="centerX" secondItem="X3n-Gc-gaK" secondAttribute="centerX" id="2uz-zc-uUf"/>
                                                 <constraint firstItem="eDm-Cw-dpN" firstAttribute="centerY" secondItem="X3n-Gc-gaK" secondAttribute="centerY" id="hHD-Ps-vzg"/>
-                                                <constraint firstAttribute="trailing" secondItem="eDm-Cw-dpN" secondAttribute="trailing" constant="20" id="mtH-rw-gux"/>
-                                                <constraint firstItem="eDm-Cw-dpN" firstAttribute="leading" secondItem="X3n-Gc-gaK" secondAttribute="leading" constant="20" id="xsX-pc-nCK"/>
+                                                <constraint firstAttribute="trailing" secondItem="eDm-Cw-dpN" secondAttribute="trailing" id="mtH-rw-gux"/>
+                                                <constraint firstItem="eDm-Cw-dpN" firstAttribute="leading" secondItem="X3n-Gc-gaK" secondAttribute="leading" id="xsX-pc-nCK"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="PointGreen"/>
                                         <size key="customSize" width="412" height="40"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="CollectionViewReducedCarbon" id="BCU-7A-Vhu">
@@ -60,10 +62,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z5b-NG-ePp">
-                                                    <rect key="frame" x="20" y="8" width="372" height="83"/>
+                                                    <rect key="frame" x="0.0" y="8" width="412" height="83"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 총 탄소배출 저감량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qml-mh-7b0">
-                                                            <rect key="frame" x="0.0" y="0.0" width="372" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="412" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="CEw-Bm-hSx"/>
                                                                 <constraint firstAttribute="width" constant="372" id="oS1-s2-wSG"/>
@@ -73,7 +75,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1074g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-7f-HM5">
-                                                            <rect key="frame" x="0.0" y="40" width="372" height="43"/>
+                                                            <rect key="frame" x="0.0" y="40" width="412" height="43"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -91,9 +93,10 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" name="Secondary"/>
                                             <constraints>
-                                                <constraint firstItem="Z5b-NG-ePp" firstAttribute="leading" secondItem="eHu-Dw-ZPI" secondAttribute="leading" constant="20" id="9Iu-zA-3Y0"/>
-                                                <constraint firstAttribute="trailing" secondItem="Z5b-NG-ePp" secondAttribute="trailing" constant="20" id="Hov-FC-vEf"/>
+                                                <constraint firstItem="Z5b-NG-ePp" firstAttribute="leading" secondItem="eHu-Dw-ZPI" secondAttribute="leading" id="9Iu-zA-3Y0"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z5b-NG-ePp" secondAttribute="trailing" id="Hov-FC-vEf"/>
                                                 <constraint firstItem="Z5b-NG-ePp" firstAttribute="centerY" secondItem="eHu-Dw-ZPI" secondAttribute="centerY" id="hUW-ch-Dt4"/>
                                                 <constraint firstItem="Z5b-NG-ePp" firstAttribute="centerX" secondItem="eHu-Dw-ZPI" secondAttribute="centerX" id="rTr-P2-nze"/>
                                             </constraints>
@@ -118,6 +121,7 @@
                         <constraints>
                             <constraint firstItem="4nT-sl-Bi4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="A1g-Oq-oXQ"/>
                             <constraint firstItem="Sx5-c0-VaD" firstAttribute="top" secondItem="4nT-sl-Bi4" secondAttribute="bottom" constant="10" id="KWS-4L-bMg"/>
+                            <constraint firstItem="Sx5-c0-VaD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="OVS-Dd-qtQ"/>
                             <constraint firstItem="4nT-sl-Bi4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-20" id="VV3-N4-RC2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Sx5-c0-VaD" secondAttribute="bottom" id="XxS-5n-FId"/>
                             <constraint firstItem="4nT-sl-Bi4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="14" id="faJ-Jl-U9N"/>
@@ -138,6 +142,12 @@
     </scenes>
     <resources>
         <image name="newspaper" catalog="system" width="128" height="111"/>
+        <namedColor name="PointGreen">
+            <color red="0.34509803921568627" green="0.48627450980392156" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary">
+            <color red="0.65490196078431373" green="0.8901960784313725" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

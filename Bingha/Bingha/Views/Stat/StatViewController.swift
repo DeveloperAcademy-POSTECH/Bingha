@@ -93,17 +93,23 @@ extension StatViewController: UICollectionViewDataSource, UICollectionViewDelega
     //컬랙션뷰 셀 사이 거리
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
+        case 0:
+            let width: CGFloat = collectionView.bounds.width-40
+            return CGSize(width: width, height: 40)
+        case 1:
+            let width: CGFloat = collectionView.bounds.width-40
+            return CGSize(width: width, height: 90)
         case 2:
-            let itemSpacing: CGFloat = 14
-            let width: CGFloat = (collectionView.bounds.width - itemSpacing) / 2.25
-            return CGSize(width: width, height: width)
+            let width: CGFloat = collectionView.bounds.width-40
+            let height: CGFloat = 150
+            return CGSize(width: width, height: height)
         case 3:
             let itemSpacing: CGFloat = 14
             let width: CGFloat = (collectionView.bounds.width - itemSpacing) / 2.25
             return CGSize(width: width, height: width)
         default:
             let itemSpacing: CGFloat = 14
-            let width: CGFloat = (collectionView.bounds.width - itemSpacing) / 2.25
+            let width: CGFloat = (collectionView.bounds.width - itemSpacing)
             return CGSize(width: width, height: width)
         }
     }

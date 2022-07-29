@@ -11,62 +11,88 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wKp-Mh-Xw3" customClass="CompareCollectionViewCell" customModule="Bingha" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="387" height="149"/>
+            <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Bt-Wd-q24">
-                <rect key="frame" x="0.0" y="0.0" width="387" height="149"/>
+                <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMB-AY-RbC">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nAN-HP-k6g">
-                        <rect key="frame" x="-65.333333333333314" y="14.666666666666671" width="517.66666666666663" height="120.00000000000001"/>
+                        <rect key="frame" x="14" y="14" width="322" height="122"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ljb-Yz-njf">
-                                <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="120"/>
+                                <rect key="frame" x="0.0" y="1" width="120" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-Zh-sbh">
-                                        <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PineTree" translatesAutoresizingMaskIntoConstraints="NO" id="45i-fY-SEc">
-                                                <rect key="frame" x="9.9999999999999929" y="10" width="100.33333333333331" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="cWu-cG-Iit"/>
-                                                    <constraint firstAttribute="width" constant="100" id="iBp-za-abm"/>
-                                                </constraints>
+                                                <rect key="frame" x="10" y="10" width="100" height="100"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="45i-fY-SEc" firstAttribute="centerY" secondItem="dOu-Zh-sbh" secondAttribute="centerY" id="WXb-I0-NDA"/>
-                                            <constraint firstItem="45i-fY-SEc" firstAttribute="centerX" secondItem="dOu-Zh-sbh" secondAttribute="centerX" id="Zej-Uc-s3U"/>
-                                            <constraint firstAttribute="height" constant="120" id="f1B-fT-M93"/>
-                                            <constraint firstAttribute="width" constant="120" id="rqm-vy-Aos"/>
+                                            <constraint firstAttribute="trailing" secondItem="45i-fY-SEc" secondAttribute="trailing" constant="10" id="21m-r3-t8Z"/>
+                                            <constraint firstItem="45i-fY-SEc" firstAttribute="centerY" secondItem="dOu-Zh-sbh" secondAttribute="centerY" id="CKA-tb-7LJ"/>
+                                            <constraint firstItem="45i-fY-SEc" firstAttribute="top" secondItem="dOu-Zh-sbh" secondAttribute="top" constant="10" id="g4Q-IE-bBD"/>
+                                            <constraint firstItem="45i-fY-SEc" firstAttribute="centerX" secondItem="dOu-Zh-sbh" secondAttribute="centerX" id="gxx-RM-7L5"/>
+                                            <constraint firstAttribute="height" constant="120" id="no7-fr-Ikl"/>
+                                            <constraint firstAttribute="width" constant="120" id="yah-lq-phz"/>
+                                            <constraint firstItem="45i-fY-SEc" firstAttribute="leading" secondItem="dOu-Zh-sbh" secondAttribute="leading" constant="10" id="zLT-eL-aQg"/>
+                                            <constraint firstAttribute="bottom" secondItem="45i-fY-SEc" secondAttribute="bottom" constant="10" id="zSZ-Wg-CuF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yNj-wI-11k">
-                                <rect key="frame" x="140.33333333333334" y="36" width="377.33333333333326" height="48"/>
+                                <rect key="frame" x="140" y="19" width="182" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3개월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWm-U7-HQb">
-                                        <rect key="frame" x="0.0" y="0.0" width="47.333333333333336" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소나무 한 그루가 이 정도의 탄소를 산소로 바꾸는 데 걸리는 시간" lineBreakMode="middleTruncation" numberOfLines="4" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-cD-393">
-                                        <rect key="frame" x="0.0" y="30.000000000000007" width="377.33333333333331" height="18"/>
+                                        <rect key="frame" x="0.0" y="30" width="182" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QWm-U7-HQb" secondAttribute="trailing" id="1hb-6J-0GB"/>
+                                    <constraint firstItem="QWm-U7-HQb" firstAttribute="leading" secondItem="yNj-wI-11k" secondAttribute="leading" id="G9B-gt-IbM"/>
+                                    <constraint firstItem="JOA-cD-393" firstAttribute="leading" secondItem="yNj-wI-11k" secondAttribute="leading" id="JOT-Ut-NDF"/>
+                                    <constraint firstAttribute="trailing" secondItem="JOA-cD-393" secondAttribute="trailing" id="diU-Xo-BaF"/>
+                                </constraints>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="yNj-wI-11k" firstAttribute="leading" secondItem="ljb-Yz-njf" secondAttribute="trailing" constant="20" id="Nmm-zk-u2x"/>
+                            <constraint firstItem="ljb-Yz-njf" firstAttribute="centerY" secondItem="nAN-HP-k6g" secondAttribute="centerY" id="RJK-I8-fca"/>
+                            <constraint firstAttribute="trailing" secondItem="yNj-wI-11k" secondAttribute="trailing" id="YUm-i6-Z3m"/>
+                            <constraint firstItem="yNj-wI-11k" firstAttribute="centerY" secondItem="nAN-HP-k6g" secondAttribute="centerY" id="qQb-Hc-XsG"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="nAN-HP-k6g" firstAttribute="centerY" secondItem="1Bt-Wd-q24" secondAttribute="centerY" id="E38-SS-kOI"/>
-                    <constraint firstItem="nAN-HP-k6g" firstAttribute="centerX" secondItem="1Bt-Wd-q24" secondAttribute="centerX" id="Tn0-B9-7PZ"/>
+                    <constraint firstItem="nAN-HP-k6g" firstAttribute="centerX" secondItem="1Bt-Wd-q24" secondAttribute="centerX" id="0bZ-i1-DQO"/>
+                    <constraint firstItem="DMB-AY-RbC" firstAttribute="centerY" secondItem="1Bt-Wd-q24" secondAttribute="centerY" id="JBC-de-bso"/>
+                    <constraint firstItem="DMB-AY-RbC" firstAttribute="centerX" secondItem="1Bt-Wd-q24" secondAttribute="centerX" id="Mdr-vw-DLA"/>
+                    <constraint firstItem="DMB-AY-RbC" firstAttribute="leading" secondItem="1Bt-Wd-q24" secondAttribute="leading" id="Otj-D4-gGz"/>
+                    <constraint firstItem="nAN-HP-k6g" firstAttribute="leading" secondItem="1Bt-Wd-q24" secondAttribute="leading" constant="14" id="PRf-hP-zFu"/>
+                    <constraint firstItem="DMB-AY-RbC" firstAttribute="top" secondItem="1Bt-Wd-q24" secondAttribute="top" id="Tim-4X-vR1"/>
+                    <constraint firstItem="nAN-HP-k6g" firstAttribute="top" secondItem="1Bt-Wd-q24" secondAttribute="top" constant="14" id="WTZ-in-62d"/>
+                    <constraint firstAttribute="bottom" secondItem="nAN-HP-k6g" secondAttribute="bottom" constant="14" id="atC-1F-2Kf"/>
+                    <constraint firstAttribute="trailing" secondItem="DMB-AY-RbC" secondAttribute="trailing" id="q6F-FV-U2D"/>
+                    <constraint firstItem="nAN-HP-k6g" firstAttribute="centerY" secondItem="1Bt-Wd-q24" secondAttribute="centerY" id="sh2-Qy-eW6"/>
+                    <constraint firstAttribute="bottom" secondItem="DMB-AY-RbC" secondAttribute="bottom" id="tF2-ND-eM4"/>
+                    <constraint firstAttribute="trailing" secondItem="nAN-HP-k6g" secondAttribute="trailing" constant="14" id="wrD-GX-Cb9"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -75,8 +101,9 @@
                 <outlet property="compareAmountLabel" destination="QWm-U7-HQb" id="wD1-GY-JoE"/>
                 <outlet property="compareDescriptionLabel" destination="JOA-cD-393" id="eMP-SP-8ng"/>
                 <outlet property="compareImageView" destination="45i-fY-SEc" id="aYS-WI-iPk"/>
+                <outlet property="imageFrame" destination="dOu-Zh-sbh" id="p8J-iw-W17"/>
             </connections>
-            <point key="canvasLocation" x="83.84615384615384" y="73.578199052132703"/>
+            <point key="canvasLocation" x="524.61538461538464" y="121.56398104265402"/>
         </collectionViewCell>
     </objects>
     <resources>

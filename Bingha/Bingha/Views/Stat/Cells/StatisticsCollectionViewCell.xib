@@ -81,7 +81,7 @@
                 <outlet property="cardView" destination="RXE-3c-UOl" id="TZW-vX-n0j"/>
                 <outlet property="reducedCarbonLabel" destination="y9B-fS-PRG" id="JsN-wg-KwI"/>
                 <outlet property="titleLabel" destination="5Va-yw-Qiq" id="mHN-jV-xhh"/>
-                <outlet property="walkingDistance" destination="HoK-dG-WCo" id="tfl-d3-zMx"/>
+                <outlet property="walkingDistanceLabel" destination="HoK-dG-WCo" id="vgu-2L-Unr"/>
                 <outlet property="walkingTime" destination="4wd-0u-YSR" id="Jgt-YA-I0i"/>
             </connections>
             <point key="canvasLocation" x="150.72463768115944" y="164.73214285714286"/>
