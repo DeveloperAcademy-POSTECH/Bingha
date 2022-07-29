@@ -28,6 +28,7 @@ class MeasureViewController: UIViewController {
     var timer: Timer?
     
     let healthStore: HealthStore = HealthStore.shared
+    let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
     
     var healthAuthority: HealthStore.Authority = .notAuthorized {
         didSet {
@@ -192,6 +193,9 @@ class MeasureViewController: UIViewController {
             
             self.startDistance = distance
             self.distanceDiff = 0.0
+            
+            self.walkingDistanceLabel.text = "0.0km"
+            self.reducedCarbonLabel.text = "0g"
         }
     }
     
@@ -201,6 +205,9 @@ class MeasureViewController: UIViewController {
             
             self.endDistance = distance
             self.distanceDiff = (self.endDistance - self.startDistance)
+            
+            self.walkingDistanceLabel.text = "\(self.distanceDiff)" + "km"
+            self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.distanceDiff))" + "g"
         }
     }
     
@@ -215,7 +222,7 @@ class MeasureViewController: UIViewController {
                 
                 if (self.totalSecond % 30) == 0 {
                     self.measureEndDistance()
-                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
+                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
                 }
                 
                 // 타이머표시 Label에서 사용할 변수
@@ -270,12 +277,12 @@ class MeasureViewController: UIViewController {
 //        firebaseController.saveWeeklyData(endTime: Date(), distance: 3.0, decreaseCarbon: 3.0)
 //        firebaseController.saveMonthlyData(endTime: Date(), distance: 5.0, decreaseCarbon: 5.0)
         if let startDate = startDate {
-            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
+            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff))
         }
         
         Task {
             try await firebaseController.loadIcebergData()
-            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
+            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
             // 워간 데이터 로드
 //            try await firebaseController.loadMonthlyData()
         }
