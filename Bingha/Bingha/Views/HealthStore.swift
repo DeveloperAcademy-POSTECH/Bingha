@@ -13,9 +13,17 @@ internal class HealthStore {
     
     private init() { }
     
+    enum Authority {
+        case notAuthorized
+        case approved
+        case rejected
+    }
+    
     private var healthStore: HKHealthStore?
     
-    private func requestAuthorization() {
+    // enum을 던져주고 VC에서 didset으로 상태에 따라 함수를 실행하도록 (completionHandler를 이용할 시)
+    // or combine을 사용한다며
+    func requestAuthorization(completion: @escaping (Bool) -> ()) {
         HealthStore.shared.healthStore = HKHealthStore()
 
         let read = Set([HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning)!])
@@ -23,17 +31,17 @@ internal class HealthStore {
         // 데이터 사용 권한요청
         HealthStore.shared.healthStore?.requestAuthorization(toShare: nil, read: read) { success, error in
             if success {
-                debugPrint("권한이 허락되었습니다.")
+                debugPrint("건강데이터 접근 권한 승인.")
             } else {
-                print("권한 허락 안됨.")
+                print("건강데이터 접근 권한 거부.")
                 debugPrint(error.debugDescription)
             }
+            completion(success)
         }
     }
 
     func requestDistanceWalkingRunning(startDate: Date, completion: @escaping (Double) -> (Void)) {
         if HKHealthStore.isHealthDataAvailable() {
-            requestAuthorization()
             
             guard let quantityType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) else { return }
             
