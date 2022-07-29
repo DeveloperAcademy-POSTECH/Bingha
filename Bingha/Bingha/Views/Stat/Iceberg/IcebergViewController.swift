@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class IcebergViewController: UIViewController {
     @IBOutlet var roundedRectangle: UIView!
@@ -17,7 +18,8 @@ class IcebergViewController: UIViewController {
     let icebergLevelCalculator: IcebergLevelCalculator = IcebergLevelCalculator.shared
     let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
     let circularViewDuration: TimeInterval = 2
-    
+    let icebergBackgroundAnimationView = UIHostingController(rootView: IcebergBackgroundAnimation())
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class IcebergViewController: UIViewController {
         super.viewWillAppear(animated)
         setAttribute()
         fetchTotalDistance()
+        playBackgroundAnimation()
     }
     
     private func setAttribute() {
@@ -41,6 +44,16 @@ class IcebergViewController: UIViewController {
             setReducedCarbonLabel(distance: FirebaseController.carbonModel.totalDistance)
             setUpCircularProgressBarView(distance: FirebaseController.carbonModel.totalDistance)
         }
+    }
+    
+    private func playBackgroundAnimation() {
+        view.insertSubview(icebergBackgroundAnimationView.view, at: 0)
+        icebergBackgroundAnimationView.didMove(toParent: self)
+        icebergBackgroundAnimationView.view.translatesAutoresizingMaskIntoConstraints = false
+        icebergBackgroundAnimationView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        icebergBackgroundAnimationView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        icebergBackgroundAnimationView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        icebergBackgroundAnimationView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     private func setRoundedRectangle() {
