@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3D563B2894F76B007C8805 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3D563A2894F76B007C8805 /* LaunchViewController.swift */; };
+		0E3D563D2894F777007C8805 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3D563C2894F777007C8805 /* Launch.storyboard */; };
 		0E8C8E5E2885428300A9ABDB /* DecreaseCarbonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */; };
 		0EBB5DCB2884523600C42C3B /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB5DCA2884523600C42C3B /* FirebaseController.swift */; };
 		0EE172F52882ED3D00AD5100 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE172F42882ED3D00AD5100 /* FirebaseAnalytics */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E3D563A2894F76B007C8805 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		0E3D563C2894F777007C8805 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecreaseCarbonModel.swift; sourceTree = "<group>"; };
 		0EBB5DCA2884523600C42C3B /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		0EE172FA2882EE7F00AD5100 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -109,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E3D56392894F74B007C8805 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				0E3D563A2894F76B007C8805 /* LaunchViewController.swift */,
+				0E3D563C2894F777007C8805 /* Launch.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		39D883DB28854654006067C8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +192,7 @@
 		5516E73A288128CF0015D64A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0E3D56392894F74B007C8805 /* Launch */,
 				39E50CDB2887ED7B00173E25 /* TabBar */,
 				5516E741288129380015D64A /* Home */,
 				5516E7422881294A0015D64A /* Stat */,
@@ -348,6 +362,7 @@
 				397706452887EDB300C4F82F /* TabBar.storyboard in Resources */,
 				39F87AE92891260000708744 /* StatisticsCollectionViewCell.xib in Resources */,
 				552549912882B7ED00C0C75A /* Measure.storyboard in Resources */,
+				0E3D563D2894F777007C8805 /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +389,7 @@
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
 				5516E749288129C00015D64A /* MeasureViewController.swift in Sources */,
+				0E3D563B2894F76B007C8805 /* LaunchViewController.swift in Sources */,
 				0E8C8E5E2885428300A9ABDB /* DecreaseCarbonModel.swift in Sources */,
 				39D883DA28853C5F006067C8 /* ReducedCarbonCalculator.swift in Sources */,
 				39F87AE5289121B900708744 /* StatViewController.swift in Sources */,
