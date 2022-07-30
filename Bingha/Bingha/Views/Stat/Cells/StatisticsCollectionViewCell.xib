@@ -21,25 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="166" height="168"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO2 저감량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Va-yw-Qiq">
-                                <rect key="frame" x="12" y="12" width="83" height="21"/>
+                                <rect key="frame" x="14" y="14" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9B-fS-PRG">
-                                <rect key="frame" x="12" y="38" width="42" height="21"/>
+                                <rect key="frame" x="14" y="35" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoK-dG-WCo">
-                                <rect key="frame" x="12" y="65" width="42" height="21"/>
+                                <rect key="frame" x="14" y="62" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-0u-YSR">
-                                <rect key="frame" x="12" y="92" width="42" height="21"/>
+                                <rect key="frame" x="14" y="89" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,15 +51,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="4wd-0u-YSR" firstAttribute="leading" secondItem="HoK-dG-WCo" secondAttribute="leading" id="1YN-gZ-wpV"/>
                             <constraint firstItem="HoK-dG-WCo" firstAttribute="top" secondItem="y9B-fS-PRG" secondAttribute="bottom" constant="6" id="GA8-YC-6sI"/>
                             <constraint firstItem="HoK-dG-WCo" firstAttribute="leading" secondItem="y9B-fS-PRG" secondAttribute="leading" id="Kez-vO-RaL"/>
                             <constraint firstItem="y9B-fS-PRG" firstAttribute="leading" secondItem="5Va-yw-Qiq" secondAttribute="leading" id="N3A-jw-5Ce"/>
-                            <constraint firstItem="y9B-fS-PRG" firstAttribute="top" secondItem="5Va-yw-Qiq" secondAttribute="bottom" constant="5" id="Rnf-et-G1G"/>
-                            <constraint firstItem="5Va-yw-Qiq" firstAttribute="leading" secondItem="RXE-3c-UOl" secondAttribute="leading" constant="12" id="XTp-RY-5UD"/>
-                            <constraint firstItem="5Va-yw-Qiq" firstAttribute="top" secondItem="RXE-3c-UOl" secondAttribute="top" constant="12" id="ZmH-C1-9Xw"/>
+                            <constraint firstItem="y9B-fS-PRG" firstAttribute="top" secondItem="5Va-yw-Qiq" secondAttribute="bottom" id="Rnf-et-G1G"/>
+                            <constraint firstItem="5Va-yw-Qiq" firstAttribute="leading" secondItem="RXE-3c-UOl" secondAttribute="leading" constant="14" id="XTp-RY-5UD"/>
+                            <constraint firstItem="5Va-yw-Qiq" firstAttribute="top" secondItem="RXE-3c-UOl" secondAttribute="top" constant="14" id="ZmH-C1-9Xw"/>
                             <constraint firstAttribute="trailing" secondItem="M4S-TB-XQR" secondAttribute="trailing" constant="14" id="csA-tJ-2rP"/>
                             <constraint firstItem="4wd-0u-YSR" firstAttribute="top" secondItem="HoK-dG-WCo" secondAttribute="bottom" constant="6" id="mHA-15-x0F"/>
                             <constraint firstAttribute="bottom" secondItem="M4S-TB-XQR" secondAttribute="bottom" constant="14" id="pXv-Og-gwP"/>
@@ -81,7 +81,7 @@
                 <outlet property="cardView" destination="RXE-3c-UOl" id="TZW-vX-n0j"/>
                 <outlet property="reducedCarbonLabel" destination="y9B-fS-PRG" id="JsN-wg-KwI"/>
                 <outlet property="titleLabel" destination="5Va-yw-Qiq" id="mHN-jV-xhh"/>
-                <outlet property="walkingDistance" destination="HoK-dG-WCo" id="tfl-d3-zMx"/>
+                <outlet property="walkingDistanceLabel" destination="HoK-dG-WCo" id="vgu-2L-Unr"/>
                 <outlet property="walkingTime" destination="4wd-0u-YSR" id="Jgt-YA-I0i"/>
             </connections>
             <point key="canvasLocation" x="150.72463768115944" y="164.73214285714286"/>
@@ -91,8 +91,8 @@
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
