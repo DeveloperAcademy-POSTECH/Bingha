@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="257" y="60"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabBar-->
         <scene sceneID="4cW-Kr-epo">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" id="KLp-Uq-fq9" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="UITabBarController" title="TabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KLp-Uq-fq9" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OFr-CM-VQN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

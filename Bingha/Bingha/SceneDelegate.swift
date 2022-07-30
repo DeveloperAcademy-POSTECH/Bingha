@@ -56,10 +56,10 @@ extension SceneDelegate {
     private func setRootViewController(_ scene: UIScene){
         if Storage.isFirstTime() {
             setRootViewController(scene, name: "Onboarding",
-                                  identifier: "Onboarding")
+                                  identifier: "OnboardingViewController")
         } else {
             setRootViewController(scene, name: "TabBar",
-                                  identifier: "TabBar")
+                                  identifier: "UITabBarController")
         }
     }
     
