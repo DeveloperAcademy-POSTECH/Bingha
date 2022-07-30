@@ -64,8 +64,6 @@ class MeasureViewController: UIViewController {
         setNotification()
         setAttribute()
 
-        // 비동기 처리. 파이어베이스에서 오늘 총 탄소 저감량 데이터 불러와서 라벨에 매핑.
-        loadTodayCarbondata()
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
@@ -261,14 +259,6 @@ class MeasureViewController: UIViewController {
     @objc func stopTimerAndSaveSeconds() {
         self.timer?.invalidate()
         UserDefaults.standard.setValue(totalSecond, forKey: "totalSecond")
-    }
-    
-    private func loadTodayCarbondata() {
-        Task {
-            try await firebaseController.loadTodayCarbonData()
-            todayCarbonDecrease = FirebaseController.carbonModel.todayTotalDecreaseCarbon
-            totalReducedCarbonLabel.text = todayCarbonDecrease.setOneDemical() + "g"
-        }
     }
     
     private func saveData() {

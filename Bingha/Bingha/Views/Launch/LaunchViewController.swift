@@ -19,6 +19,19 @@ class LaunchViewController: UIViewController {
         // 데이터 로드 로직 넣기.
         // 온보딩을 봤는지 안봤는지 체크하기. 유저디폴트에서 꺼내 확인한다. isFirst만 바꿔주면 됨!
         // 데이터 다 불러와지면 넘기게!
+        Task {
+            try await firebaseController.loadTodayCarbonData()
+        }
+        Task {
+            try await firebaseController.loadIcebergData()
+        }
+        Task {
+            try await firebaseController.loadMonthlyData()
+        }
+        Task {
+            try await firebaseController.loadWeeklyData()
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(1))) { [weak self] in
             self?.changeView(isFirst: false)
         }
@@ -26,7 +39,7 @@ class LaunchViewController: UIViewController {
     
     func changeView(isFirst: Bool) {
         if isFirst {
-            // 온보딩으로 바꿔줘야함.
+            // TODO: 온보딩 완성되면 연결해주기.
             let st = UIStoryboard(name: "First", bundle: nil)
             let vc = st.instantiateViewController(withIdentifier: "FirstViewController")
             let scenes = UIApplication.shared.connectedScenes
