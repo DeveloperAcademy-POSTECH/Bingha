@@ -48,7 +48,7 @@
                                         <fragment content="확인">
                                             <attributes>
                                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="22" name=".AppleSDGothicNeoI-Bold"/>
+                                                <font key="NSFont" metaFont="system" size="22"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -56,8 +56,8 @@
                                     <color key="baseForegroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EKI-Ox-cuR">
-                                <rect key="frame" x="0.0" y="84" width="414" height="597"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EKI-Ox-cuR">
+                                <rect key="frame" x="0.0" y="74" width="414" height="607"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6Is-cQ-mG5">
                                     <size key="itemSize" width="417" height="569"/>
@@ -67,7 +67,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="NTD-3v-xDp" customClass="OnboardingCollectionViewCell" customModule="Bingha" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="14" width="417" height="569"/>
+                                        <rect key="frame" x="0.0" y="19" width="417" height="569"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jkt-kz-KTd">
                                             <rect key="frame" x="0.0" y="0.0" width="417" height="569"/>
@@ -80,8 +80,8 @@
                                                         <constraint firstAttribute="width" constant="180" id="qMb-zi-qdk"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="CGL-1P-syM">
-                                                    <rect key="frame" x="105" y="370" width="207" height="144"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CGL-1P-syM">
+                                                    <rect key="frame" x="105" y="370" width="207" height="154"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="걸어서 지구를 살린다고?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yu-Ys-WHc">
                                                             <rect key="frame" x="7.5" y="0.0" width="192.5" height="24"/>
@@ -90,9 +90,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tta-Pp-l8l">
-                                                            <rect key="frame" x="0.0" y="74" width="207" height="70"/>
+                                                            <rect key="frame" x="0.0" y="54" width="207" height="100"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="6as-4a-OZ0"/>
+                                                                <constraint firstAttribute="height" constant="100" id="6as-4a-OZ0"/>
                                                             </constraints>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="차를">
