@@ -17,15 +17,14 @@ class RequestAccessViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setAttribute()
     }
     
     private func setAttribute() {
-    backgroundCircle.layer.cornerRadius = backgroundCircle.frame.width / 2
-    backgroundCircle.layer.masksToBounds = true
-    
-    startButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
+        backgroundCircle.layer.cornerRadius = backgroundCircle.frame.width / 2
+        backgroundCircle.layer.masksToBounds = true
+        
+        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
     }
     
     private func SkipToMainVC() {
