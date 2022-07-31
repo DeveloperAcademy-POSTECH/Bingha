@@ -22,8 +22,8 @@ class ReducedCarbonCollectionView: UICollectionViewCell {
     
     func update(info: ReducedCarbonCollection) {
         roundedFont()
-        ReducedCarbonAmountLabel.text = info.ReducedCarbonAmount
-        ReducedCarbonPeriodLabel.text = info.ReducedCarbonPeriod
+        ReducedCarbonAmountLabel.text = info.reducedCarbonAmount
+        ReducedCarbonPeriodLabel.text = info.reducedCarbonPeriod
     }
 }
 
