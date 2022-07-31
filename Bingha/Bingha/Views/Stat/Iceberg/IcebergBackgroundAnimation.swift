@@ -12,7 +12,11 @@ struct IcebergBackgroundAnimation: View {
     let universalSize = UIScreen.main.bounds
     
     @State private var isAnimated = false
+    @State var lv: String
     
+    init(lv: String){
+        self.lv = lv
+    }
     var body: some View {
         
         ZStack {
@@ -66,8 +70,8 @@ struct IcebergBackgroundAnimation: View {
     }
 }
 
-struct IcebergBackgroundAnimation_Previews: PreviewProvider {
-    static var previews: some View {
-        IcebergBackgroundAnimation()
-    }
-}
+//struct IcebergBackgroundAnimation_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IcebergBackgroundAnimation()
+//    }
+//}

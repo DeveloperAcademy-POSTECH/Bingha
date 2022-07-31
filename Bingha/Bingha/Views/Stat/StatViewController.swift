@@ -10,6 +10,13 @@ import Lottie
 
 class StatViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+
+    @IBAction func licenseButtonAction(_ sender: Any) {
+        print("button touch")
+        let uvc = self.storyboard!.instantiateViewController(withIdentifier: "licenseViewController")
+        uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        self.present(uvc, animated: true)
+    }
     
     //FIX: 추가됨
     let reducedCarbonCollectionViewModel: ReducedCarbonCollectionViewModel = ReducedCarbonCollectionViewModel()
