@@ -28,8 +28,13 @@ class RequestAccessViewController: UIViewController {
     }
     
     private func SkipToMainVC() {
+        // 유저디폴트에 저장하기.
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isFirst") != nil {
+            defaults.set(false, forKey:"isFirst")
+        }
         let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "UITabBarController") as! UITabBarController
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false, completion: nil)
     }
