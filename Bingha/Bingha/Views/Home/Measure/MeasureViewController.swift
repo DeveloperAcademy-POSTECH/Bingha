@@ -278,7 +278,7 @@ class MeasureViewController: UIViewController {
     // 운동 끝날을 때 데이터 업데이트.
     private func updateLocalData() {
         // 오늘 토탈 저감량, 방금 저감량, 방금 운동거리 업데이트.
-        FirebaseController.carbonModel.todayTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
+        FirebaseController.todayTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
         
         // 오늘 운동 추가해주기.
         StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "오늘"))

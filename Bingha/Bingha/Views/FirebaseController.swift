@@ -11,8 +11,12 @@ import UIKit
 
 class FirebaseController {
     let database = Firestore.firestore()
-    public static var carbonModel: CarbonModel = CarbonModel(todayTotalDecreaseCarbon: 0.0, totalDistance: 0.0, totalDecreaseCarbon: 0.0)
-
+    public static var carbonModel: CarbonModel = CarbonModel(totalDistance: 0.0, totalDecreaseCarbon: 0.0)
+    public static var todayTotalDecreaseCarbon = 0.0
+    public static var weeklyTotalDecreaseCarbon = 0.0
+    public static var monthlyTotalDecreaseCarbon = 0.0
+    
+    
     // 탄소 저감량 저장 (종료 버튼 눌렀을때)
     func saveDecreaseCarbonData(startTime: Date, endTime: Date, distance: Double, decreaseCarbon: Double, totalSecond: Int) {
         // 버튼 누른 시간 기점으로 들어감.
@@ -49,13 +53,9 @@ class FirebaseController {
         let todayToString = Date().changeDayToString()
         // 파이어 스토어 데이터 경로
         let path = database.document("\( await UIDevice.current.identifierForVendor!.uuidString+"-daily")/\(todayToString)")
-        // 데이터 불러오기
-        print(path)
         let snapshot = try await path.getDocument()
-        print("snapshot")
-        print(snapshot)
         if let document = snapshot.data(), document.count != 0 {
-            FirebaseController.carbonModel.todayTotalDecreaseCarbon = 0.0
+            FirebaseController.todayTotalDecreaseCarbon = 0.0
             let values = document.values
             var todayTotalDecreseCarbon = 0.0
             for value in values {
@@ -68,11 +68,8 @@ class FirebaseController {
                     return }
                 todayTotalDecreseCarbon += decreaseCarbon
                 StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: decreaseCarbon, walkingDistance: distance, walkingTime: totalSecond, baseDate: "오늘"))
-                
             }
-            FirebaseController.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreseCarbon
-            print("오늘 총 저감한 탄소량 : \(FirebaseController.carbonModel.todayTotalDecreaseCarbon)")
-            print("오늘 총 모델: \(StatisticsViewModel.todayStatisticsList)")
+            FirebaseController.todayTotalDecreaseCarbon = todayTotalDecreseCarbon
         } else {
             print("데이터 없음")
         }
@@ -139,25 +136,26 @@ class FirebaseController {
         // 이번주 월요일 날짜 계산하기.
         let today = Date()
         // 이번주, 지난주, 2주전, 3주전. 불러오기.
+        var weeklyTotalDecreseCarbon = 0.0
         for i in 0...4 {
             let interval = Double(i * 7)
             let pastMonday = today.findPastMonday(interval: interval)
             let pastMondayToString = pastMonday.changeDayToString()
             let path = database.document("\( await UIDevice.current.identifierForVendor!.uuidString + "-weekly")/\(pastMondayToString)")
             let snapshot = try await path.getDocument()
-            
+            print("월요일 : \(pastMondayToString)")
             if let document = snapshot.data(), document.count != 0 {
+                
                 guard let weeklyDistance = document["weeklyDistance"] as? Double,
                       let weeklyDecreaseCarbon = document["weeklyDecreaseCarbon"] as? Double,
                       let totalSecond = document["totalSecond"] as? Int
                 else { return }
-                
+                weeklyTotalDecreseCarbon += weeklyDecreaseCarbon
                 StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: weeklyDecreaseCarbon, walkingDistance: weeklyDistance, walkingTime: totalSecond, baseDate: i.weekToString()))
-                print(weeklyDistance)
-                print(weeklyDecreaseCarbon)
             }
-            
         }
+        FirebaseController.weeklyTotalDecreaseCarbon = weeklyTotalDecreseCarbon
+        print("제발 좀.. 이건? \(FirebaseController.weeklyTotalDecreaseCarbon)")
     }
     
     // 월간 데이터 저장.
@@ -165,7 +163,6 @@ class FirebaseController {
         let today = Date()
         let presentMonth = today.findMonth()
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-monthly")/\(presentMonth)")
-        
         path.getDocument { (document, error) in
             if let document = document?.data(), document.count != 0 {
                 guard let monthlyDistance = document["monthlyDistance"] as? Double,
@@ -192,6 +189,7 @@ class FirebaseController {
         let today = Date()
         let presentMonth = today.findMonth().components(separatedBy: "-").map({(value : String) -> Int in return Int(value)!})
         // 이번달, 지난달, 2달 전, 3달 전 데이터 가져오기.
+        var monthlyTotalDecreseCarbon = 0.0
         for i in 0...4 {
             let interval = Int(i)
             var currentMonth = presentMonth[1] - interval
@@ -210,6 +208,7 @@ class FirebaseController {
                       let monthlyDecreaseCarbon = document["monthlyDecreaseCarbon"] as? Double,
                       let monthlyTotalSecond = document["totalSecond"] as? Int
                 else { return }
+                monthlyTotalDecreseCarbon += monthlyDecreaseCarbon
                 StatisticsViewModel.monthlyStatisticsList.append(Statistics(reducedCarbon: monthlyDecreaseCarbon, walkingDistance: monthlyDistance, walkingTime: monthlyTotalSecond, baseDate: i.monthToString()))
                 
                 print(monthlyDistance)
@@ -217,6 +216,7 @@ class FirebaseController {
             }
             
         }
+        FirebaseController.monthlyTotalDecreaseCarbon = monthlyTotalDecreseCarbon
     }
 }
 

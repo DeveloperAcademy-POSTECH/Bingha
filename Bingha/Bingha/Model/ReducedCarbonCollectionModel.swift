@@ -9,5 +9,5 @@ import Foundation
 
 struct ReducedCarbonCollection {
     let reducedCarbonPeriod: String
-    let reducedCarbonAmount: String
+    let reducedCarbonAmount: Double
 }
