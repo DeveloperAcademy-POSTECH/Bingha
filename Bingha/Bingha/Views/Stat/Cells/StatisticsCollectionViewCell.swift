@@ -43,17 +43,17 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
 extension Double {
     // 탄소 저감량 스트링으로 변환. 라벨에 매핑을 위해
     func reducedCarbonToString() -> String {
-        return String(format: "%.1", self) + "g"
+        return String(format: "%.1f", self) + "g"
     }
     // 이동 거리 스트링으로 변환. 라벨에 매핑을 위해
     func walkingDistanceToString() -> String {
-        return String(format: "%.1", self) + "km"
+        return String(format: "%.1f", self) + "km"
     }
 }
 extension Int {
     // 이동 시간 초 -> 분으로 변환. 라벨 매핑을 위해.
     func walkingTimeToString() -> String {
         let minutes = Double(self) / Double(60)
-        return String(format: "%.1", minutes) + "분"
+        return String(format: "%.1f", minutes) + "분"
     }
 }
