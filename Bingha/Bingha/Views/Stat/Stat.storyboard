@@ -43,6 +43,9 @@
                                                         <segment title="주"/>
                                                         <segment title="월"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="switchSegment:" destination="Y6W-OH-hqX" eventType="valueChanged" id="tD8-J0-Euf"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
