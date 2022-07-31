@@ -105,7 +105,7 @@ class FirebaseController {
     }
     
     // 주간 데이터 저장. 운동 끝나는 시간 넣을까?
-    func saveWeeklyData(endTime: Date, distance: Double, decreaseCarbon: Double) {
+    func saveWeeklyData(endTime: Date, distance: Double, decreaseCarbon: Double, totalSecond:Int) {
         // 오늘 날짜로부터 월요일날짜 구하기.
         let startDay = endTime.findMonday()
         let startDayToString = startDay.changeDayToString()
@@ -116,19 +116,20 @@ class FirebaseController {
         path.getDocument { (document, error) in
             if let document = document?.data(), document.count != 0 {
                 guard let weeklyDistance = document["weeklyDistance"] as? Double,
-                      let weeklyDecrease = document["weeklyDecreaseCarbon"] as? Double
+                      let weeklyDecrease = document["weeklyDecreaseCarbon"] as? Double,
+                      let weeklyTotalSecond = document["totalSecond"] as? Int
                 else { return }
                 path.setData([
                     "weeklyDistance": distance + weeklyDistance,
-                    "weeklyDecreaseCarbon": decreaseCarbon + weeklyDecrease
+                    "weeklyDecreaseCarbon": decreaseCarbon + weeklyDecrease,
+                    "totalSecond": weeklyTotalSecond + totalSecond
                 ])
                 // 근데 경로가 없다면? 생성해준다!
             } else {
-                print("여기????")
-                // 시작시간, 끝 시간, 거리, 탄소 저감량 저장.
                 path.setData([
                     "weeklyDistance": distance,
-                    "weeklyDecreaseCarbon": decreaseCarbon
+                    "weeklyDecreaseCarbon": decreaseCarbon,
+                    "totalSecond": totalSecond
                 ])
             }
         }
@@ -146,10 +147,12 @@ class FirebaseController {
             let snapshot = try await path.getDocument()
             
             if let document = snapshot.data(), document.count != 0 {
-                //MARK: 얘네 저장만 해주면 끝
                 guard let weeklyDistance = document["weeklyDistance"] as? Double,
-                      let weeklyDecreaseCarbon = document["weeklyDecreaseCarbon"] as? Double
+                      let weeklyDecreaseCarbon = document["weeklyDecreaseCarbon"] as? Double,
+                      let totalSecond = document["totalSecond"] as? Int
                 else { return }
+                
+                StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: String(weeklyDecreaseCarbon), walkingDistance: String(weeklyDistance), walkingTime: String(totalSecond), baseDate: i.weekToString()))
                 print(weeklyDistance)
                 print(weeklyDecreaseCarbon)
             }
@@ -158,24 +161,27 @@ class FirebaseController {
     }
     
     // 월간 데이터 저장.
-    func saveMonthlyData(endTime: Date, distance: Double, decreaseCarbon: Double) {
+    func saveMonthlyData(endTime: Date, distance: Double, decreaseCarbon: Double, totalSecond: Int) {
         let today = Date()
         let presentMonth = today.findMonth()
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-monthly")/\(presentMonth)")
         
         path.getDocument { (document, error) in
             if let document = document?.data(), document.count != 0 {
-                guard let weeklyDistance = document["monthlyDistance"] as? Double,
-                      let weeklyDecrease = document["monthlyDecreaseCarbon"] as? Double
+                guard let monthlyDistance = document["monthlyDistance"] as? Double,
+                      let monthlyDecreaseCarbon = document["monthlyDecreaseCarbon"] as? Double,
+                      let monthlyTotalSecond = document["totalSecond"] as? Int
                 else { return }
                 path.setData([
-                    "monthlyDistance": distance + weeklyDistance,
-                    "monthlyDecreaseCarbon": decreaseCarbon + weeklyDecrease
+                    "monthlyDistance": distance + monthlyDistance,
+                    "monthlyDecreaseCarbon": decreaseCarbon + monthlyDecreaseCarbon,
+                    "totalSecond": monthlyTotalSecond + totalSecond
                 ])
             } else {
                 path.setData([
                     "monthlyDistance": distance,
-                    "monthlyDecreaseCarbon": decreaseCarbon
+                    "monthlyDecreaseCarbon": decreaseCarbon,
+                    "totalSecond": totalSecond
                 ])
             }
         }
@@ -201,15 +207,44 @@ class FirebaseController {
             if let document = snapshot.data(), document.count != 0 {
                 //MARK: 얘네 저장만 해주면 끝
                 guard let monthlyDistance = document["monthlyDistance"] as? Double,
-                      let monthlyDecreaseCarbon = document["monthlyDecreaseCarbon"] as? Double
+                      let monthlyDecreaseCarbon = document["monthlyDecreaseCarbon"] as? Double,
+                      let monthlyTotalSecond = document["totalSecond"] as? Int
                 else { return }
+                StatisticsViewModel.monthlyStatisticsList.append(Statistics(reducedCarbon: String(monthlyDecreaseCarbon), walkingDistance: String(monthlyDistance), walkingTime: String(monthlyTotalSecond), baseDate: i.monthToString()))
+                
                 print(monthlyDistance)
                 print(monthlyDecreaseCarbon)
             }
             
         }
     }
+}
+
+
+
+// 날짜를 String으로 표시하기 위한 익스텐션
+extension Int {
+    // 이번 주, 지난 주, 2주 전, 3주 전 표시를 위함
     
+    func weekToString() -> String {
+        switch self {
+        case 0: return "이번 주"
+        case 1: return "지난 주"
+        case 2: return "2주 전"
+        case 3: return "3주 전"
+        default: return "이번 주"
+        }
+    }
+    // 이번 달, 지난 달, 2달 전, 3달 전 표시를 위함.
+    func monthToString() -> String {
+        switch self {
+        case 0: return "이번 달"
+        case 1: return "지난 달"
+        case 2: return "2달 전"
+        case 3: return "3달 전"
+        default: return "이번 달"
+        }
+    }
     
 }
 

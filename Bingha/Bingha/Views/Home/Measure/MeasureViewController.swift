@@ -263,19 +263,23 @@ class MeasureViewController: UIViewController {
     
     private func saveData() {
         // 시작시간 있을때만 파이어스토어에 저장.
-        // 주간 데이터 업데이트.
-//        firebaseController.saveWeeklyData(endTime: Date(), distance: 3.0, decreaseCarbon: 3.0)
-//        firebaseController.saveMonthlyData(endTime: Date(), distance: 5.0, decreaseCarbon: 5.0)
         if let startDate = startDate {
             firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
+            firebaseController.saveWeeklyData(endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
+            firebaseController.saveMonthlyData(endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
         }
         
         Task {
+            // 여기 굳이 비동기로 다시 받아올 필요 없을듯. 처음에 불러오니까 그냥 그 값을 활용한 업데이트만 하자.
             try await firebaseController.loadIcebergData()
             firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
-            // 워간 데이터 로드
+            // 월간 데이터 로드
 //            try await firebaseController.loadMonthlyData()
         }
     }
+    
+
+    
+    
     
 }
