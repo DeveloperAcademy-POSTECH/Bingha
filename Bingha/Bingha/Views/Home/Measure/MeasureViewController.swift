@@ -171,7 +171,14 @@ class MeasureViewController: UIViewController {
         startButton.layer.shadowOpacity = 0.2
         startButton.layer.shadowOffset = CGSize(width: 0, height: 2)
         startButton.layer.shadowColor = UIColor.darkGray.cgColor
-        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        startButton.titleLabel?.font = UIFont.rounded(ofSize: 32, weight: .bold)
+        
+        //글꼴 설정
+        walkingDistanceLabel.font = .rounded(ofSize: 36, weight: .bold)
+        totalReducedCarbonLabel.font = .rounded(ofSize: 48, weight: .bold)
+        reducedCarbonLabel.font = .rounded(ofSize: 36, weight: .bold)
+        timerLabel.font = .rounded(ofSize: 15, weight: .medium)
+        
     }
     
     private func requestAuthorization() {
