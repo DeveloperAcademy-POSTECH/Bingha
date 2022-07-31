@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "PineTree.png",
+      "filename" : "OnBoarding-3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "PineTree-1.png",
+      "filename" : "OnBoarding-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "PineTree-2.png",
+      "filename" : "OnBoarding-4.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
