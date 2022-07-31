@@ -170,7 +170,7 @@
                             <constraint firstItem="HWe-Eq-FzX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xcr-bA-xsz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Measure" image="house" catalog="system" id="N3M-5k-kCM"/>
+                    <tabBarItem key="tabBarItem" title="Measure" image="TabBarHome" id="N3M-5k-kCM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="5Of-jw-Kgn" id="MOZ-iV-ffc"/>
@@ -199,7 +199,7 @@
     </scenes>
     <resources>
         <image name="StandingMan" width="640" height="640"/>
-        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="TabBarHome" width="200" height="200"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

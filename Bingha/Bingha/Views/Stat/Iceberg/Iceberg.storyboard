@@ -70,7 +70,7 @@
                             <constraint firstItem="uTq-6M-TDR" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="77" id="lYC-u8-npG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Iceberg" image="snowflake" catalog="system" id="ox0-hc-D7E"/>
+                    <tabBarItem key="tabBarItem" title="Iceberg" image="TabBarBingha" id="ox0-hc-D7E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="informationLabel" destination="aIv-UI-e5q" id="07f-us-oai"/>
@@ -85,7 +85,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="snowflake" catalog="system" width="121" height="128"/>
+        <image name="TabBarBingha" width="35" height="35"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
