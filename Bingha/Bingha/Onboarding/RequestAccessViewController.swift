@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class RequestAccessViewController: UIViewController {
     
@@ -14,6 +15,8 @@ class RequestAccessViewController: UIViewController {
     @IBAction func startButtonTapped(_ sender: Any) {
         skipToMainVC()
     }
+    
+    let cmPedometer = CMPedometer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class RequestAccessViewController: UIViewController {
     }
     
     private func skipToMainVC() {
+        cmPedometer.stopUpdates()
+        
         // 유저디폴트에 저장하기.
         let defaults = UserDefaults.standard
         if defaults.object(forKey: "isFirst") != nil {
