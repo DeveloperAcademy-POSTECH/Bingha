@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import SwiftUI
 
 class MeasureViewController: UIViewController {
     
@@ -22,11 +23,25 @@ class MeasureViewController: UIViewController {
 
     let firebaseController = FirebaseController()
     let walkerAnimationView = AnimationView()
-    let backgroundAnimationView = AnimationView()
+    let measureBackgroundAnimationView = UIHostingController(rootView: MeasureBackgroundAnimation())
 
     var timer: Timer?
     
     let healthStore: HealthStore = HealthStore.shared
+    let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
+    
+    var healthAuthority: HealthStore.Authority = .notAuthorized {
+        didSet {
+            switch healthAuthority {
+            case .approved:
+                debugPrint("사용자가 HealthKit권한을 승인하였습니다.")
+                measureStartDistance()
+                startTimer()
+            default:
+                debugPrint("사용자가 HealthKit권한을 승인하지 않았습니다.")
+            }
+        }
+    }
     
     var anchorDate = Calendar.current.startOfDay(for: Date())
     var startDate: Date?
@@ -49,8 +64,6 @@ class MeasureViewController: UIViewController {
         setNotification()
         setAttribute()
 
-        // 비동기 처리. 파이어베이스에서 오늘 총 탄소 저감량 데이터 불러와서 라벨에 매핑.
-        loadTodayCarbondata()
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
@@ -59,8 +72,7 @@ class MeasureViewController: UIViewController {
             totalSecond = 0
             startDate = Date()
             
-            startTimer()
-            measureStartDistance()
+            requestAuthorization()
             playAnimation()
             changeToEndButton()
             sender.tag = 1
@@ -71,7 +83,6 @@ class MeasureViewController: UIViewController {
             
             saveData()
             totalDistance += distanceDiff
-            
             setDefaultView()
             
             let minutes = (totalSecond % 3600) / 60
@@ -99,7 +110,7 @@ class MeasureViewController: UIViewController {
         walkerImageView.image = UIImage(named: "StandingMan")
         walkerImageView.frame = CGRect(x: 0, y: 5, width: 58, height: 58)
         walkerAnimationView.isHidden = true
-        view.backgroundColor = .white
+        measureBackgroundAnimationView.view.removeFromSuperview()
     }
     
     // 시작 버튼에서 완료 버튼으로 변환
@@ -123,16 +134,21 @@ class MeasureViewController: UIViewController {
         walkerAnimationView.play()
     }
     
-    // background 애니메이션 (임시)
+    // background 애니메이션
     private func playBackgroundAnimation() {
-        view.backgroundColor = UIColor(displayP3Red: 0.87, green: 0.93, blue: 0.93, alpha: 1)
+        view.insertSubview(measureBackgroundAnimationView.view, at: 0)
+        measureBackgroundAnimationView.didMove(toParent: self)
+        measureBackgroundAnimationView.view.translatesAutoresizingMaskIntoConstraints = false
+        measureBackgroundAnimationView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        measureBackgroundAnimationView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        measureBackgroundAnimationView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        measureBackgroundAnimationView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     private func playAnimation() {
         playWalkAnimation()
         playBackgroundAnimation()
     }
-    
     
     // 이동거리뷰, 탄소배출 저감량뷰, 시작버튼 커스텀
     private func setAttribute() {
@@ -158,12 +174,26 @@ class MeasureViewController: UIViewController {
         startButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
     }
     
+    private func requestAuthorization() {
+        healthStore.requestAuthorization { [weak self] isApproved in
+            guard let self = self else { return }
+            if isApproved {
+                self.healthAuthority = .approved
+            } else {
+                self.healthAuthority = .notAuthorized
+            }
+        }
+    }
+    
     private func measureStartDistance() {
         healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
             guard let self = self else { return }
             
             self.startDistance = distance
             self.distanceDiff = 0.0
+            
+            self.walkingDistanceLabel.text = "0.0km"
+            self.reducedCarbonLabel.text = "0g"
         }
     }
     
@@ -173,25 +203,32 @@ class MeasureViewController: UIViewController {
             
             self.endDistance = distance
             self.distanceDiff = (self.endDistance - self.startDistance)
+            
+            self.walkingDistanceLabel.text = "\(self.distanceDiff)" + "km"
+            self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.distanceDiff))" + "g"
         }
     }
     
     private func startTimer() {
         isTimerOn = true
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.totalSecond += 1
-            
-            if (self.totalSecond % 30) == 0 {
-                self.measureEndDistance()
-                self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + ReducedCarbonCalculator.shared.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
+        
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.totalSecond += 1
+                
+                if (self.totalSecond % 30) == 0 {
+                    self.measureEndDistance()
+                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
+                }
+                
+                // 타이머표시 Label에서 사용할 변수
+                let minutes = (self.totalSecond % 3600) / 60
+                let seconds = (self.totalSecond % 3600) % 60
+                
+                self.timerLabel.text = String(format: "%d:%02d", minutes, seconds)
             }
-            
-            // 타이머표시 Label에서 사용할 변수
-            let minutes = (self.totalSecond % 3600) / 60
-            let seconds = (self.totalSecond % 3600) % 60
-            self.timerLabel.text = String(format: "%d:%02d", minutes, seconds)
         }
     }
     
@@ -224,23 +261,20 @@ class MeasureViewController: UIViewController {
         UserDefaults.standard.setValue(totalSecond, forKey: "totalSecond")
     }
     
-    private func loadTodayCarbondata() {
-        Task {
-            try await firebaseController.loadTodayCarbonData()
-            todayCarbonDecrease = FirebaseController.carbonModel.todayTotalDecreaseCarbon
-            totalReducedCarbonLabel.text = todayCarbonDecrease.setOneDemical() + "g"
-        }
-    }
-    
     private func saveData() {
         // 시작시간 있을때만 파이어스토어에 저장.
+        // 주간 데이터 업데이트.
+//        firebaseController.saveWeeklyData(endTime: Date(), distance: 3.0, decreaseCarbon: 3.0)
+//        firebaseController.saveMonthlyData(endTime: Date(), distance: 5.0, decreaseCarbon: 5.0)
         if let startDate = startDate {
-            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: distanceDiff))
+            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff))
         }
         
         Task {
             try await firebaseController.loadIcebergData()
-            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: ReducedCarbonCalculator.shared.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
+            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
+            // 워간 데이터 로드
+//            try await firebaseController.loadMonthlyData()
         }
     }
     
