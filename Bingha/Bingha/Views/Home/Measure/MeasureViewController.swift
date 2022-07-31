@@ -268,22 +268,22 @@ class MeasureViewController: UIViewController {
             firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
             firebaseController.saveWeeklyData(endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
             firebaseController.saveMonthlyData(endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
-        }
-        
-        Task {
-            // 여기 굳이 비동기로 다시 받아올 필요 없을듯. 처음에 불러오니까 그냥 그 값을 활용한 업데이트만 하자.
-            try await firebaseController.loadIcebergData()
             firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
+        }
+            
             // 월간 데이터 로드
 //            try await firebaseController.loadMonthlyData()
-        }
     }
     
     // 운동 끝날을 때 데이터 업데이트.
     private func updateLocalData() {
-        // 오늘 운동 로컬에 추가해주기. 아주 잘 된다 ㅎㅎ.
-        StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "오늘"))
+        // 오늘 토탈 저감량, 방금 저감량, 방금 운동거리 업데이트.
+        FirebaseController.carbonModel.todayTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
+        FirebaseController.carbonModel.totalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
+        FirebaseController.carbonModel.totalDistance += distanceDiff
         
+        // 오늘 운동 추가해주기.
+        StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "오늘"))
         // 주간 운동 로컬에 추가해주기.
         if StatisticsViewModel.weeklyStatisticsList.count > 0 {
             if StatisticsViewModel.weeklyStatisticsList[0].baseDate == "이번 주" {
