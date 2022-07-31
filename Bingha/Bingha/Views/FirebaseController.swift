@@ -61,13 +61,13 @@ class FirebaseController {
             for value in values {
                 guard let parsedDictionary = value as? [String: Any],
                       let decreaseCarbon = parsedDictionary["decreaseCarbon"] as? Double,
-//                      let totalSecond = parsedDictionary["totalSecond"] as? Int,
+                      let totalSecond = parsedDictionary["totalSecond"] as? Int,
 //                      let endTime = parsedDictionary["endTime"] as? Timestamp,
                       let distance = parsedDictionary["distance"] as? Double
                 else {
                     return }
                 todayTotalDecreseCarbon += decreaseCarbon
-                StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: String(format: "%02d", decreaseCarbon) + "kg", walkingDistance: String(distance) + "km", walkingTime: "오늘", baseDate: "오늘"))
+                StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: decreaseCarbon, walkingDistance: distance, walkingTime: totalSecond, baseDate: "오늘"))
                 
             }
             FirebaseController.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreseCarbon
@@ -152,7 +152,7 @@ class FirebaseController {
                       let totalSecond = document["totalSecond"] as? Int
                 else { return }
                 
-                StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: String(weeklyDecreaseCarbon), walkingDistance: String(weeklyDistance), walkingTime: String(totalSecond), baseDate: i.weekToString()))
+                StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: weeklyDecreaseCarbon, walkingDistance: weeklyDistance, walkingTime: totalSecond, baseDate: i.weekToString()))
                 print(weeklyDistance)
                 print(weeklyDecreaseCarbon)
             }
@@ -210,7 +210,7 @@ class FirebaseController {
                       let monthlyDecreaseCarbon = document["monthlyDecreaseCarbon"] as? Double,
                       let monthlyTotalSecond = document["totalSecond"] as? Int
                 else { return }
-                StatisticsViewModel.monthlyStatisticsList.append(Statistics(reducedCarbon: String(monthlyDecreaseCarbon), walkingDistance: String(monthlyDistance), walkingTime: String(monthlyTotalSecond), baseDate: i.monthToString()))
+                StatisticsViewModel.monthlyStatisticsList.append(Statistics(reducedCarbon: monthlyDecreaseCarbon, walkingDistance: monthlyDistance, walkingTime: monthlyTotalSecond, baseDate: i.monthToString()))
                 
                 print(monthlyDistance)
                 print(monthlyDecreaseCarbon)

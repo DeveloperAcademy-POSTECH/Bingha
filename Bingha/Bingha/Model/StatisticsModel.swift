@@ -8,9 +8,9 @@
 import Foundation
 
 struct Statistics {
-    let reducedCarbon: String
-    let walkingDistance: String
-    let walkingTime: String
+    var reducedCarbon: Double
+    var walkingDistance: Double
+    var walkingTime: Int
     var baseDate: String
 //    var banner: String = """
 // ________  ___  ________   ________  ___  ___  ________

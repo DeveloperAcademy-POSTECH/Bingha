@@ -20,7 +20,6 @@ class StatViewController: UIViewController {
     let statisticsHeaderID = "CollectionViewStatisticsHeader"
     let statisticsID: String = "StatisticsCollectionViewCell"
     
-    
     // 여기서 컨트롤 하면 될듯.statisticsViewModel에 들어갈 값 변경해주고, compareViewModel 들어갈 값만 변경해주면 끝. 굳굳.
     @IBAction func switchSegment(_ sender: UISegmentedControl) {
         // 세그먼트 변할 때 마다 데이터 매핑시켜주기. 개꿀!
