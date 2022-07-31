@@ -38,12 +38,9 @@ class IcebergViewController: UIViewController {
     }
     
     private func fetchTotalDistance() {
-        Task {
-            try await firebaseController.loadIcebergData()
-            setLevelLabel(level: IcebergLevelCalculator.shared.requestIcebergLevel(distance: FirebaseController.carbonModel.totalDistance))
-            setReducedCarbonLabel(distance: FirebaseController.carbonModel.totalDistance)
-            setUpCircularProgressBarView(distance: FirebaseController.carbonModel.totalDistance)
-        }
+        setLevelLabel(level: IcebergLevelCalculator.shared.requestIcebergLevel(distance: FirebaseController.carbonModel.totalDistance))
+        setReducedCarbonLabel(distance: FirebaseController.carbonModel.totalDistance)
+        setUpCircularProgressBarView(distance: FirebaseController.carbonModel.totalDistance)
     }
     
     private func playBackgroundAnimation() {

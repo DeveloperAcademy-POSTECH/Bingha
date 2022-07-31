@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -57,56 +56,8 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="412" height="40"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="CollectionViewReducedCarbon" id="BCU-7A-Vhu" customClass="CompareCollectionViewCell" customModule="Bingha" customModuleProvider="target">
-                                        <rect key="frame" x="1" y="50" width="412" height="99"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eHu-Dw-ZPI">
-                                            <rect key="frame" x="0.0" y="0.0" width="412" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z5b-NG-ePp">
-                                                    <rect key="frame" x="0.0" y="8" width="412" height="83"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 총 탄소배출 저감량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qml-mh-7b0">
-                                                            <rect key="frame" x="0.0" y="0.0" width="412" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="CEw-Bm-hSx"/>
-                                                                <constraint firstAttribute="width" constant="372" id="oS1-s2-wSG"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1074g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-7f-HM5">
-                                                            <rect key="frame" x="0.0" y="40" width="412" height="43"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                                            <color key="textColor" name="Primary"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="tdb-7f-HM5" secondAttribute="trailing" id="2hk-Bc-ond"/>
-                                                        <constraint firstItem="qml-mh-7b0" firstAttribute="centerX" secondItem="Z5b-NG-ePp" secondAttribute="centerX" id="54O-Ch-JpU"/>
-                                                        <constraint firstItem="qml-mh-7b0" firstAttribute="centerX" secondItem="Z5b-NG-ePp" secondAttribute="centerX" id="O2j-tM-F95"/>
-                                                        <constraint firstAttribute="height" constant="83" id="YWI-pr-65K"/>
-                                                        <constraint firstItem="tdb-7f-HM5" firstAttribute="centerX" secondItem="Z5b-NG-ePp" secondAttribute="centerX" id="gZP-e1-vxp"/>
-                                                        <constraint firstItem="tdb-7f-HM5" firstAttribute="leading" secondItem="Z5b-NG-ePp" secondAttribute="leading" id="i0T-Sh-fFB"/>
-                                                        <constraint firstAttribute="trailing" secondItem="qml-mh-7b0" secondAttribute="trailing" id="iqq-2w-2IU"/>
-                                                        <constraint firstItem="qml-mh-7b0" firstAttribute="leading" secondItem="Z5b-NG-ePp" secondAttribute="leading" id="qR7-VZ-7vf"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Z5b-NG-ePp" firstAttribute="leading" secondItem="eHu-Dw-ZPI" secondAttribute="leading" id="9Iu-zA-3Y0"/>
-                                                <constraint firstAttribute="trailing" secondItem="Z5b-NG-ePp" secondAttribute="trailing" id="Hov-FC-vEf"/>
-                                                <constraint firstItem="Z5b-NG-ePp" firstAttribute="centerY" secondItem="eHu-Dw-ZPI" secondAttribute="centerY" id="hUW-ch-Dt4"/>
-                                                <constraint firstItem="Z5b-NG-ePp" firstAttribute="centerX" secondItem="eHu-Dw-ZPI" secondAttribute="centerX" id="rTr-P2-nze"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="412" height="99"/>
-                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" reuseIdentifier="CollectionViewCompareHeader" id="yYt-iX-Y9d">
-                                        <rect key="frame" x="1" y="159" width="412" height="40"/>
+                                        <rect key="frame" x="1" y="50" width="412" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DX0-zL-e4I">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="40"/>
@@ -129,7 +80,7 @@
                                         <size key="customSize" width="412" height="40"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="center" reuseIdentifier="CollectionViewStatisticsHeader" id="Qgu-zD-v0c">
-                                        <rect key="frame" x="1" y="209" width="412" height="40"/>
+                                        <rect key="frame" x="1" y="100" width="412" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fDp-Qh-YMn">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="40"/>
@@ -199,7 +150,7 @@
                             <constraint firstItem="Sx5-c0-VaD" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="wCX-1x-Wef"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chart" image="newspaper" catalog="system" id="i6Q-H2-oOw"/>
+                    <tabBarItem key="tabBarItem" title="Chart" image="TabBarChart" id="i6Q-H2-oOw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Sx5-c0-VaD" id="XaZ-vh-3If"/>
@@ -211,8 +162,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TabBarChart" width="35" height="35"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="newspaper" catalog="system" width="128" height="111"/>
         <namedColor name="Primary">
             <color red="0.13725490196078433" green="0.72156862745098038" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

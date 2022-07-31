@@ -241,22 +241,19 @@ class MeasureViewController: UIViewController {
             firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
             firebaseController.saveWeeklyData(endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
             firebaseController.saveMonthlyData(endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
-        }
-        
-        Task {
-            // 여기 굳이 비동기로 다시 받아올 필요 없을듯. 처음에 불러오니까 그냥 그 값을 활용한 업데이트만 하자.
-            try await firebaseController.loadIcebergData()
             firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + walkingDistance, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + walkingDistance))
-            // 월간 데이터 로드
-//            try await firebaseController.loadMonthlyData()
         }
     }
     
     // 운동 끝날을 때 데이터 업데이트.
     private func updateLocalData() {
-        // 오늘 운동 로컬에 추가해주기. 아주 잘 된다 ㅎㅎ.
+        // 오늘 토탈 저감량, 방금 저감량, 방금 운동거리 업데이트.
+        FirebaseController.todayTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+        FirebaseController.weeklyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+        FirebaseController.monthlyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+        // 오늘 운동 추가해주기.
         StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "오늘"))
-        
+
         // 주간 운동 로컬에 추가해주기.
         if StatisticsViewModel.weeklyStatisticsList.count > 0 {
             if StatisticsViewModel.weeklyStatisticsList[0].baseDate == "이번 주" {
@@ -264,9 +261,11 @@ class MeasureViewController: UIViewController {
                 StatisticsViewModel.weeklyStatisticsList[0].walkingDistance += walkingDistance
                 StatisticsViewModel.weeklyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
                 StatisticsViewModel.weeklyStatisticsList[0].walkingTime += totalSecond
+                
             } else {
                 StatisticsViewModel.weeklyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 주"), at: 0)
             }
+            
         } else {
             StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 주"))
         }
@@ -281,6 +280,7 @@ class MeasureViewController: UIViewController {
             } else {
                 StatisticsViewModel.monthlyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 달"), at: 0)
             }
+            
         } else {
             StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 달"))
         }

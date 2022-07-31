@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "OnBoarding-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "OnBoarding-2.png",
+      "filename" : "TabBar-Home.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "OnBoarding-3.png",
+      "filename" : "TabBar-Home-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
