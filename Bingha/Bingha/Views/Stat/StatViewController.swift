@@ -9,6 +9,13 @@ import UIKit
 
 class StatViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+
+    @IBAction func licenseButtonAction(_ sender: Any) {
+        print("button touch")
+        let uvc = self.storyboard!.instantiateViewController(withIdentifier: "licenseViewController")
+        uvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        self.present(uvc, animated: true)
+    }
     
     let compareViewModel: CompareViewModel = CompareViewModel()
     let statisticsViewModel: StatisticsViewModel = StatisticsViewModel()
