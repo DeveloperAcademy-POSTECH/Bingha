@@ -28,21 +28,8 @@ class MeasureViewController: UIViewController {
 
     var timer: Timer?
     
-    let healthStore: HealthStore = HealthStore.shared
     let cmPedometer = CMPedometer()
     let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
-    
-    var motionAuthority: Authority = .notAuthorized {
-        didSet {
-            switch motionAuthority {
-            case .approved:
-                debugPrint("사용자가 Motion 데이터 사용 권한을 승인하였습니다.")
-                startTimer()
-            default:
-                debugPrint("사용자가 Motion 데이터 사용 권한을 승인하지 않았습니다.")
-            }
-        }
-    }
     
     var anchorDate = Calendar.current.startOfDay(for: Date())
     var startDate: Date?
@@ -73,7 +60,6 @@ class MeasureViewController: UIViewController {
             totalSecond = 0
             startDate = Date()
             
-//            requestAuthorization()
             startMeasurement()
             playAnimation()
             changeToEndButton()
@@ -82,7 +68,6 @@ class MeasureViewController: UIViewController {
         else if (sender.tag == 1) {
             endTimer()
             stopMeasurement()
-//            measureEndDistance()
             
             saveData()
             totalDistance += walkingDistance
@@ -180,29 +165,6 @@ class MeasureViewController: UIViewController {
         startButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
     }
     
-    private func requestAuthorization() {
-        healthStore.requestAuthorization { [weak self] isApproved in
-            guard let self = self else { return }
-            if isApproved {
-                self.motionAuthority = .approved
-            } else {
-                self.motionAuthority = .notAuthorized
-            }
-        }
-    }
-    
-    private func measureStartDistance() {
-        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
-            guard let self = self else { return }
-            
-            self.startDistance = distance
-            self.walkingDistance = 0.0
-            
-            self.walkingDistanceLabel.text = "0.0km"
-            self.reducedCarbonLabel.text = "0g"
-        }
-    }
-    
     private func startMeasurement() {
         walkingDistance = 0.0
         walkingDistanceLabel.text = "0.0km"
@@ -229,18 +191,6 @@ class MeasureViewController: UIViewController {
     
     private func stopMeasurement() {
         cmPedometer.stopUpdates()
-    }
-    
-    private func measureEndDistance() {
-        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
-            guard let self = self else { return }
-            
-            self.endDistance = distance
-            self.walkingDistance = (self.endDistance - self.startDistance)
-            
-            self.walkingDistanceLabel.text = "\(self.walkingDistance)" + "km"
-            self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.walkingDistance))" + "g"
-        }
     }
     
     private func startTimer() {
@@ -284,8 +234,6 @@ class MeasureViewController: UIViewController {
             let time = notification.userInfo?["time"] as? Int ?? 0
             totalSecond = time
             
-            // endMeasurement를 실행할 경우 이동거리 업데이트
-            measureEndDistance()
             startTimer()
         }
     }
