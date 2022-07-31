@@ -150,7 +150,7 @@
                             <constraint firstItem="Sx5-c0-VaD" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="wCX-1x-Wef"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chart" image="newspaper" catalog="system" id="i6Q-H2-oOw"/>
+                    <tabBarItem key="tabBarItem" title="Chart" image="TabBarChart" id="i6Q-H2-oOw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Sx5-c0-VaD" id="XaZ-vh-3If"/>
@@ -162,8 +162,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TabBarChart" width="35" height="35"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="newspaper" catalog="system" width="128" height="111"/>
         <namedColor name="Primary">
             <color red="0.13725490196078433" green="0.72156862745098038" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

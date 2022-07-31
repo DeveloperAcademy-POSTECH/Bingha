@@ -33,6 +33,7 @@ class CompareCollectionViewCell: UICollectionViewCell {
         let compareImage = UIImage(named: info.compareImage)!
         compareImageView.image = compareImage
         compareAmountLabel.text = info.compareAmount
+        compareAmountLabel.font = .rounded(ofSize: 20, weight: .semibold)
         compareDescriptionLabel.text = info.compareDescription
     }
 }

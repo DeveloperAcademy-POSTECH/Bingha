@@ -38,6 +38,10 @@ class CompleteViewController: UIViewController {
         exitButtonCustom()
         
         //Label 폰트 커스텀
+        setRoundedFont(labelName: reducedCarbonLabel)
+        setRoundedFont(labelName: todayReducedCarbonLabel)
+        setRoundedFont(labelName: moveDistanceLabel)
+        setRoundedFont(labelName: timeDurationLabel)
         
         //데이터 연결
         self.reducedCarbonLabel.text = reducedCarbon
@@ -48,18 +52,17 @@ class CompleteViewController: UIViewController {
     
     //View 커스텀 함수
     func viewCornerAndShadowCustom(viewName: UIView) {
-        //모서리 radius 20
-        viewName.layer.cornerRadius = 20
-        //그림자 구현
-        viewName.layer.shadowOffset = CGSize(width: 0, height: 2)
-        viewName.layer.shadowOpacity = 0.25
-        viewName.layer.cornerRadius = 15
+        //모서리 radius 14
+        viewName.layer.cornerRadius = 14
+//        //그림자 구현
+//        viewName.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        viewName.layer.shadowOpacity = 0.25
+//        viewName.layer.cornerRadius = 15
+        
     }
     
-    // TODO: Label 폰트 커스텀 함수
     func setRoundedFont(labelName: UILabel) {
-//        UILabel.font.UIFont(descriptor: rounded, size: 0)
-        
+        labelName.font = .rounded(ofSize: 38, weight: .semibold)
     }
     
     // TODO: exitModalButton커스텀

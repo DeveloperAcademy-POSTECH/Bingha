@@ -210,7 +210,7 @@
                                     <constraint firstAttribute="height" constant="50" id="j0u-Rp-aee"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DummyTree" translatesAutoresizingMaskIntoConstraints="NO" id="qon-EJ-Uzm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PineTree" translatesAutoresizingMaskIntoConstraints="NO" id="qon-EJ-Uzm">
                                 <rect key="frame" x="16" y="254" width="382" height="278"/>
                             </imageView>
                         </subviews>
@@ -252,7 +252,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DummyTree" width="300" height="300"/>
+        <image name="PineTree" width="300" height="300"/>
         <image name="lightbulb.fill" catalog="system" width="113" height="128"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="PointOrange">
