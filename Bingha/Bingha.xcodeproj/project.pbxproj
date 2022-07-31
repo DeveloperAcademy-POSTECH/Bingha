@@ -123,7 +123,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		394392A428919EB0007F3BDC /* Onboarding */ = {
+		394392A428919EB0007F3BDC /* OnboardingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				394392D728927C96007F3BDC /* Onboarding.storyboard */,
@@ -133,7 +133,7 @@
 				B5F9C2192895A76F009E9732 /* RequestAccessView.storyboard */,
 				B53018622895B3A2008519E1 /* RequestAccessViewController.swift */,
 			);
-			path = Onboarding;
+			path = OnboardingFiles;
 			sourceTree = "<group>";
 		};
 		39D883DB28854654006067C8 /* Extensions */ = {
@@ -183,7 +183,7 @@
 		5516E725288128B20015D64A /* Bingha */ = {
 			isa = PBXGroup;
 			children = (
-				394392A428919EB0007F3BDC /* Onboarding */,
+				394392A428919EB0007F3BDC /* OnboardingFiles */,
 				393F45F628888D9600B1055D /* BinghaRelease.entitlements */,
 				0EEC2B3828885B36007C5F91 /* Bingha.entitlements */,
 				5510E8D528887E8000918A96 /* BinghaDebug.entitlements */,
