@@ -50,42 +50,46 @@ class MeasureViewController: UIViewController {
     
     // 버튼 눌렀을 때 뷰 스위칭
     @IBAction func buttonTapped(_ sender: UIButton) {
-        if (sender.tag == 0) {
-            totalSecond = 0
-            startDate = Date()
-            
-            startTimer()
-            startMeasurement()
-            playAnimation()
-            changeToEndButton()
-            sender.tag = 1
-        }
-        else if (sender.tag == 1) {
-            endTimer()
-            stopMeasurement()
-            
-            saveData()
-            totalDistance += walkingDistance
-            setDefaultView()
-            
-            let minutes = (totalSecond % 3600) / 60
-            let seconds = (totalSecond % 3600) % 60
+        if CMPedometer.authorizationStatus() == CMAuthorizationStatus.authorized {
+            if (sender.tag == 0) {
+                totalSecond = 0
+                startDate = Date()
+                
+                startTimer()
+                startMeasurement()
+                playAnimation()
+                changeToEndButton()
+                sender.tag = 1
+            }
+            else if (sender.tag == 1) {
+                endTimer()
+                stopMeasurement()
+                
+                saveData()
+                totalDistance += walkingDistance
+                setDefaultView()
+                
+                let minutes = (totalSecond % 3600) / 60
+                let seconds = (totalSecond % 3600) % 60
 
-            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CompleteReference") as? CompleteViewController else { return }
-            
-            nextVC.reducedCarbon = reducedCarbonLabel.text ?? ""
-            nextVC.todayReducedCarbon = totalReducedCarbonLabel.text ?? ""
-            nextVC.moveDistance = walkingDistance.setOneDemical() + "Km"
-            nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
-            
-            nextVC.modalTransitionStyle = .coverVertical
-            nextVC.modalPresentationStyle = .fullScreen
-            
-            self.present(nextVC, animated: true, completion: nil)
-            sender.tag = 0
-            
-            walkingDistanceLabel.text = "0.0km"
-            reducedCarbonLabel.text = "0g"
+                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CompleteReference") as? CompleteViewController else { return }
+                
+                nextVC.reducedCarbon = reducedCarbonLabel.text ?? ""
+                nextVC.todayReducedCarbon = totalReducedCarbonLabel.text ?? ""
+                nextVC.moveDistance = walkingDistance.setOneDemical() + "Km"
+                nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
+                
+                nextVC.modalTransitionStyle = .coverVertical
+                nextVC.modalPresentationStyle = .fullScreen
+                
+                self.present(nextVC, animated: true, completion: nil)
+                sender.tag = 0
+                
+                walkingDistanceLabel.text = "0.0km"
+                reducedCarbonLabel.text = "0g"
+            }
+        } else {
+            alertAuthAlert()
         }
     }
     
@@ -241,6 +245,18 @@ class MeasureViewController: UIViewController {
         UserDefaults.standard.setValue(totalSecond, forKey: "totalSecond")
     }
     
+    func alertAuthAlert() {
+        let authAlertController = UIAlertController(title: "Motion 데이터 사용 권한이 필요합니다.", message: "Motion 데이터 사용 권한을 허용해야 이동거리 측정이 가능합니다.", preferredStyle: .alert)
+        let getAuthAction = UIAlertAction(title: "설정", style: .default) { action in
+            if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+            }
+        }
+        let denyAuthAction = UIAlertAction(title: "거부", style: .cancel, handler: nil)
+        
+        [getAuthAction, denyAuthAction].forEach { authAlertController.addAction($0) }
+        
+        self.present(authAlertController, animated: true)
     
     private func setTodayTotalCarbonlabel() {
         todayCarbonDecrease = FirebaseController.todayTotalDecreaseCarbon
