@@ -31,17 +31,12 @@ class MeasureViewController: UIViewController {
     let cmPedometer = CMPedometer()
     let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
     
-    var anchorDate = Calendar.current.startOfDay(for: Date())
     var startDate: Date?
-    
-    var startDistance: Double = 0.0
-    var endDistance: Double = 0.0
-    var walkingDistance: Double = 0.0
-    
+
     var isTimerOn = false
+    var walkingDistance: Double = 0.0
     var totalDistance = 0.0
     var totalSecond: Int = 0
-    
     var todayCarbonDecrease: Double = 0.0
     
     override func viewDidLoad() {
@@ -51,7 +46,6 @@ class MeasureViewController: UIViewController {
         
         setNotification()
         setAttribute()
-
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
@@ -60,6 +54,7 @@ class MeasureViewController: UIViewController {
             totalSecond = 0
             startDate = Date()
             
+            startTimer()
             startMeasurement()
             playAnimation()
             changeToEndButton()
@@ -177,13 +172,14 @@ class MeasureViewController: UIViewController {
                     if let error = error { print(error.localizedDescription) }
                     return
                 }
-                
+
                 DispatchQueue.main.async {
                     let distance  = Double(truncating: data.distance ?? 0) * 0.001
 
                     self.walkingDistance = distance
                     self.walkingDistanceLabel.text = "\(distance.setOneDemical())km"
                     self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.walkingDistance))"
+                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.walkingDistance)).setOneDemical() + "g")
                 }
             }
         }
@@ -201,11 +197,6 @@ class MeasureViewController: UIViewController {
                 guard let self = self else { return }
                 
                 self.totalSecond += 1
-                
-                if (self.totalSecond % 30) == 0 {
-                    self.measureEndDistance()
-                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.walkingDistance)).setOneDemical() + "g")
-                }
                 
                 // 타이머표시 Label에서 사용할 변수
                 let minutes = (self.totalSecond % 3600) / 60
@@ -293,18 +284,5 @@ class MeasureViewController: UIViewController {
         } else {
             StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 달"))
         }
-        
-        
-    }
-    
-    
-    
-}
-
-extension MeasureViewController {
-    enum Authority {
-        case notAuthorized
-        case approved
-        case rejected
     }
 }
