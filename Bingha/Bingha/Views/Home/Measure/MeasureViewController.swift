@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 import SwiftUI
+import CoreMotion
 
 class MeasureViewController: UIViewController {
     
@@ -27,33 +28,15 @@ class MeasureViewController: UIViewController {
 
     var timer: Timer?
     
-    let healthStore: HealthStore = HealthStore.shared
+    let cmPedometer = CMPedometer()
     let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
     
-    var healthAuthority: HealthStore.Authority = .notAuthorized {
-        didSet {
-            switch healthAuthority {
-            case .approved:
-                debugPrint("사용자가 HealthKit권한을 승인하였습니다.")
-                measureStartDistance()
-                startTimer()
-            default:
-                debugPrint("사용자가 HealthKit권한을 승인하지 않았습니다.")
-            }
-        }
-    }
-    
-    var anchorDate = Calendar.current.startOfDay(for: Date())
     var startDate: Date?
-    
-    var startDistance: Double = 0.0
-    var endDistance: Double = 0.0
-    var distanceDiff: Double = 0.0
-    
+
     var isTimerOn = false
+    var walkingDistance: Double = 0.0
     var totalDistance = 0.0
     var totalSecond: Int = 0
-    
     var todayCarbonDecrease: Double = 0.0
     
     override func viewDidLoad() {
@@ -63,7 +46,6 @@ class MeasureViewController: UIViewController {
         
         setNotification()
         setAttribute()
-
     }
     
     // 버튼 눌렀을 때 뷰 스위칭
@@ -72,17 +54,18 @@ class MeasureViewController: UIViewController {
             totalSecond = 0
             startDate = Date()
             
-            requestAuthorization()
+            startTimer()
+            startMeasurement()
             playAnimation()
             changeToEndButton()
             sender.tag = 1
         }
         else if (sender.tag == 1) {
             endTimer()
-            measureEndDistance()
+            stopMeasurement()
             
             saveData()
-            totalDistance += distanceDiff
+            totalDistance += walkingDistance
             setDefaultView()
             
             let minutes = (totalSecond % 3600) / 60
@@ -92,7 +75,7 @@ class MeasureViewController: UIViewController {
             
             nextVC.reducedCarbon = reducedCarbonLabel.text ?? ""
             nextVC.todayReducedCarbon = totalReducedCarbonLabel.text ?? ""
-            nextVC.moveDistance = distanceDiff.setOneDemical() + "Km"
+            nextVC.moveDistance = walkingDistance.setOneDemical() + "Km"
             nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
             
             nextVC.modalTransitionStyle = .coverVertical
@@ -100,6 +83,9 @@ class MeasureViewController: UIViewController {
             
             self.present(nextVC, animated: true, completion: nil)
             sender.tag = 0
+            
+            walkingDistanceLabel.text = "0.0km"
+            reducedCarbonLabel.text = "0g"
         }
     }
     
@@ -171,42 +157,43 @@ class MeasureViewController: UIViewController {
         startButton.layer.shadowOpacity = 0.2
         startButton.layer.shadowOffset = CGSize(width: 0, height: 2)
         startButton.layer.shadowColor = UIColor.darkGray.cgColor
-        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        startButton.titleLabel?.font = UIFont.rounded(ofSize: 32, weight: .bold)
+        
+        //글꼴 설정
+        walkingDistanceLabel.font = .rounded(ofSize: 36, weight: .bold)
+        totalReducedCarbonLabel.font = .rounded(ofSize: 48, weight: .bold)
+        reducedCarbonLabel.font = .rounded(ofSize: 36, weight: .bold)
+        timerLabel.font = .rounded(ofSize: 15, weight: .medium)
+        
     }
     
-    private func requestAuthorization() {
-        healthStore.requestAuthorization { [weak self] isApproved in
-            guard let self = self else { return }
-            if isApproved {
-                self.healthAuthority = .approved
-            } else {
-                self.healthAuthority = .notAuthorized
+    private func startMeasurement() {
+        walkingDistance = 0.0
+        walkingDistanceLabel.text = "0.0km"
+        self.reducedCarbonLabel.text = "0g"
+        
+        if CMPedometer.isDistanceAvailable() {
+            cmPedometer.startUpdates(from: Date()) { [weak self] data, error in
+                guard let self = self else { return }
+                guard let data = data else {
+                    if let error = error { print(error.localizedDescription) }
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    let distance  = Double(truncating: data.distance ?? 0) * 0.001
+
+                    self.walkingDistance = distance
+                    self.walkingDistanceLabel.text = "\(distance.setOneDemical())km"
+                    self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.walkingDistance))"
+                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.walkingDistance)).setOneDemical() + "g")
+                }
             }
         }
     }
     
-    private func measureStartDistance() {
-        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
-            guard let self = self else { return }
-            
-            self.startDistance = distance
-            self.distanceDiff = 0.0
-            
-            self.walkingDistanceLabel.text = "0.0km"
-            self.reducedCarbonLabel.text = "0g"
-        }
-    }
-    
-    private func measureEndDistance() {
-        healthStore.requestDistanceWalkingRunning(startDate: anchorDate) { [weak self] distance in
-            guard let self = self else { return }
-            
-            self.endDistance = distance
-            self.distanceDiff = (self.endDistance - self.startDistance)
-            
-            self.walkingDistanceLabel.text = "\(self.distanceDiff)" + "km"
-            self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.distanceDiff))" + "g"
-        }
+    private func stopMeasurement() {
+        cmPedometer.stopUpdates()
     }
     
     private func startTimer() {
@@ -217,11 +204,6 @@ class MeasureViewController: UIViewController {
                 guard let self = self else { return }
                 
                 self.totalSecond += 1
-                
-                if (self.totalSecond % 30) == 0 {
-                    self.measureEndDistance()
-                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
-                }
                 
                 // 타이머표시 Label에서 사용할 변수
                 let minutes = (self.totalSecond % 3600) / 60
@@ -250,8 +232,6 @@ class MeasureViewController: UIViewController {
             let time = notification.userInfo?["time"] as? Int ?? 0
             totalSecond = time
             
-            // endMeasurement를 실행할 경우 이동거리 업데이트
-            measureEndDistance()
             startTimer()
         }
     }
@@ -263,19 +243,53 @@ class MeasureViewController: UIViewController {
     
     private func saveData() {
         // 시작시간 있을때만 파이어스토어에 저장.
-        // 주간 데이터 업데이트.
-//        firebaseController.saveWeeklyData(endTime: Date(), distance: 3.0, decreaseCarbon: 3.0)
-//        firebaseController.saveMonthlyData(endTime: Date(), distance: 5.0, decreaseCarbon: 5.0)
         if let startDate = startDate {
-            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff))
-        }
-        
-        Task {
-            try await firebaseController.loadIcebergData()
-            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
-            // 워간 데이터 로드
-//            try await firebaseController.loadMonthlyData()
+            updateLocalData()
+            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
+            firebaseController.saveWeeklyData(endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
+            firebaseController.saveMonthlyData(endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
+            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + walkingDistance, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + walkingDistance))
         }
     }
     
+    // 운동 끝날을 때 데이터 업데이트.
+    private func updateLocalData() {
+        // 오늘 토탈 저감량, 방금 저감량, 방금 운동거리 업데이트.
+        FirebaseController.todayTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+        FirebaseController.weeklyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+        FirebaseController.monthlyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+        // 오늘 운동 추가해주기.
+        StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "오늘"))
+
+        // 주간 운동 로컬에 추가해주기.
+        if StatisticsViewModel.weeklyStatisticsList.count > 0 {
+            if StatisticsViewModel.weeklyStatisticsList[0].baseDate == "이번 주" {
+                // 이번 주 운동이 있으면 업데이트해줘야하는데... 스트링이라서.... 후..
+                StatisticsViewModel.weeklyStatisticsList[0].walkingDistance += walkingDistance
+                StatisticsViewModel.weeklyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+                StatisticsViewModel.weeklyStatisticsList[0].walkingTime += totalSecond
+                
+            } else {
+                StatisticsViewModel.weeklyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 주"), at: 0)
+            }
+            
+        } else {
+            StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 주"))
+        }
+        
+        // 월간 운동 로컬에 추가해주기.
+        if StatisticsViewModel.monthlyStatisticsList.count > 0 {
+            if StatisticsViewModel.monthlyStatisticsList[0].baseDate == "이번 달" {
+                // 이번 달 운동이 있으면 업데이트해줘야함..
+                StatisticsViewModel.monthlyStatisticsList[0].walkingDistance += walkingDistance
+                StatisticsViewModel.monthlyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
+                StatisticsViewModel.monthlyStatisticsList[0].walkingTime += totalSecond
+            } else {
+                StatisticsViewModel.monthlyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 달"), at: 0)
+            }
+            
+        } else {
+            StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 달"))
+        }
+    }
 }

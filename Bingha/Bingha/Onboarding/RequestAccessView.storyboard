@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FLD-au-SlE" userLabel="TopStackView">
-                                <rect key="frame" x="104.5" y="184" width="205" height="125.5"/>
+                                <rect key="frame" x="104.5" y="144" width="205" height="125.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkY-5z-IjP">
                                         <rect key="frame" x="12" y="0.0" width="181.5" height="69.5"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="NWk-sO-ab4" userLabel="MiddleStackView">
-                                <rect key="frame" x="50" y="389.5" width="314" height="96"/>
+                                <rect key="frame" x="50" y="349.5" width="314" height="96"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvf-Do-LeY">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="1"/>
@@ -276,7 +276,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jvK-Mx-kcg" secondAttribute="trailing" constant="30" id="Hn8-xB-5vH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jvK-Mx-kcg" secondAttribute="bottom" constant="66" id="WX5-hM-ylP"/>
                             <constraint firstItem="FLD-au-SlE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ahe-id-HsN"/>
-                            <constraint firstItem="FLD-au-SlE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="140" id="gyT-LA-dIu"/>
+                            <constraint firstItem="FLD-au-SlE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="gyT-LA-dIu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NWk-sO-ab4" secondAttribute="trailing" constant="50" id="jRE-Fj-zRE"/>
                         </constraints>
                     </view>
