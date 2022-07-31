@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbD-TJ-LLh">
-                                <rect key="frame" x="20" y="560" width="374" height="150"/>
+                                <rect key="frame" x="20" y="623" width="374" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-UI-e5q">
                                         <rect key="frame" x="32" y="28" width="310" height="19.5"/>
@@ -64,7 +64,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FbD-TJ-LLh" secondAttribute="trailing" constant="20" id="Bvh-Q6-Yky"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FbD-TJ-LLh" secondAttribute="bottom" constant="103" id="E90-Dt-jw9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FbD-TJ-LLh" secondAttribute="bottom" constant="40" id="E90-Dt-jw9"/>
                             <constraint firstItem="uTq-6M-TDR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="38" id="R06-Yd-wOe"/>
                             <constraint firstItem="FbD-TJ-LLh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="fyJ-Ja-4fM"/>
                             <constraint firstItem="uTq-6M-TDR" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="77" id="lYC-u8-npG"/>

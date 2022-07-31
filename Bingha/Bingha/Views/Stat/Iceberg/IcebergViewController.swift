@@ -18,7 +18,7 @@ class IcebergViewController: UIViewController {
     let icebergLevelCalculator: IcebergLevelCalculator = IcebergLevelCalculator.shared
     let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
     let circularViewDuration: TimeInterval = 2
-    let icebergBackgroundAnimationView = UIHostingController(rootView: IcebergBackgroundAnimation())
+    let icebergBackgroundAnimationView = UIHostingController(rootView: IcebergBackgroundAnimation(lv: IcebergLevelCalculator.shared.requestIcebergLevel(distance: FirebaseController.carbonModel.totalDistance)))
 
     
     override func viewDidLoad() {
