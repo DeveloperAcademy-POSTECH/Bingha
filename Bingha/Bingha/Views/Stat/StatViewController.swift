@@ -15,7 +15,7 @@ class StatViewController: UIViewController {
     let reducedCarbonCollectionViewModel: ReducedCarbonCollectionViewModel = ReducedCarbonCollectionViewModel()
     let compareViewModel: CompareViewModel = CompareViewModel()
     let statisticsViewModel: StatisticsViewModel = StatisticsViewModel()
-     
+    
     let segmentID: String = "CollectionViewSegmentControl"
     //FIX: 수정됨
     let reducedID: String = "ReducedCarbonCollectionView"
@@ -29,19 +29,8 @@ class StatViewController: UIViewController {
     // 여기서 컨트롤 하면 될듯.statisticsViewModel에 들어갈 값 변경해주고, compareViewModel 들어갈 값만 변경해주면 끝. 굳굳.
     @IBAction func switchSegment(_ sender: UISegmentedControl) {
         // 세그먼트 변할 때 마다 데이터 매핑시켜주기. 개꿀!
+        segmentSetData(sender: sender)
         
-        if sender.selectedSegmentIndex == 0 {
-            StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
-            selectedSegment = 0
-        }
-        else if sender.selectedSegmentIndex == 1 {
-            StatisticsViewModel.statisticsList = StatisticsViewModel.weeklyStatisticsList
-            selectedSegment = 1
-        }
-        else {
-            StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
-            selectedSegment = 2
-        }
         // 바로 반영되게 하기 위해선 리로드 데이터 한번 갈겨줘야함.
         collectionView.reloadData()
         print(sender.selectedSegmentIndex)
@@ -60,21 +49,48 @@ class StatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 이 탭에 들어올때 한번 최신화 시켜줘야함
-        if selectedSegment == 0 {
-            StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
-        }
-        else if selectedSegment == 1 {
-            StatisticsViewModel.statisticsList = StatisticsViewModel.weeklyStatisticsList
-        }
-        else {
-            StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
-        }
+        segmentloadData()
+        
         //FIX: 추가됨
         collectionView.register(UINib(nibName: "ReducedCarbonCollectionView", bundle: nil), forCellWithReuseIdentifier: reducedID)
         collectionView.register(UINib(nibName: "CompareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: compareID)
         collectionView.register(UINib(nibName: "StatisticsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: statisticsID)
+        collectionView.reloadData()
     }
     
+    func segmentSetData(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
+            ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "오늘 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.todayTotalDecreaseCarbon)
+            selectedSegment = 0
+        }
+        else if sender.selectedSegmentIndex == 1 {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.weeklyStatisticsList
+            ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3주 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.weeklyTotalDecreaseCarbon)
+            selectedSegment = 1
+        }
+        else {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
+            ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3달 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.monthlyTotalDecreaseCarbon)
+            selectedSegment = 2
+        }
+    }
+    
+    func segmentloadData() {
+        if selectedSegment == 0 {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
+            ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "오늘 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.todayTotalDecreaseCarbon)
+            
+        }
+        else if selectedSegment == 1 {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.weeklyStatisticsList
+            ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3주 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.weeklyTotalDecreaseCarbon)
+        }
+        else {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
+            ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3달 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.monthlyTotalDecreaseCarbon)
+        }
+    }
     
     
 }

@@ -8,15 +8,15 @@
 import Foundation
 
 class ReducedCarbonCollectionViewModel {
-    let reducedCarbonList: [ReducedCarbonCollection] = [
-        ReducedCarbonCollection(reducedCarbonPeriod: "오늘 총 탄소배출 저감량", reducedCarbonAmount: "1073g")
+    public static var reducedCarbonList: [ReducedCarbonCollection] = [
+        ReducedCarbonCollection(reducedCarbonPeriod: "오늘 총 탄소배출 저감량", reducedCarbonAmount: 0.0)
     ]
     
     var countOfReducedCarbonList: Int {
-        return reducedCarbonList.count
+        return ReducedCarbonCollectionViewModel.reducedCarbonList.count
     }
     
     func ReducedCarbonModelInfo(at index: Int) -> ReducedCarbonCollection {
-        return reducedCarbonList[index]
+        return ReducedCarbonCollectionViewModel.reducedCarbonList[index]
     }
 }

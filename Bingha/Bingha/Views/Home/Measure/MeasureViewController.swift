@@ -278,8 +278,9 @@ class MeasureViewController: UIViewController {
     // 운동 끝날을 때 데이터 업데이트.
     private func updateLocalData() {
         // 오늘 토탈 저감량, 방금 저감량, 방금 운동거리 업데이트.
-        FirebaseController.carbonModel.todayTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
-        
+        FirebaseController.todayTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
+        FirebaseController.weeklyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
+        FirebaseController.monthlyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
         // 오늘 운동 추가해주기.
         StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "오늘"))
         // 주간 운동 로컬에 추가해주기.
@@ -289,9 +290,12 @@ class MeasureViewController: UIViewController {
                 StatisticsViewModel.weeklyStatisticsList[0].walkingDistance += distanceDiff
                 StatisticsViewModel.weeklyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
                 StatisticsViewModel.weeklyStatisticsList[0].walkingTime += totalSecond
+                
             } else {
                 StatisticsViewModel.weeklyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 주"), at: 0)
+                
             }
+            
         } else {
             StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 주"))
         }
@@ -306,13 +310,9 @@ class MeasureViewController: UIViewController {
             } else {
                 StatisticsViewModel.monthlyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 달"), at: 0)
             }
+            
         } else {
             StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 달"))
         }
-        
-        
     }
-    
-    
-    
 }
