@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KLp-Uq-fq9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="257" y="60"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabBar-->
         <scene sceneID="4cW-Kr-epo">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" id="KLp-Uq-fq9" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="UITabBarController" title="TabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KLp-Uq-fq9" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OFr-CM-VQN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
