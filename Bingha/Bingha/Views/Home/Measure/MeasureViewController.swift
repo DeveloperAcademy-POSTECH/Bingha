@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 import SwiftUI
+import CoreMotion
 
 class MeasureViewController: UIViewController {
     
@@ -28,17 +29,17 @@ class MeasureViewController: UIViewController {
     var timer: Timer?
     
     let healthStore: HealthStore = HealthStore.shared
+    let cmPedometer = CMPedometer()
     let reducedCarbonCalculator: ReducedCarbonCalculator = ReducedCarbonCalculator.shared
     
-    var healthAuthority: HealthStore.Authority = .notAuthorized {
+    var motionAuthority: Authority = .notAuthorized {
         didSet {
-            switch healthAuthority {
+            switch motionAuthority {
             case .approved:
-                debugPrint("사용자가 HealthKit권한을 승인하였습니다.")
-                measureStartDistance()
+                debugPrint("사용자가 Motion 데이터 사용 권한을 승인하였습니다.")
                 startTimer()
             default:
-                debugPrint("사용자가 HealthKit권한을 승인하지 않았습니다.")
+                debugPrint("사용자가 Motion 데이터 사용 권한을 승인하지 않았습니다.")
             }
         }
     }
@@ -72,14 +73,16 @@ class MeasureViewController: UIViewController {
             totalSecond = 0
             startDate = Date()
             
-            requestAuthorization()
+//            requestAuthorization()
+            startMeasurement()
             playAnimation()
             changeToEndButton()
             sender.tag = 1
         }
         else if (sender.tag == 1) {
             endTimer()
-            measureEndDistance()
+            stopMeasurement()
+//            measureEndDistance()
             
             saveData()
             totalDistance += distanceDiff
@@ -178,9 +181,9 @@ class MeasureViewController: UIViewController {
         healthStore.requestAuthorization { [weak self] isApproved in
             guard let self = self else { return }
             if isApproved {
-                self.healthAuthority = .approved
+                self.motionAuthority = .approved
             } else {
-                self.healthAuthority = .notAuthorized
+                self.motionAuthority = .notAuthorized
             }
         }
     }
@@ -195,6 +198,28 @@ class MeasureViewController: UIViewController {
             self.walkingDistanceLabel.text = "0.0km"
             self.reducedCarbonLabel.text = "0g"
         }
+    }
+    
+    private func startMeasurement() {
+        if CMPedometer.isDistanceAvailable() {
+            cmPedometer.startUpdates(from: Date()) { [weak self] data, error in
+                guard let self = self else { return }
+                guard let data = data else {
+                    if let error = error { print(error.localizedDescription) }
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    let distance  = Double(truncating: data.distance ?? 0) * 0.001
+                    
+                    self.walkingDistanceLabel.text = "\(distance.setOneDemical())km"
+                }
+            }
+        }
+    }
+    
+    private func stopMeasurement() {
+        cmPedometer.stopUpdates()
     }
     
     private func measureEndDistance() {
@@ -317,4 +342,12 @@ class MeasureViewController: UIViewController {
     
     
     
+}
+
+extension MeasureViewController {
+    enum Authority {
+        case notAuthorized
+        case approved
+        case rejected
+    }
 }
