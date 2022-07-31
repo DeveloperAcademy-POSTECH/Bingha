@@ -11,7 +11,7 @@ struct Statistics {
     let reducedCarbon: String
     let walkingDistance: String
     let walkingTime: String
-    let baseDate: String
+    var baseDate: String
 //    var banner: String = """
 // ________  ___  ________   ________  ___  ___  ________
 //|\   __  \|\  \|\   ___  \|\   ____\|\  \|\  \|\   __  \

@@ -20,11 +20,42 @@ class StatViewController: UIViewController {
     let statisticsHeaderID = "CollectionViewStatisticsHeader"
     let statisticsID: String = "StatisticsCollectionViewCell"
     
+    
+    // 여기서 컨트롤 하면 될듯.statisticsViewModel에 들어갈 값 변경해주고, compareViewModel 들어갈 값만 변경해주면 끝. 굳굳.
+    @IBAction func switchSegment(_ sender: UISegmentedControl) {
+        // 세그먼트 변할 때 마다 데이터 매핑시켜주기. 개꿀!
+        if sender.selectedSegmentIndex == 0 {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
+        }
+        else if sender.selectedSegmentIndex == 1 {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.weeklyStatisticsList
+        }
+        else {
+            StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
+        }
+        // 바로 반영되게 하기 위해선 리로드 데이터 한번 갈겨줘야함.
+        collectionView.reloadData()
+        print(sender.selectedSegmentIndex)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
         collectionView.register(UINib(nibName: "CompareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: compareID)
         collectionView.register(UINib(nibName: "StatisticsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: statisticsID)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 이 탭에 들어올때 한번 최신화 시켜줘야함
+        collectionView.reloadData()
+        collectionView.register(UINib(nibName: "CompareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: compareID)
+        collectionView.register(UINib(nibName: "StatisticsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: statisticsID)
+    }
+    
+    
+    
 }
 
 //컬렉션뷰 익스텐션

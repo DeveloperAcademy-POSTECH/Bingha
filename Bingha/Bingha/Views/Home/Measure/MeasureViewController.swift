@@ -267,7 +267,7 @@ class MeasureViewController: UIViewController {
 //        firebaseController.saveWeeklyData(endTime: Date(), distance: 3.0, decreaseCarbon: 3.0)
 //        firebaseController.saveMonthlyData(endTime: Date(), distance: 5.0, decreaseCarbon: 5.0)
         if let startDate = startDate {
-            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff))
+            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
         }
         
         Task {

@@ -14,7 +14,7 @@ class FirebaseController {
     public static var carbonModel: CarbonModel = CarbonModel(todayTotalDecreaseCarbon: 0.0, totalDistance: 0.0, totalDecreaseCarbon: 0.0)
 
     // 탄소 저감량 저장 (종료 버튼 눌렀을때)
-    func saveDecreaseCarbonData(startTime: Date, endTime: Date, distance: Double, decreaseCarbon: Double) {
+    func saveDecreaseCarbonData(startTime: Date, endTime: Date, distance: Double, decreaseCarbon: Double, totalSecond: Int) {
         // 버튼 누른 시간 기점으로 들어감.
         let dayToString = endTime.changeDayToString()
         let timeToString = endTime.changeTimeToString()
@@ -27,7 +27,8 @@ class FirebaseController {
                     "startTime": startTime,
                     "endTime": endTime,
                     "distance": distance,
-                    "decreaseCarbon": decreaseCarbon
+                    "decreaseCarbon": decreaseCarbon,
+                    "totalSecond": totalSecond
                 ]])
                 // 근데 경로가 없다면? 생성해준다!
             } else {
@@ -36,7 +37,8 @@ class FirebaseController {
                     "startTime": startTime,
                     "endTime": endTime,
                     "distance": distance,
-                    "decreaseCarbon": decreaseCarbon
+                    "decreaseCarbon": decreaseCarbon,
+                    "totalSecond": totalSecond
                 ]])
             }
         }
@@ -58,12 +60,19 @@ class FirebaseController {
             var todayTotalDecreseCarbon = 0.0
             for value in values {
                 guard let parsedDictionary = value as? [String: Any],
-                        let decreaseCarbon = parsedDictionary["decreaseCarbon"] as? Double
-                else { return }
+                      let decreaseCarbon = parsedDictionary["decreaseCarbon"] as? Double,
+//                      let totalSecond = parsedDictionary["totalSecond"] as? Int,
+//                      let endTime = parsedDictionary["endTime"] as? Timestamp,
+                      let distance = parsedDictionary["distance"] as? Double
+                else {
+                    return }
                 todayTotalDecreseCarbon += decreaseCarbon
+                StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: String(format: "%02d", decreaseCarbon) + "kg", walkingDistance: String(distance) + "km", walkingTime: "오늘", baseDate: "오늘"))
+                
             }
             FirebaseController.carbonModel.todayTotalDecreaseCarbon = todayTotalDecreseCarbon
             print("오늘 총 저감한 탄소량 : \(FirebaseController.carbonModel.todayTotalDecreaseCarbon)")
+            print("오늘 총 모델: \(StatisticsViewModel.todayStatisticsList)")
         } else {
             print("데이터 없음")
         }
