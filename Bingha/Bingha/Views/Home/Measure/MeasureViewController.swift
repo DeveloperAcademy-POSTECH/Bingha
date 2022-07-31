@@ -103,6 +103,9 @@ class MeasureViewController: UIViewController {
             
             self.present(nextVC, animated: true, completion: nil)
             sender.tag = 0
+            
+            walkingDistanceLabel.text = "0.0km"
+            reducedCarbonLabel.text = "0g"
         }
     }
     
@@ -218,7 +221,7 @@ class MeasureViewController: UIViewController {
 
                     self.walkingDistance = distance
                     self.walkingDistanceLabel.text = "\(distance.setOneDemical())km"
-                    self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.walkingDistance))" + "g"
+                    self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.walkingDistance))"
                 }
             }
         }
