@@ -47,6 +47,10 @@
 		A329A5DC28924E750034D0AD /* CompareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329A5DB28924E750034D0AD /* CompareCollectionViewCell.swift */; };
 		A33B4C4A28927657001F419E /* CompareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B4C4928927657001F419E /* CompareModel.swift */; };
 		A33B4C4C28927748001F419E /* CompareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B4C4B28927748001F419E /* CompareViewModel.swift */; };
+		A39767382896B3740010A4F4 /* ReducedCarbonCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39767372896B3740010A4F4 /* ReducedCarbonCollectionView.xib */; };
+		A397673A2896B4AD0010A4F4 /* ReducedCarbonCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39767392896B4AD0010A4F4 /* ReducedCarbonCollectionModel.swift */; };
+		A397673C2896B4BA0010A4F4 /* ReducedCarbonCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397673B2896B4BA0010A4F4 /* ReducedCarbonCollectionViewModel.swift */; };
+		A397673E2896B66B0010A4F4 /* ReducedCarbonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397673D2896B66B0010A4F4 /* ReducedCarbonCollectionView.swift */; };
 		A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */; };
 		A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8F658288FC5490083D033 /* IcebergBackgroundAnimation.swift */; };
 		B54FF5A0288833F5004AB220 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = B54FF59F288833F5004AB220 /* background.json */; };
@@ -104,6 +108,10 @@
 		A329A5DB28924E750034D0AD /* CompareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCollectionViewCell.swift; sourceTree = "<group>"; };
 		A33B4C4928927657001F419E /* CompareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareModel.swift; sourceTree = "<group>"; };
 		A33B4C4B28927748001F419E /* CompareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewModel.swift; sourceTree = "<group>"; };
+		A39767372896B3740010A4F4 /* ReducedCarbonCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReducedCarbonCollectionView.xib; sourceTree = "<group>"; };
+		A39767392896B4AD0010A4F4 /* ReducedCarbonCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCollectionModel.swift; sourceTree = "<group>"; };
+		A397673B2896B4BA0010A4F4 /* ReducedCarbonCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCollectionViewModel.swift; sourceTree = "<group>"; };
+		A397673D2896B66B0010A4F4 /* ReducedCarbonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducedCarbonCollectionView.swift; sourceTree = "<group>"; };
 		A3D8F656288FBD880083D033 /* MeasureBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureBackgroundAnimation.swift; sourceTree = "<group>"; };
 		A3D8F658288FC5490083D033 /* IcebergBackgroundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebergBackgroundAnimation.swift; sourceTree = "<group>"; };
 		B54FF59F288833F5004AB220 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
@@ -167,6 +175,8 @@
 				39F87AE72891260000708744 /* StatisticsCollectionViewCell.xib */,
 				A329A5DB28924E750034D0AD /* CompareCollectionViewCell.swift */,
 				A329A5D728912DED0034D0AD /* CompareCollectionViewCell.xib */,
+				A397673D2896B66B0010A4F4 /* ReducedCarbonCollectionView.swift */,
+				A39767372896B3740010A4F4 /* ReducedCarbonCollectionView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 				393F45F4288834E900B1055D /* IcebergLevelCalculator.swift */,
 				39F87AEC2891280800708744 /* StatisticsViewModel.swift */,
 				A33B4C4B28927748001F419E /* CompareViewModel.swift */,
+				A397673B2896B4BA0010A4F4 /* ReducedCarbonCollectionViewModel.swift */,
 			);
 			name = Utils;
 			path = Views;
@@ -245,6 +256,7 @@
 				0E8C8E5D2885428300A9ABDB /* DecreaseCarbonModel.swift */,
 				A33B4C4928927657001F419E /* CompareModel.swift */,
 				39F87AEA2891263500708744 /* StatisticsModel.swift */,
+				A39767392896B4AD0010A4F4 /* ReducedCarbonCollectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,6 +409,7 @@
 				B55D55962896C9D600D1E15A /* RequestAccessView.storyboard in Resources */,
 				B55D55982896C9D600D1E15A /* Onboarding.storyboard in Resources */,
 				5525498F2882B79400C0C75A /* Complete.storyboard in Resources */,
+				A39767382896B3740010A4F4 /* ReducedCarbonCollectionView.xib in Resources */,
 				B54FF5A0288833F5004AB220 /* background.json in Resources */,
 				0EE172FB2882EE7F00AD5100 /* GoogleService-Info.plist in Resources */,
 				5516E730288128B30015D64A /* Assets.xcassets in Resources */,
@@ -431,8 +444,10 @@
 				A33B4C4C28927748001F419E /* CompareViewModel.swift in Sources */,
 				5516E727288128B20015D64A /* AppDelegate.swift in Sources */,
 				5516E729288128B20015D64A /* SceneDelegate.swift in Sources */,
+				A397673A2896B4AD0010A4F4 /* ReducedCarbonCollectionModel.swift in Sources */,
 				39D883DF28854901006067C8 /* FormatterExtension.swift in Sources */,
 				5516E749288129C00015D64A /* MeasureViewController.swift in Sources */,
+				A397673E2896B66B0010A4F4 /* ReducedCarbonCollectionView.swift in Sources */,
 				B55D55992896C9D600D1E15A /* OnboardingDataModel.swift in Sources */,
 				0E3D563B2894F76B007C8805 /* LaunchViewController.swift in Sources */,
 				0E8C8E5E2885428300A9ABDB /* DecreaseCarbonModel.swift in Sources */,
@@ -440,6 +455,7 @@
 				39F87AE5289121B900708744 /* StatViewController.swift in Sources */,
 				B55D559A2896C9D600D1E15A /* OnboardingViewController.swift in Sources */,
 				5516E747288129B90015D64A /* CompleteViewController.swift in Sources */,
+				A397673C2896B4BA0010A4F4 /* ReducedCarbonCollectionViewModel.swift in Sources */,
 				A3D8F659288FC5490083D033 /* IcebergBackgroundAnimation.swift in Sources */,
 				A3D8F657288FBD880083D033 /* MeasureBackgroundAnimation.swift in Sources */,
 				A33B4C4A28927657001F419E /* CompareModel.swift in Sources */,

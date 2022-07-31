@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import Lottie
 
 class StatViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    //FIX: 추가됨
+    let reducedCarbonCollectionViewModel: ReducedCarbonCollectionViewModel = ReducedCarbonCollectionViewModel()
     let compareViewModel: CompareViewModel = CompareViewModel()
     let statisticsViewModel: StatisticsViewModel = StatisticsViewModel()
-    
+     
     let segmentID: String = "CollectionViewSegmentControl"
-    let reducedID: String = "CollectionViewReducedCarbon"
+    //FIX: 수정됨
+    let reducedID: String = "ReducedCarbonCollectionView"
     let compareHeaderID = "CollectionViewCompareHeader"
     let compareID: String = "CompareCollectionViewCell"
     let statisticsHeaderID = "CollectionViewStatisticsHeader"
@@ -47,6 +51,8 @@ class StatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //FIX: 추가됨
+        collectionView.register(UINib(nibName: "ReducedCarbonCollectionView", bundle: nil), forCellWithReuseIdentifier: reducedID)
         collectionView.register(UINib(nibName: "CompareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: compareID)
         collectionView.register(UINib(nibName: "StatisticsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: statisticsID)
     }
@@ -63,7 +69,8 @@ class StatViewController: UIViewController {
         else {
             StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
         }
-        collectionView.reloadData()
+        //FIX: 추가됨
+        collectionView.register(UINib(nibName: "ReducedCarbonCollectionView", bundle: nil), forCellWithReuseIdentifier: reducedID)
         collectionView.register(UINib(nibName: "CompareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: compareID)
         collectionView.register(UINib(nibName: "StatisticsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: statisticsID)
     }
@@ -85,7 +92,7 @@ extension StatViewController: UICollectionViewDataSource, UICollectionViewDelega
         switch section {
             //세그먼트 컨트롤 섹션
         case 0: return 1
-            //해당 기간 탄소 절감량 섹션
+            //해당 기간 탄소 절감량 섹션. 이건 한개 이상 늘어날 일 없으니 안 바꿨습니다.
         case 1: return 1
             //비교 헤더 섹션
         case 2: return 1
@@ -113,9 +120,11 @@ extension StatViewController: UICollectionViewDataSource, UICollectionViewDelega
             }
             return cell
             
-        //탄소저감량 섹션
+        //FIX: 탄소저감량 섹션
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reducedID, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reducedID, for: indexPath) as! ReducedCarbonCollectionView
+            let ReducedInfo = reducedCarbonCollectionViewModel.ReducedCarbonModelInfo(at: indexPath.item)
+            cell.update(info: ReducedInfo)
             return cell
         
         //비교 헤더 섹션
