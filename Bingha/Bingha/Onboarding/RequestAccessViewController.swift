@@ -31,6 +31,7 @@ class RequestAccessViewController: UIViewController {
     }
     
     private func skipToMainVC() {
+        // 권한을 받기 위한 메소드 사용
         cmPedometer.stopUpdates()
         
         // 유저디폴트에 저장하기.
