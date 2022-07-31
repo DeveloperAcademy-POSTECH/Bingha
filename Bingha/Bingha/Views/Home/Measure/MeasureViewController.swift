@@ -49,7 +49,7 @@ class MeasureViewController: UIViewController {
     
     var startDistance: Double = 0.0
     var endDistance: Double = 0.0
-    var distanceDiff: Double = 0.0
+    var walkingDistance: Double = 0.0
     
     var isTimerOn = false
     var totalDistance = 0.0
@@ -85,7 +85,7 @@ class MeasureViewController: UIViewController {
 //            measureEndDistance()
             
             saveData()
-            totalDistance += distanceDiff
+            totalDistance += walkingDistance
             setDefaultView()
             
             let minutes = (totalSecond % 3600) / 60
@@ -95,7 +95,7 @@ class MeasureViewController: UIViewController {
             
             nextVC.reducedCarbon = reducedCarbonLabel.text ?? ""
             nextVC.todayReducedCarbon = totalReducedCarbonLabel.text ?? ""
-            nextVC.moveDistance = distanceDiff.setOneDemical() + "Km"
+            nextVC.moveDistance = walkingDistance.setOneDemical() + "Km"
             nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
             
             nextVC.modalTransitionStyle = .coverVertical
@@ -193,7 +193,7 @@ class MeasureViewController: UIViewController {
             guard let self = self else { return }
             
             self.startDistance = distance
-            self.distanceDiff = 0.0
+            self.walkingDistance = 0.0
             
             self.walkingDistanceLabel.text = "0.0km"
             self.reducedCarbonLabel.text = "0g"
@@ -201,6 +201,10 @@ class MeasureViewController: UIViewController {
     }
     
     private func startMeasurement() {
+        walkingDistance = 0.0
+        walkingDistanceLabel.text = "0.0km"
+        self.reducedCarbonLabel.text = "0g"
+        
         if CMPedometer.isDistanceAvailable() {
             cmPedometer.startUpdates(from: Date()) { [weak self] data, error in
                 guard let self = self else { return }
@@ -211,8 +215,10 @@ class MeasureViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     let distance  = Double(truncating: data.distance ?? 0) * 0.001
-                    
+
+                    self.walkingDistance = distance
                     self.walkingDistanceLabel.text = "\(distance.setOneDemical())km"
+                    self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.walkingDistance))" + "g"
                 }
             }
         }
@@ -227,10 +233,10 @@ class MeasureViewController: UIViewController {
             guard let self = self else { return }
             
             self.endDistance = distance
-            self.distanceDiff = (self.endDistance - self.startDistance)
+            self.walkingDistance = (self.endDistance - self.startDistance)
             
-            self.walkingDistanceLabel.text = "\(self.distanceDiff)" + "km"
-            self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.distanceDiff))" + "g"
+            self.walkingDistanceLabel.text = "\(self.walkingDistance)" + "km"
+            self.reducedCarbonLabel.text = "\(self.reducedCarbonCalculator.reducedCarbon(km: self.walkingDistance))" + "g"
         }
     }
     
@@ -245,7 +251,7 @@ class MeasureViewController: UIViewController {
                 
                 if (self.totalSecond % 30) == 0 {
                     self.measureEndDistance()
-                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.distanceDiff)).setOneDemical() + "g")
+                    self.totalReducedCarbonLabel.text = ((self.todayCarbonDecrease + self.reducedCarbonCalculator.reducedCarbonDouble(km: self.walkingDistance)).setOneDemical() + "g")
                 }
                 
                 // 타이머표시 Label에서 사용할 변수
@@ -290,15 +296,15 @@ class MeasureViewController: UIViewController {
         // 시작시간 있을때만 파이어스토어에 저장.
         if let startDate = startDate {
             updateLocalData()
-            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
-            firebaseController.saveWeeklyData(endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
-            firebaseController.saveMonthlyData(endTime: Date(), distance: distanceDiff, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), totalSecond: totalSecond)
+            firebaseController.saveDecreaseCarbonData(startTime: startDate, endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
+            firebaseController.saveWeeklyData(endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
+            firebaseController.saveMonthlyData(endTime: Date(), distance: walkingDistance, decreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), totalSecond: totalSecond)
         }
         
         Task {
             // 여기 굳이 비동기로 다시 받아올 필요 없을듯. 처음에 불러오니까 그냥 그 값을 활용한 업데이트만 하자.
             try await firebaseController.loadIcebergData()
-            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + distanceDiff, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + distanceDiff))
+            firebaseController.saveIcebergData(totalDistance: FirebaseController.carbonModel.totalDistance + walkingDistance, totalDecreaseCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: FirebaseController.carbonModel.totalDistance + walkingDistance))
             // 월간 데이터 로드
 //            try await firebaseController.loadMonthlyData()
         }
@@ -307,34 +313,34 @@ class MeasureViewController: UIViewController {
     // 운동 끝날을 때 데이터 업데이트.
     private func updateLocalData() {
         // 오늘 운동 로컬에 추가해주기. 아주 잘 된다 ㅎㅎ.
-        StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "오늘"))
+        StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "오늘"))
         
         // 주간 운동 로컬에 추가해주기.
         if StatisticsViewModel.weeklyStatisticsList.count > 0 {
             if StatisticsViewModel.weeklyStatisticsList[0].baseDate == "이번 주" {
                 // 이번 주 운동이 있으면 업데이트해줘야하는데... 스트링이라서.... 후..
-                StatisticsViewModel.weeklyStatisticsList[0].walkingDistance += distanceDiff
-                StatisticsViewModel.weeklyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
+                StatisticsViewModel.weeklyStatisticsList[0].walkingDistance += walkingDistance
+                StatisticsViewModel.weeklyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
                 StatisticsViewModel.weeklyStatisticsList[0].walkingTime += totalSecond
             } else {
-                StatisticsViewModel.weeklyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 주"), at: 0)
+                StatisticsViewModel.weeklyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 주"), at: 0)
             }
         } else {
-            StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 주"))
+            StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 주"))
         }
         
         // 월간 운동 로컬에 추가해주기.
         if StatisticsViewModel.monthlyStatisticsList.count > 0 {
             if StatisticsViewModel.monthlyStatisticsList[0].baseDate == "이번 달" {
                 // 이번 달 운동이 있으면 업데이트해줘야함..
-                StatisticsViewModel.monthlyStatisticsList[0].walkingDistance += distanceDiff
-                StatisticsViewModel.monthlyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff)
+                StatisticsViewModel.monthlyStatisticsList[0].walkingDistance += walkingDistance
+                StatisticsViewModel.monthlyStatisticsList[0].reducedCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
                 StatisticsViewModel.monthlyStatisticsList[0].walkingTime += totalSecond
             } else {
-                StatisticsViewModel.monthlyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 달"), at: 0)
+                StatisticsViewModel.monthlyStatisticsList.insert(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 달"), at: 0)
             }
         } else {
-            StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: distanceDiff), walkingDistance: distanceDiff, walkingTime: totalSecond, baseDate: "이번 달"))
+            StatisticsViewModel.weeklyStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "이번 달"))
         }
         
         
