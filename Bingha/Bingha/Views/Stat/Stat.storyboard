@@ -128,6 +128,9 @@
                                             <imageReference key="image" image="info.circle" catalog="system" symbolScale="large"/>
                                             <color key="baseForegroundColor" name="Primary"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="licenseButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="d8O-Sk-X4R"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -160,13 +163,55 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="JCG-5Y-2hi">
+            <objects>
+                <viewController storyboardIdentifier="licenseViewController" id="n8O-SU-LuN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TdZ-mb-Chl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="라이센스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HB-Bz-QBX">
+                                <rect key="frame" x="20" y="64" width="104" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-go-J0Z">
+                                <rect key="frame" x="20" y="120" width="374" height="742"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Man, Environment, Car, Iceberg icons created by Freepik - Flaticon (Icon made by Freepik from www.flaticon.com)  Walker man lottie file Copyright © 2021 Design Barn Inc. (https://lottiefiles.com/page/license)
+</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="962-27-eBP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="962-27-eBP" firstAttribute="bottom" secondItem="n5t-go-J0Z" secondAttribute="bottom" id="AmU-7w-sFL"/>
+                            <constraint firstItem="0HB-Bz-QBX" firstAttribute="leading" secondItem="962-27-eBP" secondAttribute="leading" constant="20" id="HT7-98-ub3"/>
+                            <constraint firstItem="0HB-Bz-QBX" firstAttribute="top" secondItem="962-27-eBP" secondAttribute="top" constant="20" id="Voh-Yb-KMx"/>
+                            <constraint firstItem="n5t-go-J0Z" firstAttribute="top" secondItem="0HB-Bz-QBX" secondAttribute="bottom" constant="20" id="azg-a5-pXq"/>
+                            <constraint firstItem="n5t-go-J0Z" firstAttribute="leading" secondItem="962-27-eBP" secondAttribute="leading" constant="20" id="grX-kv-V1P"/>
+                            <constraint firstItem="962-27-eBP" firstAttribute="trailing" secondItem="n5t-go-J0Z" secondAttribute="trailing" constant="20" id="k2p-I4-Ut2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4Q-UD-s9D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844.92753623188412" y="115.84821428571428"/>
+        </scene>
     </scenes>
     <resources>
+
         <image name="TabBarChart" width="35" height="35"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="Primary">
             <color red="0.13725490196078433" green="0.72156862745098038" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
