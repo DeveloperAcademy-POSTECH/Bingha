@@ -257,6 +257,7 @@ class MeasureViewController: UIViewController {
         [getAuthAction, denyAuthAction].forEach { authAlertController.addAction($0) }
         
         self.present(authAlertController, animated: true)
+    }
     
     private func setTodayTotalCarbonlabel() {
         todayCarbonDecrease = FirebaseController.todayTotalDecreaseCarbon
