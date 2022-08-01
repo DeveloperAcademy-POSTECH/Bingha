@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Measure-->
+        <!--측정-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController restorationIdentifier="Measure" storyboardIdentifier="Measure" id="Y6W-OH-hqX" customClass="MeasureViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,7 +177,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HWe-Eq-FzX" secondAttribute="trailing" constant="16" id="xh5-ZV-muT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Measure" image="TabBarHome" id="N3M-5k-kCM"/>
+                    <tabBarItem key="tabBarItem" title="측정" image="TabBarHome" id="N3M-5k-kCM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="5Of-jw-Kgn" id="MOZ-iV-ffc"/>

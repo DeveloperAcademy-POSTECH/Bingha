@@ -153,7 +153,7 @@
                             <constraint firstItem="Sx5-c0-VaD" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="wCX-1x-Wef"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chart" image="TabBarChart" id="i6Q-H2-oOw"/>
+                    <tabBarItem key="tabBarItem" title="통계" image="TabBarChart" id="i6Q-H2-oOw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Sx5-c0-VaD" id="XaZ-vh-3If"/>
