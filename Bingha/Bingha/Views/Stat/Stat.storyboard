@@ -86,7 +86,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 운동을 모아봤어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6d-kz-Fof">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신의 실천을 모아봤어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6d-kz-Fof">
                                                     <rect key="frame" x="0.0" y="8" width="412" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
@@ -205,13 +205,14 @@
         </scene>
     </scenes>
     <resources>
-
         <image name="TabBarChart" width="35" height="35"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="Primary">
             <color red="0.13725490196078433" green="0.72156862745098038" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
