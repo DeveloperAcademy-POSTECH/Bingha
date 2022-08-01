@@ -223,6 +223,7 @@
 		5516E73A288128CF0015D64A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5516E743288129610015D64A /* Iceberg */,
 				0E3D56392894F74B007C8805 /* Launch */,
 				39E50CDB2887ED7B00173E25 /* TabBar */,
 				5516E741288129380015D64A /* Home */,
@@ -273,7 +274,6 @@
 				39F87ADF28911DB500708744 /* Cells */,
 				397706462887F21100C4F82F /* Stat.storyboard */,
 				39F87AE4289121B900708744 /* StatViewController.swift */,
-				5516E743288129610015D64A /* Iceberg */,
 			);
 			path = Stat;
 			sourceTree = "<group>";
@@ -425,7 +425,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EBB5DCB2884523600C42C3B /* FirebaseController.swift in Sources */,
-				5510E8CF2886A13F00918A96 /* HealthStore.swift in Sources */,
 				B55D559B2896C9D600D1E15A /* RequestAccessViewController.swift in Sources */,
 				39F87AEB2891263500708744 /* StatisticsModel.swift in Sources */,
 				5516E7402881292B0015D64A /* UtilsNamingTest.swift in Sources */,
