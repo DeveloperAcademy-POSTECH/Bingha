@@ -61,12 +61,12 @@ class IcebergViewController: UIViewController {
     private func setLevelLabel(level: String) {
         levelLabel.text = "Lv. \(level)"
         levelLabel.font = .rounded(ofSize: 20, weight: .bold)
+        levelLabel.textColor = UIColor(named: "Primary")
     }
     
     private func setReducedCarbonLabel(distance: Double) {
         reducedCarbonLabel.text = reducedCarbonCalculator.reducedCarbon(km: distance)
         reducedCarbonLabel.font = .rounded(ofSize: 48, weight: .bold)
-        
     }
     
     private func setInformationLabel() {
