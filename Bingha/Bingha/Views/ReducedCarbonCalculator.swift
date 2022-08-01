@@ -34,10 +34,15 @@ internal class ReducedCarbonCalculator {
         }
         return String(Int(distance*7)) + "일 동안 산소로 바꿀 수 있는 양이에요"
     }
+    
+    // 30년 소나무 1년에 6.6kg의 탄소를 흡수함
+    func reducedCarbonToTreeForStat(km distance: Double) -> String {
+        return String(Int(distance*7)) + "일"
+    }
 
     // 1km 걸으면 김 13.4kg 재배함
     func reducedCarbonToSeaweed(km distance: Double) -> String {
-        return String(distance*13.4) + "kg"
+        return (distance*13.4).formatterWithSeparator + "kg"
     }
 
 }
