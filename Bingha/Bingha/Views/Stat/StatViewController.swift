@@ -20,7 +20,8 @@ class StatViewController: UIViewController {
     
     //FIX: 추가됨
     let reducedCarbonCollectionViewModel: ReducedCarbonCollectionViewModel = ReducedCarbonCollectionViewModel()
-    let compareViewModel: CompareViewModel = CompareViewModel()
+    // TODO: - 비교 데이터 넣어줄 부분
+    let compareViewModel: CompareViewModel = CompareViewModel(distance: FirebaseController.carbonModel.totalDistance)
     let statisticsViewModel: StatisticsViewModel = StatisticsViewModel()
     
     let segmentID: String = "CollectionViewSegmentControl"

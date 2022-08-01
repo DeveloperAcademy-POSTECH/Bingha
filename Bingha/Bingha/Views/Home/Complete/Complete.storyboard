@@ -236,7 +236,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="changeToOxyLabel" destination="gCo-SL-7Mi" id="KR6-XM-Xwy"/>
+                        <outlet property="changeToOxyLabel" destination="gCo-SL-7Mi" id="K6Z-HQ-gtW"/>
                         <outlet property="dataView" destination="AiQ-Wt-YOP" id="9C0-qJ-RzO"/>
                         <outlet property="exitModalButton" destination="1fZ-uf-8yJ" id="M9B-CK-phd"/>
                         <outlet property="icebergLevelAlertView" destination="r9y-L7-A0h" id="OGm-Qp-y5r"/>
