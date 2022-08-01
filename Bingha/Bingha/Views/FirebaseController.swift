@@ -21,13 +21,13 @@ class FirebaseController {
     func saveDecreaseCarbonData(startTime: Date, endTime: Date, distance: Double, decreaseCarbon: Double, totalSecond: Int) {
         // 버튼 누른 시간 기점으로 들어감.
         let dayToString = endTime.changeDayToString()
-        let timeToString = endTime.changeTimeToString()
         // firestore db 컬렉션 및 다큐멘트 경로.
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-daily")/\(dayToString)")
         // 경로가 존재한다면? 필드만 추가해줌.
         path.getDocument { (document, error) in
             if let document = document, document.exists {
-                path.updateData(["\(timeToString)": [
+                let index = document.data()?.count
+                path.updateData(["\(index!)": [
                     "startTime": startTime,
                     "endTime": endTime,
                     "distance": distance,
@@ -37,7 +37,7 @@ class FirebaseController {
                 // 근데 경로가 없다면? 생성해준다!
             } else {
                 // 시작시간, 끝 시간, 거리, 탄소 저감량 저장.
-                path.setData([ "\(timeToString)": [
+                path.setData(["0": [
                     "startTime": startTime,
                     "endTime": endTime,
                     "distance": distance,
@@ -56,22 +56,22 @@ class FirebaseController {
         let snapshot = try await path.getDocument()
         if let document = snapshot.data(), document.count != 0 {
             FirebaseController.todayTotalDecreaseCarbon = 0.0
-            let values = document.values
+            let sortedDocument = document.sorted(by: {$0.0 < $1.0})
             var todayTotalDecreseCarbon = 0.0
-            for value in values {
+            for data in sortedDocument {
+                let value = data.value
                 guard let parsedDictionary = value as? [String: Any],
                       let decreaseCarbon = parsedDictionary["decreaseCarbon"] as? Double,
                       let totalSecond = parsedDictionary["totalSecond"] as? Int,
-//                      let endTime = parsedDictionary["endTime"] as? Timestamp,
+                      let startTime = parsedDictionary["startTime"] as? Timestamp,
                       let distance = parsedDictionary["distance"] as? Double
-                else {
-                    return }
+                else { return }
                 todayTotalDecreseCarbon += decreaseCarbon
-                StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: decreaseCarbon, walkingDistance: distance, walkingTime: totalSecond, baseDate: "오늘"))
+                StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: decreaseCarbon, walkingDistance: distance, walkingTime: totalSecond, baseDate: startTime.dateValue().startTimeToString()))
             }
             FirebaseController.todayTotalDecreaseCarbon = todayTotalDecreseCarbon
         } else {
-            print("데이터 없음")
+            print("오늘 데이터 없음")
         }
     }
     
@@ -98,6 +98,8 @@ class FirebaseController {
             FirebaseController.carbonModel.totalDecreaseCarbon = totalDecreaseCarbon
             print("지금까지 총 저감한 탄소량 : \(FirebaseController.carbonModel.totalDistance)")
             print("지금까지 총 이동 거리 : \(FirebaseController.carbonModel.totalDecreaseCarbon)")
+        } else {
+            print("총 저감량 데이터 없음")
         }
     }
     
@@ -106,10 +108,7 @@ class FirebaseController {
         // 오늘 날짜로부터 월요일날짜 구하기.
         let startDay = endTime.findMonday()
         let startDayToString = startDay.changeDayToString()
-        print("이번주 월요일 날짜?? : \(startDayToString)")
-        
         let path = database.document("\( UIDevice.current.identifierForVendor!.uuidString + "-weekly")/\(startDayToString)")
-        
         path.getDocument { (document, error) in
             if let document = document?.data(), document.count != 0 {
                 guard let weeklyDistance = document["weeklyDistance"] as? Double,
@@ -131,6 +130,7 @@ class FirebaseController {
             }
         }
     }
+    
     // 주간 걸은 거리, 탄소 저감량 로드
     func loadWeeklyData() async throws {
         // 이번주 월요일 날짜 계산하기.
@@ -143,9 +143,7 @@ class FirebaseController {
             let pastMondayToString = pastMonday.changeDayToString()
             let path = database.document("\( await UIDevice.current.identifierForVendor!.uuidString + "-weekly")/\(pastMondayToString)")
             let snapshot = try await path.getDocument()
-            print("월요일 : \(pastMondayToString)")
             if let document = snapshot.data(), document.count != 0 {
-                
                 guard let weeklyDistance = document["weeklyDistance"] as? Double,
                       let weeklyDecreaseCarbon = document["weeklyDecreaseCarbon"] as? Double,
                       let totalSecond = document["totalSecond"] as? Int
@@ -155,7 +153,6 @@ class FirebaseController {
             }
         }
         FirebaseController.weeklyTotalDecreaseCarbon = weeklyTotalDecreseCarbon
-        print("제발 좀.. 이건? \(FirebaseController.weeklyTotalDecreaseCarbon)")
     }
     
     // 월간 데이터 저장.
@@ -210,11 +207,7 @@ class FirebaseController {
                 else { return }
                 monthlyTotalDecreseCarbon += monthlyDecreaseCarbon
                 StatisticsViewModel.monthlyStatisticsList.append(Statistics(reducedCarbon: monthlyDecreaseCarbon, walkingDistance: monthlyDistance, walkingTime: monthlyTotalSecond, baseDate: i.monthToString()))
-                
-                print(monthlyDistance)
-                print(monthlyDecreaseCarbon)
             }
-            
         }
         FirebaseController.monthlyTotalDecreaseCarbon = monthlyTotalDecreseCarbon
     }
@@ -256,12 +249,6 @@ extension Date {
         let dayToString = formatter.string(from: self)
         return dayToString
     }
-    func changeTimeToString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        let timeToString = formatter.string(from: self)
-        return timeToString
-    }
     
     func findMonday() -> Date {
         // 오늘 날짜로부터 월요일날짜 구하기.
@@ -293,6 +280,12 @@ extension Date {
         formatter.dateFormat = "yyyy-MM"
         let monthToString = formatter.string(from: self)
         return monthToString
+    }
+    
+    func startTimeToString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH시 mm분"
+        return formatter.string(from: self)
     }
     
 }

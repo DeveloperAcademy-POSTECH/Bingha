@@ -285,7 +285,7 @@ class MeasureViewController: UIViewController {
         FirebaseController.weeklyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
         FirebaseController.monthlyTotalDecreaseCarbon += reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance)
         // 오늘 운동 추가해주기.
-        StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: "오늘"))
+        StatisticsViewModel.todayStatisticsList.append(Statistics(reducedCarbon: reducedCarbonCalculator.reducedCarbonDouble(km: walkingDistance), walkingDistance: walkingDistance, walkingTime: totalSecond, baseDate: startDate!.startTimeToString()))
         setTodayTotalCarbonlabel()
         // 주간 운동 로컬에 추가해주기.
         if StatisticsViewModel.weeklyStatisticsList.count > 0 {
