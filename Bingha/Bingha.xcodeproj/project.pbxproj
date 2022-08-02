@@ -605,9 +605,11 @@
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Health 정보를 기록하겠습니다.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Health 정보를 공유하겠습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Health 정보를 업데이트하겠습니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "사용자의 Motion 데이터를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Iceberg;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -620,7 +622,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Bingha;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -640,9 +642,11 @@
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Health 정보를 기록하겠습니다.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Health 정보를 공유하겠습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Health 정보를 업데이트하겠습니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "사용자의 Motion 데이터를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Iceberg;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -655,7 +659,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Bingha;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
