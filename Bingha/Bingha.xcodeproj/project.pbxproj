@@ -595,7 +595,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bingha/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "탄탄";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Health 정보를 업데이트하겠습니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "사용자의 Motion 데이터를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -631,7 +630,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bingha/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "탄탄";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Health 정보를 업데이트하겠습니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "사용자의 Motion 데이터를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
