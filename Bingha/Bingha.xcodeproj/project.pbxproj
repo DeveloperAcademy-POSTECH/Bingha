@@ -602,6 +602,7 @@
 				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bingha/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "탄탄";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Health 정보를 기록하겠습니다.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Health 정보를 공유하겠습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Health 정보를 업데이트하겠습니다.";
@@ -639,6 +640,7 @@
 				DEVELOPMENT_TEAM = PQ5FS4VVLR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bingha/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "탄탄";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Health 정보를 기록하겠습니다.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Health 정보를 공유하겠습니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Health 정보를 업데이트하겠습니다.";
