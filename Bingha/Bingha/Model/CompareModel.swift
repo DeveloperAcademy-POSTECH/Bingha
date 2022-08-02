@@ -9,6 +9,6 @@ import Foundation
 
 struct Compare {
     let compareImage: String
-    let compareAmount: String
+    var compareAmount: String
     let compareDescription: String
 }

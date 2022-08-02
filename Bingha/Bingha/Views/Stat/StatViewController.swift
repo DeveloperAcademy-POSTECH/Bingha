@@ -20,10 +20,7 @@ class StatViewController: UIViewController {
     
     //FIX: 추가됨
     let reducedCarbonCollectionViewModel: ReducedCarbonCollectionViewModel = ReducedCarbonCollectionViewModel()
-    // TODO: - 비교 데이터 넣어줄 부분
-    let todayCompareViewModel: CompareViewModel = CompareViewModel(distance: FirebaseController.todayTotalDecreaseCarbon)
-    let weekCompareViewModel: CompareViewModel = CompareViewModel(distance: FirebaseController.weeklyTotalDecreaseCarbon)
-    let monthCompareViewModel: CompareViewModel = CompareViewModel(distance: FirebaseController.monthlyTotalDecreaseCarbon)
+    let compareViewModel: CompareViewModel = CompareViewModel()
     let statisticsViewModel: StatisticsViewModel = StatisticsViewModel()
     
     let segmentID: String = "CollectionViewSegmentControl"
@@ -38,19 +35,15 @@ class StatViewController: UIViewController {
     var selectedSegment = 0
     // 여기서 컨트롤 하면 될듯.statisticsViewModel에 들어갈 값 변경해주고, compareViewModel 들어갈 값만 변경해주면 끝. 굳굳.
     @IBAction func switchSegment(_ sender: UISegmentedControl) {
-        // 세그먼트 변할 때 마다 데이터 매핑시켜주기. 개꿀!
+        // 세그먼트 변할 때 마다 데이터 매핑시켜주기.
         segmentSetData(sender: sender)
-        
-        // 바로 반영되게 하기 위해선 리로드 데이터 한번 갈겨줘야함.
         collectionView.reloadData()
-        print(sender.selectedSegmentIndex)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //FIX: 추가됨
         collectionView.register(UINib(nibName: "ReducedCarbonCollectionView", bundle: nil), forCellWithReuseIdentifier: reducedID)
         collectionView.register(UINib(nibName: "CompareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: compareID)
         collectionView.register(UINib(nibName: "StatisticsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: statisticsID)
@@ -60,8 +53,7 @@ class StatViewController: UIViewController {
         super.viewWillAppear(animated)
         // 이 탭에 들어올때 한번 최신화 시켜줘야함
         segmentloadData()
-        
-        //FIX: 추가됨
+
         collectionView.register(UINib(nibName: "ReducedCarbonCollectionView", bundle: nil), forCellWithReuseIdentifier: reducedID)
         collectionView.register(UINib(nibName: "CompareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: compareID)
         collectionView.register(UINib(nibName: "StatisticsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: statisticsID)
@@ -71,33 +63,52 @@ class StatViewController: UIViewController {
     func segmentSetData(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
+            CompareViewModel.compareList[0].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToTreeForStat(km: FirebaseController.todayTotalDecreaseCarbon)
+            CompareViewModel.compareList[1].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToSeaweed(km: FirebaseController.todayTotalDecreaseCarbon)
+            CompareViewModel.compareList[2].compareAmount = ReducedCarbonCalculator.shared.protectedGlacier(km: FirebaseController.todayTotalDecreaseCarbon)
             ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "오늘 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.todayTotalDecreaseCarbon)
             selectedSegment = 0
         }
         else if sender.selectedSegmentIndex == 1 {
             StatisticsViewModel.statisticsList = StatisticsViewModel.weeklyStatisticsList
+            CompareViewModel.compareList[0].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToTreeForStat(km: FirebaseController.weeklyTotalDecreaseCarbon)
+            CompareViewModel.compareList[1].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToSeaweed(km: FirebaseController.weeklyTotalDecreaseCarbon)
+            CompareViewModel.compareList[2].compareAmount = ReducedCarbonCalculator.shared.protectedGlacier(km: FirebaseController.weeklyTotalDecreaseCarbon)
             ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3주 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.weeklyTotalDecreaseCarbon)
             selectedSegment = 1
         }
         else {
             StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
+            CompareViewModel.compareList[0].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToTreeForStat(km: FirebaseController.monthlyTotalDecreaseCarbon)
+            CompareViewModel.compareList[1].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToSeaweed(km: FirebaseController.monthlyTotalDecreaseCarbon)
+            CompareViewModel.compareList[2].compareAmount = ReducedCarbonCalculator.shared.protectedGlacier(km: FirebaseController.monthlyTotalDecreaseCarbon)
             ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3달 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.monthlyTotalDecreaseCarbon)
             selectedSegment = 2
         }
     }
     
     func segmentloadData() {
+        // 여기 넣는 로직 작성.
         if selectedSegment == 0 {
             StatisticsViewModel.statisticsList = StatisticsViewModel.todayStatisticsList
+            CompareViewModel.compareList[0].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToTreeForStat(km: FirebaseController.todayTotalDecreaseCarbon)
+            CompareViewModel.compareList[1].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToSeaweed(km: FirebaseController.todayTotalDecreaseCarbon)
+            CompareViewModel.compareList[2].compareAmount = ReducedCarbonCalculator.shared.protectedGlacier(km: FirebaseController.todayTotalDecreaseCarbon)
             ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "오늘 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.todayTotalDecreaseCarbon)
             
         }
         else if selectedSegment == 1 {
             StatisticsViewModel.statisticsList = StatisticsViewModel.weeklyStatisticsList
+            CompareViewModel.compareList[0].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToTreeForStat(km: FirebaseController.weeklyTotalDecreaseCarbon)
+            CompareViewModel.compareList[1].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToSeaweed(km: FirebaseController.weeklyTotalDecreaseCarbon)
+            CompareViewModel.compareList[2].compareAmount = ReducedCarbonCalculator.shared.protectedGlacier(km: FirebaseController.weeklyTotalDecreaseCarbon)
             ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3주 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.weeklyTotalDecreaseCarbon)
         }
         else {
             StatisticsViewModel.statisticsList = StatisticsViewModel.monthlyStatisticsList
+            CompareViewModel.compareList[0].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToTreeForStat(km: FirebaseController.monthlyTotalDecreaseCarbon)
+            CompareViewModel.compareList[1].compareAmount = ReducedCarbonCalculator.shared.reducedCarbonToSeaweed(km: FirebaseController.monthlyTotalDecreaseCarbon)
+            CompareViewModel.compareList[2].compareAmount = ReducedCarbonCalculator.shared.protectedGlacier(km: FirebaseController.monthlyTotalDecreaseCarbon)
             ReducedCarbonCollectionViewModel.reducedCarbonList[0] = ReducedCarbonCollection(reducedCarbonPeriod: "최근 3달 간 총 탄소배출 저감량", reducedCarbonAmount: FirebaseController.monthlyTotalDecreaseCarbon)
         }
     }
