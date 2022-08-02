@@ -19,9 +19,10 @@ internal class ReducedCarbonCalculator {
     }
     
     // 내가 걸은 거리만큼 계산했을 때 빙하가 얼마나 지켜졌을까
-    func protectedGlacier(km distance: Double) -> String {
+    func protectedGlacier(carbon: Double) -> String {
         // 자가용으로 1km 이동 시 약 2kg의 빙하가 소멸 -> 1km를 걸어갔을 경우 2kg의 빙하를 지킴
-        return (distance * 2).formatterWithSeparator + "kg"
+        // 134g 탄소를 저감했다 -> 2kg의 빙하를 지킴
+        return (carbon/134 * 2).formatterWithSeparator + "kg"
     }
     
 
@@ -30,26 +31,37 @@ internal class ReducedCarbonCalculator {
     }
     
     // 30년 소나무 1년에 6.6kg의 탄소를 흡수함
-    func reducedCarbonToTree(km distance: Double) -> String {
-        if distance < 1.0 {
+    func reducedCarbonToTree(carbon: Double) -> String {
+        if carbon <= 2.0 {
+            return "거의 아무 일도 하지 않은 양이에요"
+        }
+        if carbon < 12.0 {
+            return "한나절 이내로 산소로 바꿀 수 있는 양이에요"
+        }
+        else if carbon < 18.0 {
             return "약 하루 동안 산소로 바꿀 수 있는 양이에요"
         }
-        return String(Int(distance*7)) + "일 동안 산소로 바꿀 수 있는 양이에요"
+        return String(Int(carbon/18.0)) + "일 동안 산소로 바꿀 수 있는 양이에요"
     }
     
+    // 하루에 나무가 18g의 탄소를 흡수함 1일
     // 30년 소나무 1년에 6.6kg의 탄소를 흡수함
-    func reducedCarbonToTreeForStat(km distance: Double) -> String {
-        if distance == 0.0 {
+    func reducedCarbonToTreeForStat(carbon: Double) -> String {
+        if carbon <= 12.0 {
             return "0일"
-        } else if distance < 1.0 {
+        } else if carbon < 18.0 {
             return "약 1일"
         }
-        return String(Int(distance*7)) + "일"
+        return String(Int(carbon/18.0)) + "일"
     }
 
-    // 1km 걸으면 김 13.4kg 재배함
-    func reducedCarbonToSeaweed(km distance: Double) -> String {
-        return (distance*13.4).formatterWithSeparator + "kg"
+    // 1km 걸으면 김 13.7kg 재배함
+    // 탄소배출량 134g ->  김 13.7kg 필요
+    // 김 1kg당 탄소 흡수량 -> 1.37kg
+    // 해초 1kg당 탄소 흡수량 -> 961g
+    // 961g -> 1kg
+    func reducedCarbonToSeaweed(carbon: Double) -> String {
+        return (carbon/961 * 1.0).formatterWithSeparator + "kg"
     }
 }
 

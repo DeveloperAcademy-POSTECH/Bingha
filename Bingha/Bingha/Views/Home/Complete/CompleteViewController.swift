@@ -27,7 +27,7 @@ class CompleteViewController: UIViewController {
     var todayReducedCarbon: String = ""
     var moveDistance: String = ""
     var timeDuration: String = ""
-    var distanceForCalculate: Double = 0
+    var reducedCarbonForCalculate: Double = 0
     
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class CompleteViewController: UIViewController {
         self.todayReducedCarbonLabel.text = todayReducedCarbon
         self.moveDistanceLabel.text = moveDistance
         self.timeDurationLabel.text = timeDuration
-        self.changeToOxyLabel.text =  ReducedCarbonCalculator.shared.reducedCarbonToTree(km: distanceForCalculate)
+        self.changeToOxyLabel.text =  ReducedCarbonCalculator.shared.reducedCarbonToTree(carbon: reducedCarbonForCalculate)
     }
     
     //View 커스텀 함수
