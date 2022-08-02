@@ -37,6 +37,7 @@ struct IcebergBackgroundAnimation: View {
                         .repeatForever(autoreverses: false),
                     value: isAnimated
                 )
+            binghaImage(lv: lv)
             getWave(interval: universalSize.width*1.8, amplitude: 50, baseline: -50 + universalSize.height/2)
                 .foregroundColor(Color.init(red: 0.4, green: 0.6, blue: 1).opacity(0.1))
                 .offset(x: isAnimated ? -1*(universalSize.width*1.8) : 0)
@@ -45,7 +46,6 @@ struct IcebergBackgroundAnimation: View {
                         .repeatForever(autoreverses: false),
                     value: isAnimated
                 )
-            binghaImage(lv: lv)    
         }
         .onAppear(){
             self.isAnimated = true
