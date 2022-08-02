@@ -78,32 +78,32 @@ struct IcebergBackgroundAnimation: View {
             Image("Bingha")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 70)
-                .offset(x: 0, y: -30)
+                .frame(width: 40)
+                .offset(x: 0, y: -40)
         case "2":
             Image("Bingha")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 90)
-                .offset(x: 0, y: -30)
+                .frame(width: 100)
+                .offset(x: 0, y: -20)
         case "3":
             Image("Bingha")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 110)
-                .offset(x: 0, y: -30)
+                .frame(width: 160)
+                .offset(x: 0, y: -5)
         case "4":
             Image("Bingha")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 130)
-                .offset(x: 0, y: -30)
+                .frame(width: 220)
+                .offset(x: 0, y: 5)
         default:
             Image("Bingha")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 150)
-                .offset(x: 0, y: -30)
+                .frame(width: 280)
+                .offset(x: 0, y: 10)
         }    }
 }
 
