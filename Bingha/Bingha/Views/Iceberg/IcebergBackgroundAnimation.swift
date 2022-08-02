@@ -45,38 +45,7 @@ struct IcebergBackgroundAnimation: View {
                         .repeatForever(autoreverses: false),
                     value: isAnimated
                 )
-            switch lv{
-            case "1":
-                Image("Bingha")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 70)
-                    .offset(x: 0, y: -30)
-            case "2":
-                Image("Bingha")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 90)
-                    .offset(x: 0, y: -30)
-            case "3":
-                Image("Bingha")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 110)
-                    .offset(x: 0, y: -30)
-            case "4":
-                Image("Bingha")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 130)
-                    .offset(x: 0, y: -30)
-            default:
-                Image("Bingha")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150)
-                    .offset(x: 0, y: -30)
-            }
+            binghaImage(lv: lv)
                 
         }
         .onAppear(){
@@ -102,6 +71,41 @@ struct IcebergBackgroundAnimation: View {
             path.addLine(to: CGPoint(x: 0, y: universalSize.height))
         }
     }
+    
+    @ViewBuilder
+    func binghaImage(lv: String) -> some View {
+        switch lv{
+        case "1":
+            Image("Bingha")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 70)
+                .offset(x: 0, y: -30)
+        case "2":
+            Image("Bingha")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 90)
+                .offset(x: 0, y: -30)
+        case "3":
+            Image("Bingha")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 110)
+                .offset(x: 0, y: -30)
+        case "4":
+            Image("Bingha")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 130)
+                .offset(x: 0, y: -30)
+        default:
+            Image("Bingha")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 150)
+                .offset(x: 0, y: -30)
+        }    }
 }
 
 struct IcebergBackgroundAnimation_Previews: PreviewProvider {
