@@ -12,6 +12,11 @@ struct IcebergBackgroundAnimation: View {
     let universalSize = UIScreen.main.bounds
     
     @State private var isAnimated = false
+    @State var lv: String
+    
+    init(lv: String){
+            self.lv = lv
+    }
     
     var body: some View {
         
@@ -40,6 +45,39 @@ struct IcebergBackgroundAnimation: View {
                         .repeatForever(autoreverses: false),
                     value: isAnimated
                 )
+            switch lv{
+            case "1":
+                Image("Bingha")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 70)
+                    .offset(x: 0, y: -30)
+            case "2":
+                Image("Bingha")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 90)
+                    .offset(x: 0, y: -30)
+            case "3":
+                Image("Bingha")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 110)
+                    .offset(x: 0, y: -30)
+            case "4":
+                Image("Bingha")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 130)
+                    .offset(x: 0, y: -30)
+            default:
+                Image("Bingha")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150)
+                    .offset(x: 0, y: -30)
+            }
+                
         }
         .onAppear(){
             self.isAnimated = true
@@ -68,6 +106,6 @@ struct IcebergBackgroundAnimation: View {
 
 struct IcebergBackgroundAnimation_Previews: PreviewProvider {
     static var previews: some View {
-        IcebergBackgroundAnimation()
+        IcebergBackgroundAnimation(lv: "3")
     }
 }
