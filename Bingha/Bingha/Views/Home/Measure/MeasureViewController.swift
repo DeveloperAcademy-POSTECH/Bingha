@@ -83,7 +83,7 @@ class MeasureViewController: UIViewController {
                 nextVC.reducedCarbon = reducedCarbonLabel.text ?? ""
                 nextVC.todayReducedCarbon = totalReducedCarbonLabel.text ?? ""
                 nextVC.moveDistance = walkingDistance.setOneDemical() + "Km"
-                nextVC.distanceForCalculate = Double(walkingDistance.setOneDemical())!
+                nextVC.reducedCarbonForCalculate = Double(walkingDistance * 134)
                 nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
                 
                 nextVC.modalTransitionStyle = .coverVertical
