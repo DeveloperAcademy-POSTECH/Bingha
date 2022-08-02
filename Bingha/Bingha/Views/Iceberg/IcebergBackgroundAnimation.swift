@@ -105,7 +105,8 @@ struct IcebergBackgroundAnimation: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150)
                 .offset(x: 0, y: -30)
-        }    }
+        }
+    }
 }
 
 struct IcebergBackgroundAnimation_Previews: PreviewProvider {
