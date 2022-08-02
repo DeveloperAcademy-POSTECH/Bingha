@@ -23,7 +23,6 @@ internal class ReducedCarbonCalculator {
         // 자가용으로 1km 이동 시 약 2kg의 빙하가 소멸 -> 1km를 걸어갔을 경우 2kg의 빙하를 지킴
         // 134g 탄소를 저감했다 -> 2kg의 빙하를 지킴
         return (carbon/134 * 2).formatterWithSeparator + "kg"
-//        return (carbon * 2).formatterWithSeparator + "kg"
     }
     
 
