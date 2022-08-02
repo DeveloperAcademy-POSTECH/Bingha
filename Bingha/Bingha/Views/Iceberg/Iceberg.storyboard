@@ -20,9 +20,70 @@
                                 <rect key="frame" x="20" y="560" width="374" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-UI-e5q">
-                                        <rect key="frame" x="32" y="28" width="310" height="19.5"/>
+                                        <rect key="frame" x="41" y="28" width="292" height="20"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="빙하를 위해 지금까지 아낀 총 탄소배출 저감량은?">
+                                            <fragment content="빙하를">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="위해">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="지금까지">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="저감한">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="총">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="탄소배출량은">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name=".AppleSDGothicNeoI-Regular"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="?">
                                                 <attributes>
                                                     <font key="NSFont" metaFont="system" size="16"/>
                                                 </attributes>
@@ -31,7 +92,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glF-sr-JQj">
-                                        <rect key="frame" x="187" y="57.5" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="187" y="58" width="0.0" height="0.0"/>
                                         <attributedString key="attributedText"/>
                                         <nil key="highlightedColor"/>
                                     </label>

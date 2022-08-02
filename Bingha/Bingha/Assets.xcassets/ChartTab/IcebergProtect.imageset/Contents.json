@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Earth.png",
+      "filename" : "icebergProtect.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Earth-1.png",
+      "filename" : "icebergProtect-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Earth-2.png",
+      "filename" : "icebergProtect-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
