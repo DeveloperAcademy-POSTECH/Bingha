@@ -27,7 +27,9 @@ class CompleteViewController: UIViewController {
     var todayReducedCarbon: String = ""
     var moveDistance: String = ""
     var timeDuration: String = ""
-    var distanceForCalculate: Double = 0
+    var beforeLevel: Int = 0
+    var nowLevel: Int = 0
+    var reducedCarbonForCalculate: Double = 0
     
     
     override func viewDidLoad() {
@@ -49,7 +51,12 @@ class CompleteViewController: UIViewController {
         self.todayReducedCarbonLabel.text = todayReducedCarbon
         self.moveDistanceLabel.text = moveDistance
         self.timeDurationLabel.text = timeDuration
-        self.changeToOxyLabel.text =  ReducedCarbonCalculator.shared.reducedCarbonToTree(km: distanceForCalculate)
+        self.changeToOxyLabel.text =  ReducedCarbonCalculator.shared.reducedCarbonToTree(carbon: reducedCarbonForCalculate)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        compareIcebergLevel()
     }
     
     //View 커스텀 함수
@@ -70,5 +77,16 @@ class CompleteViewController: UIViewController {
     // TODO: exitModalButton커스텀
     func exitButtonCustom() {
         //버튼 사이즈 조절 필요 44*44pt
+    }
+    
+    func compareIcebergLevel() {
+        if nowLevel > beforeLevel {
+            UIView.animate(withDuration: 1, delay: 0, options: [.curveLinear]) {
+                self.icebergLevelAlertView.alpha = 0
+                self.icebergLevelAlertView.alpha = 1
+            }
+        } else {
+            icebergLevelAlertView.isHidden = true
+        }
     }
 }

@@ -39,6 +39,8 @@ class MeasureViewController: UIViewController {
     var totalSecond: Int = 0
     var todayCarbonDecrease: Double = 0.0
     
+    var beforeLevel: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageView.addSubview(self.walkerImageView)
@@ -55,6 +57,7 @@ class MeasureViewController: UIViewController {
                 totalSecond = 0
                 startDate = Date()
                 
+                saveLevelBeforeMeasurement()
                 startTimer()
                 startMeasurement()
                 playAnimation()
@@ -74,10 +77,13 @@ class MeasureViewController: UIViewController {
 
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CompleteReference") as? CompleteViewController else { return }
                 
+                nextVC.beforeLevel = beforeLevel
+                nextVC.nowLevel = Int(IcebergLevelCalculator.shared.requestIcebergLevel(distance: FirebaseController.carbonModel.totalDistance)) ?? 0
+                
                 nextVC.reducedCarbon = reducedCarbonLabel.text ?? ""
                 nextVC.todayReducedCarbon = totalReducedCarbonLabel.text ?? ""
                 nextVC.moveDistance = walkingDistance.setOneDemical() + "Km"
-                nextVC.distanceForCalculate = Double(walkingDistance.setOneDemical())!
+                nextVC.reducedCarbonForCalculate = Double(walkingDistance * 134)
                 nextVC.timeDuration = String(format: "%02d:%02d", minutes, seconds)
                 
                 nextVC.modalTransitionStyle = .coverVertical
@@ -170,6 +176,10 @@ class MeasureViewController: UIViewController {
         reducedCarbonLabel.font = .rounded(ofSize: 36, weight: .bold)
         timerLabel.font = .rounded(ofSize: 15, weight: .medium)
         
+    }
+    
+    private func saveLevelBeforeMeasurement() {
+        beforeLevel = Int(IcebergLevelCalculator.shared.requestIcebergLevel(distance: FirebaseController.carbonModel.totalDistance)) ?? 0
     }
     
     private func startMeasurement() {
