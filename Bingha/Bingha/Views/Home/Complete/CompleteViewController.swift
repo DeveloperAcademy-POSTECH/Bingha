@@ -35,6 +35,8 @@ class CompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        compareIcebergLevel()
+        
         //View 커스텀
         viewCornerAndShadowCustom(viewName: icebergLevelAlertView) //빙하 레벨업
         viewCornerAndShadowCustom(viewName: dataView) //상세 데이터
@@ -72,5 +74,13 @@ class CompleteViewController: UIViewController {
     // TODO: exitModalButton커스텀
     func exitButtonCustom() {
         //버튼 사이즈 조절 필요 44*44pt
+    }
+    
+    func compareIcebergLevel() {
+        if nowLevel > beforeLevel {
+            // TODO: icebergLevelAlertView 나타나면서 애니메이션 구현
+        } else {
+            icebergLevelAlertView.isHidden = true
+        }
     }
 }
