@@ -35,8 +35,6 @@ class CompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        compareIcebergLevel()
-        
         //View 커스텀
         viewCornerAndShadowCustom(viewName: icebergLevelAlertView) //빙하 레벨업
         viewCornerAndShadowCustom(viewName: dataView) //상세 데이터
@@ -54,6 +52,11 @@ class CompleteViewController: UIViewController {
         self.moveDistanceLabel.text = moveDistance
         self.timeDurationLabel.text = timeDuration
         self.changeToOxyLabel.text =  ReducedCarbonCalculator.shared.reducedCarbonToTree(km: distanceForCalculate)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        compareIcebergLevel()
     }
     
     //View 커스텀 함수
@@ -78,7 +81,10 @@ class CompleteViewController: UIViewController {
     
     func compareIcebergLevel() {
         if nowLevel > beforeLevel {
-            // TODO: icebergLevelAlertView 나타나면서 애니메이션 구현
+            UIView.animate(withDuration: 1, delay: 0, options: [.curveLinear]) {
+                self.icebergLevelAlertView.alpha = 0
+                self.icebergLevelAlertView.alpha = 1
+            }
         } else {
             icebergLevelAlertView.isHidden = true
         }
