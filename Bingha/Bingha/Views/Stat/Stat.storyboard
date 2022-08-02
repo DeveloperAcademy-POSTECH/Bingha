@@ -180,11 +180,11 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n5t-go-J0Z">
                                 <rect key="frame" x="20" y="120" width="374" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Man, Environment, Car, Iceberg icons created by Freepik - Flaticon (Icon made by Freepik from www.flaticon.com)  Walker man lottie file Copyright © 2021 Design Barn Inc. (https://lottiefiles.com/page/license)
+                                <mutableString key="text">Walker man lottie file Copyright © 2021 Design Barn Inc. (https://lottiefiles.com/page/license)
 
  정보출처
  소나무 탄소저감량 : - 주요 산림수종의 표준 탄소흡수량, 14p (NIFoS 산림정책이슈 2019.7.1, 국립산림과학원) 
-김 탄소저감량 : PERSPECTIVE article (Front. Mar. Sci., 12 April 2017Sec. Global Change and the Future Ocean)  탄소배출량 대비 빙하량 : 기후 변화 행동 연구소 (빙하 대량으로 녹아 돌아올 수 없는 지점 넘고 있다, 2018.04.24)  자동차 탄소배출량 : CO2 배출량 가장 적은 국산차는 '쏘나타 하이브리드'...가솔린=모닝, 디젤=쏘렌토(소비자가 만드는 신문, 2021.8.21)</mutableString>
+해초 탄소저감량 : PERSPECTIVE article (Front. Mar. Sci., 12 April 2017Sec. Global Change and the Future Ocean)  탄소배출량 대비 빙하량 : 기후 변화 행동 연구소 (빙하 대량으로 녹아 돌아올 수 없는 지점 넘고 있다, 2018.04.24)  자동차 탄소배출량 : CO2 배출량 가장 적은 국산차는 '쏘나타 하이브리드'...가솔린=모닝, 디젤=쏘렌토(소비자가 만드는 신문, 2021.8.21)</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
