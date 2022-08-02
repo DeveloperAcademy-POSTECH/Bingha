@@ -239,7 +239,7 @@
                         <outlet property="changeToOxyLabel" destination="gCo-SL-7Mi" id="K6Z-HQ-gtW"/>
                         <outlet property="dataView" destination="AiQ-Wt-YOP" id="9C0-qJ-RzO"/>
                         <outlet property="exitModalButton" destination="1fZ-uf-8yJ" id="M9B-CK-phd"/>
-                        <outlet property="icebergLevelAlertView" destination="r9y-L7-A0h" id="OGm-Qp-y5r"/>
+                        <outlet property="icebergLevelAlertView" destination="r9y-L7-A0h" id="0Ue-47-0ZF"/>
                         <outlet property="moveDistanceLabel" destination="mrx-BI-cho" id="s8z-RK-N9Z"/>
                         <outlet property="reducedCarbonLabel" destination="Inh-ZA-e99" id="Hx1-dj-JGN"/>
                         <outlet property="timeDurationLabel" destination="nNl-vq-Umh" id="HDD-pI-zPB"/>
