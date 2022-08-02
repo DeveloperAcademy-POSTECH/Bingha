@@ -45,8 +45,7 @@ struct IcebergBackgroundAnimation: View {
                         .repeatForever(autoreverses: false),
                     value: isAnimated
                 )
-            binghaImage(lv: lv)
-                
+            binghaImage(lv: lv)    
         }
         .onAppear(){
             self.isAnimated = true
