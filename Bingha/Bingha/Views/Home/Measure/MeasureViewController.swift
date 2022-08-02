@@ -69,8 +69,8 @@ class MeasureViewController: UIViewController {
                 totalDistance += walkingDistance
                 setDefaultView()
                 
-                let minutes = (totalSecond % 3600) / 60
-                let seconds = (totalSecond % 3600) % 60
+                let minutes = totalSecond / 60
+                let seconds = totalSecond % 60
 
                 guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CompleteReference") as? CompleteViewController else { return }
                 
@@ -211,8 +211,8 @@ class MeasureViewController: UIViewController {
                 self.totalSecond += 1
                 
                 // 타이머표시 Label에서 사용할 변수
-                let minutes = (self.totalSecond % 3600) / 60
-                let seconds = (self.totalSecond % 3600) % 60
+                let minutes = self.totalSecond / 60
+                let seconds = self.totalSecond % 60
                 
                 self.timerLabel.text = String(format: "%d:%02d", minutes, seconds)
             }
