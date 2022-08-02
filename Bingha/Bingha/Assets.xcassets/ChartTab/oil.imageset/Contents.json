@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "oil-1.png",
+      "filename" : "oil.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "oil.png",
+      "filename" : "oil-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
