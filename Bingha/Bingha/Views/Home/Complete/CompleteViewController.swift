@@ -28,6 +28,8 @@ class CompleteViewController: UIViewController {
     var moveDistance: String = ""
     var timeDuration: String = ""
     var distanceForCalculate: Double = 0
+    var beforeLevel: Int = 0
+    var nowLevel: Int = 0
     
     
     override func viewDidLoad() {
