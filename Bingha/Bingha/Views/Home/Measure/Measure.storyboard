@@ -177,7 +177,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HWe-Eq-FzX" secondAttribute="trailing" constant="16" id="xh5-ZV-muT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="측정" image="TabBarHome" id="N3M-5k-kCM"/>
+                    <tabBarItem key="tabBarItem" title="측정" image="figure.walk" catalog="system" id="N3M-5k-kCM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="5Of-jw-Kgn" id="MOZ-iV-ffc"/>
@@ -206,7 +206,7 @@
     </scenes>
     <resources>
         <image name="StandingMan" width="640" height="640"/>
-        <image name="TabBarHome" width="35" height="35"/>
+        <image name="figure.walk" catalog="system" width="95" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
