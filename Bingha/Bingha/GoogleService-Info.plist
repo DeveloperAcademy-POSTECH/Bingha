@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>895462616849-euedfi378j0j9ln95gjskilitnfhso73.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.895462616849-euedfi378j0j9ln95gjskilitnfhso73</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC-v1eeA80_uSqXqftVN1-qiLhgTT5WgJw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>895462616849</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.curry.Bingha</string>
+	<key>PROJECT_ID</key>
+	<string>sup-bingha</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sup-bingha.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:895462616849:ios:e1f2894292f4ff41b166b0</string>
+</dict>
+</plist>

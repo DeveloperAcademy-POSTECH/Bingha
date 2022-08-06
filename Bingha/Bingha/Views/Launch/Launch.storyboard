@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LaunchViewController" id="Y6W-OH-hqX" customClass="LaunchViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="ggq-sJ-Z1Q">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탄탄  TanTan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tH-Ze-KIF">
+                                <rect key="frame" x="20" y="250" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" name="Primary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3tH-Ze-KIF" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="3Fh-lL-9oX"/>
+                            <constraint firstItem="3tH-Ze-KIF" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-100" id="I6k-R3-PmS"/>
+                            <constraint firstItem="ggq-sJ-Z1Q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IOe-py-Dz4"/>
+                            <constraint firstItem="ggq-sJ-Z1Q" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="PBV-wg-Kho"/>
+                            <constraint firstItem="ggq-sJ-Z1Q" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Wai-hk-iyC"/>
+                            <constraint firstItem="ggq-sJ-Z1Q" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="c8v-gL-ShF"/>
+                            <constraint firstItem="3tH-Ze-KIF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="e01-0C-yYE"/>
+                            <constraint firstItem="ggq-sJ-Z1Q" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="lyz-aH-Fb5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3tH-Ze-KIF" secondAttribute="trailing" constant="20" id="rz2-wX-CAl"/>
+                            <constraint firstAttribute="bottom" secondItem="ggq-sJ-Z1Q" secondAttribute="bottom" id="y2x-yL-qOJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="79.6875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Splash" width="520" height="1125.3333740234375"/>
+        <namedColor name="Primary">
+            <color red="0.13725490196078433" green="0.72156862745098038" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

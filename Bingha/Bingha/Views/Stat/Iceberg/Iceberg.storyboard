@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Iceberg-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="Iceberg" id="Y6W-OH-hqX" customClass="IcebergViewController" customModule="Bingha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbD-TJ-LLh">
+                                <rect key="frame" x="20" y="623" width="374" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-UI-e5q">
+                                        <rect key="frame" x="32" y="28" width="310" height="19.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="빙하를 위해 지금까지 아낀 총 탄소배출 저감량은?">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glF-sr-JQj">
+                                        <rect key="frame" x="187" y="57.5" width="0.0" height="0.0"/>
+                                        <attributedString key="attributedText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="glF-sr-JQj" firstAttribute="top" secondItem="aIv-UI-e5q" secondAttribute="bottom" constant="10" id="2Es-cs-PfA"/>
+                                    <constraint firstItem="glF-sr-JQj" firstAttribute="centerX" secondItem="aIv-UI-e5q" secondAttribute="centerX" id="3wr-4E-1Wx"/>
+                                    <constraint firstItem="aIv-UI-e5q" firstAttribute="centerX" secondItem="FbD-TJ-LLh" secondAttribute="centerX" id="AZ1-X9-634"/>
+                                    <constraint firstAttribute="height" constant="150" id="eJd-Tz-2EB"/>
+                                    <constraint firstItem="aIv-UI-e5q" firstAttribute="top" secondItem="FbD-TJ-LLh" secondAttribute="top" constant="28" id="iQ1-Lg-Swl"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTq-6M-TDR">
+                                <rect key="frame" x="38" y="77" width="42" height="23.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Lv. 0">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="20" name="SFProRounded-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FbD-TJ-LLh" secondAttribute="trailing" constant="20" id="Bvh-Q6-Yky"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FbD-TJ-LLh" secondAttribute="bottom" constant="40" id="E90-Dt-jw9"/>
+                            <constraint firstItem="uTq-6M-TDR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="38" id="R06-Yd-wOe"/>
+                            <constraint firstItem="FbD-TJ-LLh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="fyJ-Ja-4fM"/>
+                            <constraint firstItem="uTq-6M-TDR" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="77" id="lYC-u8-npG"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Iceberg" image="TabBarBingha" id="ox0-hc-D7E"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="informationLabel" destination="aIv-UI-e5q" id="07f-us-oai"/>
+                        <outlet property="levelLabel" destination="uTq-6M-TDR" id="8KA-x7-850"/>
+                        <outlet property="reducedCarbonLabel" destination="glF-sr-JQj" id="oQY-Un-jXE"/>
+                        <outlet property="roundedRectangle" destination="FbD-TJ-LLh" id="pNn-Ld-lVs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="42.857142857142854"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TabBarBingha" width="35" height="35"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
