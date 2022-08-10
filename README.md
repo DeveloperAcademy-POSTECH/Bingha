@@ -26,10 +26,11 @@
 2. 형상관리 : Github
 3. 커뮤니케이션 : Ryver, Notion, Zoom
 4. 개발 환경
-   - OS : MacOS (M1Pro)
+   - OS : MacOS Monterey (12.x)
    - IDE : Xcode 13.4.1
    - Database : Firestore
 5. 상세 사용
+   - iOS : iOS15.4+
    - Application : UIkit, SwiftUI
    - Design : Figma
    - Database : Firestore
@@ -41,10 +42,10 @@
 <hr>
 
 |                          **Splash**                          |                        **Onboarding**                        |                         **Measure**                          |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![image-20220807053405501](README.assets/image-20220807053405501.png) | ![image-20220807054424667](README.assets/image-20220807054424667.png) | ![image-20220807052911509](README.assets/image-20220807052911509.png) |
+| :----------------------------------------------------------: | :----------------------------------------------------: | :----------------------------------------------------------: |
+| <img src = "README.assets/image-20220807053405501.png" width="300px"> | <img src = "README.assets/image-20220807054424667.png" width="300px"> | <img src = "README.assets/image-20220807052911509.png" width="300px"> |
 |                          **Result**                          |                          **Chart**                           |                         **Iceberg**                          |
-| ![image-20220807053051873](README.assets/image-20220807053051873.png) | ![image-20220807052906939](README.assets/image-20220807052906939.png) | ![image-20220807052901286](README.assets/image-20220807052901286.png) |
+| <img src = "README.assets/image-20220807053051873.png" width="300px"> | <img src = "README.assets/image-20220807052906939.png" width="300px"> | <img src = "README.assets/image-20220807052901286.png" width="300px"> |
 
 <br>
 
